@@ -18,7 +18,7 @@ void Texture::Init(LPCWSTR  spriteFileName)
 	}
 
 	//가져온 폭 너비 정보로 텍스쳐 생성
-	hr = D3DXCreateTextureFromFileEx(GameSystem::GetInstance()->getDevice()
+	hr = D3DXCreateTextureFromFileEx(GameSystem::GetInstance()->GetDevice()
 		, spriteFileName
 		, textureInfo.Width
 		, textureInfo.Height

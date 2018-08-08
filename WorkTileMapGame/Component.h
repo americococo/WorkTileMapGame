@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include "Position.h"
 
 class Component
 {
@@ -27,7 +28,11 @@ protected:
 
 	float _posX;
 	float _posY;
-private:
 
+	Position _tilePosition;
+
+public:
+	int GetTileX() { return _tilePosition.x; }
+	int GetTileY() { return _tilePosition.y; }
 };
 

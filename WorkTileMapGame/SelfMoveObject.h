@@ -3,6 +3,8 @@
 #include <map>
 #include <string>
 
+
+#include "Position.h"
 class Sprite;
 enum eState;
 class State;
@@ -27,7 +29,6 @@ public:
 	void render();
 	void DeInit();
 
-	void SetPosition(float posX, float posY);
 	
 
 private:
@@ -39,6 +40,7 @@ private:
 
 public:
 	void SetDirection(eDirection direction) { _currentDirection = direction; }
+	void SetPosition(float posX, float posY);
 
 public:
 	void changeState(eState changestate);
@@ -46,9 +48,14 @@ public:
 public:
 	eDirection GetDirection() { return _currentDirection; }
 
-
-
-
 	void UpdateMove();
+
+	void Moving(Position movingPos);
+
+private:
+	float _movingTime;
+public:
+	float GetMovingTime() { return _movingTime; }
+
 };
 

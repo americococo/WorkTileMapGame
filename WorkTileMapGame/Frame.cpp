@@ -8,7 +8,7 @@ Frame::~Frame() {}
 
 void Frame::Init( Texture * texture, int  x, int y, int Width, int height,float rotate, float frameDelay)
 {
-	_sprite = GameSystem::GetInstance()->getSprite();
+	_sprite = GameSystem::GetInstance()->GetSprite();
 	_texture = texture;
 
 	_width = Width;

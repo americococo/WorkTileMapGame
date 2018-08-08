@@ -3,7 +3,7 @@
 Font::Font(std::wstring fontName, int size, D3DCOLOR color)
 {
 	_color = color;
-	HRESULT hr = D3DXCreateFont(GameSystem::GetInstance()->getDevice(), size, 0, FW_HEAVY, 1, false, DEFAULT_CHARSET, OUT_DEFAULT_PRECIS, DEFAULT_QUALITY, DEFAULT_PITCH | FF_DONTCARE,
+	HRESULT hr = D3DXCreateFont(GameSystem::GetInstance()->GetDevice(), size, 0, FW_HEAVY, 1, false, DEFAULT_CHARSET, OUT_DEFAULT_PRECIS, DEFAULT_QUALITY, DEFAULT_PITCH | FF_DONTCARE,
 		fontName.c_str(), &_dxFont);
 
 	if (FAILED(hr))
@@ -25,8 +25,8 @@ void Font::render()
 
 	D3DXMATRIX martrix;
 	D3DXMatrixTransformation2D(&martrix, NULL, 0.0f, NULL, NULL, 0.0f, NULL);
-	GameSystem::GetInstance()->getSprite()->SetTransform(&martrix);
-	_dxFont->DrawTextW(GameSystem::GetInstance()->getSprite(), _text.c_str(), -1, &rect, DT_CENTER, _color);
+	GameSystem::GetInstance()->GetSprite()->SetTransform(&martrix);
+	_dxFont->DrawTextW(GameSystem::GetInstance()->GetSprite(), _text.c_str(), -1, &rect, DT_CENTER, _color);
 }
 void Font::SetRect(int x, int y, int width, int height)
 {

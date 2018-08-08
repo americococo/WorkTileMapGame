@@ -1,10 +1,12 @@
 #pragma once
 #include <list>
 #include "Component.h"
+#include "Position.h"
+
 class TileCell : public Component
 {
 public:
-	TileCell(int tileX,int tileY);
+	TileCell(Position tilePosition);
 	~TileCell();
 
 
@@ -12,14 +14,17 @@ public:
 	void DeInit();
 	void setPostition(float posX,float posY);
 
-	void AddComponent(Component * com);
 	void Update(float deltaTime);
 
 	void render();
-private:
-	int _tileX;
-	int _tileY;
 
+private:
+	std::list<Component*> _removeList;
+public:
+	void removeComponent(Component * com);
+private:
 	std::list<Component*> _componentList;
+public:
+	void AddComponent(Component * com);
 };
 

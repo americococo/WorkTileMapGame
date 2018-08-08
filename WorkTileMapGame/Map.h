@@ -3,7 +3,7 @@
 
 #include <list>
 #include <vector>
-
+#include "Position.h"
 class Sprite;
 class TileCell;
 
@@ -36,7 +36,14 @@ private:
 	float _startX, _startY;
 
 public:
-	TileCell * GetTileCell(int tileX, int tileY) { return _tileMap[tileY][tileX]; }
+	int GetWidth() { return _width; }
+	int GetHeight() { return _height; }
+public:
+	TileCell * GetTileCell(Position tileposition) { return _tileMap[tileposition.y][tileposition.x]; }
 
+
+	void removeComponent(Position tileposition,Component * com);
+
+	void setTileComponent(Position tilePos, Component* component);
 };
 

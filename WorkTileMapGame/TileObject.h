@@ -1,12 +1,12 @@
 #pragma once
 #include "Component.h"
 #include <string>
-
+#include "Position.h"
 class Sprite;
 class TileObject : public Component
 {
 public:
-	TileObject(std::wstring name, Sprite * sprite, int tileX, int tileY);
+	TileObject(std::wstring name, Sprite * sprite, Position tilePosition);
 	~TileObject();
 
 
@@ -25,8 +25,6 @@ public:
 private:
 	Sprite * _sprite;
 
-	int _tileX;
-	int _tileY;
 
 	bool _isMoving;
 };

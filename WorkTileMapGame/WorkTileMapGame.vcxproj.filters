@@ -79,6 +79,9 @@
     <Filter Include="소스 파일\GameFilter\Component\Self-MoveObject\State\MOVE_State">
       <UniqueIdentifier>{6c2fcc1c-1b6f-4b99-ad90-f8a5c083c325}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\GameFilter\dataStruct">
+      <UniqueIdentifier>{c23613d6-4e7b-41ce-9349-404f8788fb2c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -199,6 +202,9 @@
     </ClInclude>
     <ClInclude Include="MOVE_State.h">
       <Filter>소스 파일\GameFilter\Component\Self-MoveObject\State\MOVE_State</Filter>
+    </ClInclude>
+    <ClInclude Include="Position.h">
+      <Filter>소스 파일\GameFilter\dataStruct</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

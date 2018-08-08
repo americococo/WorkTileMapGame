@@ -45,7 +45,12 @@ void SelfMoveObject::Init()
 
 	changeState(eState::STATE_IDLE);
 
-	TileCell * tileCell = map->GetTileCell(1, 1);
+	_movingTime = 0.3f;
+
+	_tilePosition.x= 1;
+	_tilePosition.y= 1;
+
+	TileCell * tileCell = map->GetTileCell(_tilePosition);
 	tileCell->AddComponent(this);
 }
 
@@ -99,4 +104,16 @@ void SelfMoveObject::UpdateMove()
 		_state->NextState(eState::STATE_MOVE);
 	}
 
+}
+
+void SelfMoveObject::Moving(Position movingPos)
+{
+	if (movingPos.x == _tilePosition.x && movingPos.y == _tilePosition.y)
+		return;
+
+	Map * map = ((GameScene*)SceneManager::GetInstance()->GetScene())->GetMap();
+	map->removeComponent(_tilePosition,this);
+
+	_tilePosition = movingPos;
+	map->setTileComponent(_tilePosition, this);
 }

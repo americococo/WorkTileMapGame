@@ -1,9 +1,8 @@
 #include "TileCell.h"
 
-TileCell::TileCell(int tileX, int tileY)
+TileCell::TileCell(Position tilePosition)
 {
-	_tileX = tileX;
-	_tileY = tileY;
+	_tilePosition = tilePosition;
 }
 
 TileCell::~TileCell()
@@ -40,6 +39,13 @@ void TileCell::AddComponent(Component * com)
 
 void TileCell::Update(float deltaTime)
 {
+	while (false == _removeList.empty())
+	{
+		_componentList.remove(_removeList.front());
+		_removeList.pop_front();
+	}
+	
+
 	for (std::list<Component*>::iterator itr = _componentList.begin(); itr != _componentList.end(); itr++)
 	{
 		(*itr)->Update(deltaTime);
@@ -51,4 +57,8 @@ void TileCell::render()
 	{
 		(*itr)->render();
 	}
+}
+void TileCell::removeComponent(Component * com)
+{
+	_removeList.push_back(com);
 }

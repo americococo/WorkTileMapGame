@@ -173,6 +173,7 @@
     <ClInclude Include="IDLE_State.h" />
     <ClInclude Include="Map.h" />
     <ClInclude Include="MOVE_State.h" />
+    <ClInclude Include="Position.h" />
     <ClInclude Include="ResourceManager.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="SceneManager.h" />

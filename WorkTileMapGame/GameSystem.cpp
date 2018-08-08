@@ -99,8 +99,6 @@ GameSystem::GameSystem() :clientWidth(1024), clientheight(800)
 }
 GameSystem::~GameSystem()
 {
-	delete _stage;
-
 	RELEASE_COM(_direxct3Ddevice);
 	RELEASE_COM(_sprite);
 
@@ -328,11 +326,11 @@ int GameSystem::GetHeight()
 	return clientheight;
 }
 
-LPD3DXSPRITE GameSystem::getSprite()
+LPD3DXSPRITE GameSystem::GetSprite()
 {
 	return _sprite;
 }
-LPDIRECT3DDEVICE9 GameSystem::getDevice()
+LPDIRECT3DDEVICE9 GameSystem::GetDevice()
 {
 	return _direxct3Ddevice;
 }

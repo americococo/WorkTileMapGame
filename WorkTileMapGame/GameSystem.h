@@ -5,7 +5,7 @@
 #include <list>
 
 #define RELEASE_COM(x){if(x){x->Release();x=NULL;}}
-class Stage;
+
 class Component;
 
 class GameSystem
@@ -45,21 +45,12 @@ private:
 public:
 	~GameSystem();
 
-
-	//텍스쳐
-private:
-	//std::list<Component*> _compoentList;
-	Stage * _stage;
-
-
-public:
-	Stage * getStage() { return _stage; }
 	//get
 public:
 	int GetWidth();
 	int GetHeight();
-	LPD3DXSPRITE getSprite();
-	LPDIRECT3DDEVICE9 getDevice();
+	LPD3DXSPRITE GetSprite();
+	LPDIRECT3DDEVICE9 GetDevice();
 
 	//입력
 

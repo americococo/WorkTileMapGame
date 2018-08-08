@@ -11,5 +11,8 @@ public:
 	void Update(float deltaTime);
 	void render();
 	void DeInit();
+
+private:
+	float _movecheckTime;
 };
 
