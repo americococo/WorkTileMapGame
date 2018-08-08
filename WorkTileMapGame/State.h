@@ -17,10 +17,11 @@ public:
 	State();
 	~State();
 
-	void Init(SelfMoveObject * moveObject);
-	void Update(float deltaTime);
-	void render();
-	void DeInit();
+	virtual	void Init(SelfMoveObject * moveObject);
+	virtual	void Update(float deltaTime);
+	virtual	void render();
+	virtual	void DeInit();
+
 private:
 	std::map<eDirection,Sprite*> _spriteList;
 	SelfMoveObject * _moveObject;

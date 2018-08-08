@@ -15,27 +15,31 @@ void State::Init(SelfMoveObject * moveObject)
 {
 	_moveObject = moveObject;
 
+	WCHAR textureFileName[256];
+
+	wsprintf(textureFileName, L"./Sprite/%s/Sprite.png", _moveObject->GetName().c_str());
+
 	//left
 	{
-		Sprite * sprite = new Sprite(L"./Sprite/player/player.png", L"./Sprite/player/left.json");
+		Sprite * sprite = new Sprite(textureFileName, L"./Sprite/player/left.json");
 		sprite->Init();
 		_spriteList[eDirection::DIRCTION_LEFT] = sprite;
 	}
 	//Right
 	{
-		Sprite * sprite = new Sprite(L"./Sprite/player/player.png", L"./Sprite/player/Right.json");
+		Sprite * sprite = new Sprite(textureFileName, L"./Sprite/player/Right.json");
 		sprite->Init();
 		_spriteList[eDirection::DIRCTION_RIGHT] = sprite;
 	}
 	//Up
 	{
-		Sprite * sprite = new Sprite(L"./Sprite/player/player.png", L"./Sprite/player/Up.json");
+		Sprite * sprite = new Sprite(textureFileName, L"./Sprite/player/Up.json");
 		sprite->Init();
 		_spriteList[eDirection::DIRCTION_UP] = sprite;
 	}
 	//Down
 	{
-		Sprite * sprite = new Sprite(L"./Sprite/player/player.png", L"./Sprite/player/Down.json");
+		Sprite * sprite = new Sprite(textureFileName, L"./Sprite/player/Down.json");
 		sprite->Init();
 		_spriteList[eDirection::DIRCTION_DOWN] = sprite;
 	}

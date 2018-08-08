@@ -1,9 +1,9 @@
 #pragma once
 #include "Component.h"
 #include <map>
+#include <string>
 
 class Sprite;
-
 enum eState;
 class State;
 
@@ -38,5 +38,6 @@ private:
 
 public:
 	eDirection GetDirection() { return _currentDirection; }
+
 };
 

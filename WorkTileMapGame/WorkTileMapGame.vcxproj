@@ -160,6 +160,7 @@
     <ClCompile Include="TileCell.cpp" />
     <ClCompile Include="TileObject.cpp" />
     <ClCompile Include="TitleScene.cpp" />
+    <ClCompile Include="IDLE_State.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Component.h" />
@@ -168,6 +169,7 @@
     <ClInclude Include="GameScene.h" />
     <ClInclude Include="GameSystem.h" />
     <ClInclude Include="gameTimer.h" />
+    <ClInclude Include="IDLE_State.h" />
     <ClInclude Include="Map.h" />
     <ClInclude Include="ResourceManager.h" />
     <ClInclude Include="Scene.h" />

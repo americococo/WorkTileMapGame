@@ -19,6 +19,9 @@ public:
 	float GetPositionX() { return _posX; }
 	float GetPositionY() { return _posY; }
 
+
+	std::wstring GetName() { return _name; }
+
 protected:
 	std::wstring _name;
 

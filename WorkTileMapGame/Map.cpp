@@ -178,7 +178,7 @@ void Map::Init()
 {
 	CreateMap();
 
-	SelfMoveObject * moveobject = new SelfMoveObject(L"moveObject");
+	SelfMoveObject * moveobject = new SelfMoveObject(L"player");
 	moveobject->Init();
 }
 

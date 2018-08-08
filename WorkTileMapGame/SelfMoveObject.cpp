@@ -8,6 +8,7 @@
 #include "TileCell.h"
 
 #include "State.h"
+#include "IDLE_State.h"
 
 SelfMoveObject::SelfMoveObject(std::wstring name):Component(name)
 {
@@ -22,17 +23,19 @@ void SelfMoveObject::Init()
 {
 	Map * map = ((GameScene*)SceneManager::GetInstance()->GetScene())->GetMap();
 
-	TileCell * tileCell = map->GetTileCell(1, 1);
-	tileCell->AddComponent(this);
+
 
 	_currentDirection = eDirection::DIRCTION_DOWN;
 
 	{
-		State * state = new State();
+		State * state = new IDLE_State();
 		state->Init(this);
 		_stateDirection[eState::STATE_IDLE] = state;
 		_state = state;//test
 	}
+
+	TileCell * tileCell = map->GetTileCell(1, 1);
+	tileCell->AddComponent(this);
 }
 void SelfMoveObject::Update(float deltaTime)
 {
