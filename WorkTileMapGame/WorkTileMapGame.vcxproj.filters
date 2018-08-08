@@ -1,0 +1,177 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="소스 파일">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="헤더 파일">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="리소스 파일">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="소스 파일\Graphic">
+      <UniqueIdentifier>{eb9c5053-45fc-457d-b7e6-ddbfad00b24e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Graphic\Font">
+      <UniqueIdentifier>{b5cc308d-0d55-4f7c-b2d9-d5a71be16374}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Graphic\1ReourceManager">
+      <UniqueIdentifier>{137e2ad7-68ea-4ef0-8556-ba3afb91af1c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Graphic\2Texture">
+      <UniqueIdentifier>{7dacfafc-1250-4a39-a242-1ab25299c1b9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Graphic\3Frame">
+      <UniqueIdentifier>{a9935d88-0ea2-4440-a69f-b33a3ad82960}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Graphic\4Sprite">
+      <UniqueIdentifier>{d43fd6fa-4138-44eb-bd2b-9928c724295f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\GameSystem">
+      <UniqueIdentifier>{e6dafd40-aa58-4474-bf91-36cd06457cb9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\GameTimmer">
+      <UniqueIdentifier>{b0dd6119-b554-4b4b-8b2c-ccd1133f1792}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\0Scene">
+      <UniqueIdentifier>{e18089ec-2bda-4adc-aa10-85b2b9a14c65}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\0Scene\SceneManager">
+      <UniqueIdentifier>{f72f801d-4e77-499f-a771-2728018109ae}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\0Scene\Scene">
+      <UniqueIdentifier>{1c822cf4-da6d-41f7-b324-2c8a87e7c265}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\0Scene\Scene\TitleScene">
+      <UniqueIdentifier>{47eeb5bd-fe93-41c5-a948-c454e7bb2d3d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\0Scene\Scene\GameScene">
+      <UniqueIdentifier>{d6b46590-68ca-48db-b0ad-e7dacd36ce84}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\GameFilter">
+      <UniqueIdentifier>{431301b9-1543-44be-8d60-a41e790c466f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\GameFilter\Component">
+      <UniqueIdentifier>{5a16c0e4-53d4-4ed6-88c5-2a00f0e7a24c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\GameFilter\Component\Self-MoveObject">
+      <UniqueIdentifier>{00709cf5-1c39-40ee-b23b-a943af31cc4d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\GameFilter\Component\Map">
+      <UniqueIdentifier>{3469ebb7-b336-4fe1-b555-7e91ac65dd0e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\GameFilter\Component\TileCell">
+      <UniqueIdentifier>{8a5c596f-099c-4c6d-893c-aa018052e7b1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\GameFilter\Component\TileObject">
+      <UniqueIdentifier>{48530139-28b6-4296-a897-5d187287e3b0}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Main.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Font.cpp">
+      <Filter>소스 파일\Graphic\Font</Filter>
+    </ClCompile>
+    <ClCompile Include="Frame.cpp">
+      <Filter>소스 파일\Graphic\3Frame</Filter>
+    </ClCompile>
+    <ClCompile Include="Sprite.cpp">
+      <Filter>소스 파일\Graphic\4Sprite</Filter>
+    </ClCompile>
+    <ClCompile Include="Texture.cpp">
+      <Filter>소스 파일\Graphic\2Texture</Filter>
+    </ClCompile>
+    <ClCompile Include="ResourceManager.cpp">
+      <Filter>소스 파일\Graphic\1ReourceManager</Filter>
+    </ClCompile>
+    <ClCompile Include="GameSystem.cpp">
+      <Filter>소스 파일\GameSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="gameTimer.cpp">
+      <Filter>소스 파일\GameTimmer</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneManager.cpp">
+      <Filter>소스 파일\0Scene\SceneManager</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene.cpp">
+      <Filter>소스 파일\0Scene\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="TitleScene.cpp">
+      <Filter>소스 파일\0Scene\Scene\TitleScene</Filter>
+    </ClCompile>
+    <ClCompile Include="GameScene.cpp">
+      <Filter>소스 파일\0Scene\Scene\GameScene</Filter>
+    </ClCompile>
+    <ClCompile Include="SelfMoveObject.cpp">
+      <Filter>소스 파일\GameFilter\Component\Self-MoveObject</Filter>
+    </ClCompile>
+    <ClCompile Include="Component.cpp">
+      <Filter>소스 파일\GameFilter\Component</Filter>
+    </ClCompile>
+    <ClCompile Include="Map.cpp">
+      <Filter>소스 파일\GameFilter\Component\Map</Filter>
+    </ClCompile>
+    <ClCompile Include="TileCell.cpp">
+      <Filter>소스 파일\GameFilter\Component\TileCell</Filter>
+    </ClCompile>
+    <ClCompile Include="TileObject.cpp">
+      <Filter>소스 파일\GameFilter\Component\TileObject</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Font.h">
+      <Filter>소스 파일\Graphic\Font</Filter>
+    </ClInclude>
+    <ClInclude Include="Frame.h">
+      <Filter>소스 파일\Graphic\3Frame</Filter>
+    </ClInclude>
+    <ClInclude Include="Sprite.h">
+      <Filter>소스 파일\Graphic\4Sprite</Filter>
+    </ClInclude>
+    <ClInclude Include="Texture.h">
+      <Filter>소스 파일\Graphic\2Texture</Filter>
+    </ClInclude>
+    <ClInclude Include="ResourceManager.h">
+      <Filter>소스 파일\Graphic\1ReourceManager</Filter>
+    </ClInclude>
+    <ClInclude Include="GameSystem.h">
+      <Filter>소스 파일\GameSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="gameTimer.h">
+      <Filter>소스 파일\GameTimmer</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneManager.h">
+      <Filter>소스 파일\0Scene\SceneManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene.h">
+      <Filter>소스 파일\0Scene\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="TitleScene.h">
+      <Filter>소스 파일\0Scene\Scene\TitleScene</Filter>
+    </ClInclude>
+    <ClInclude Include="GameScene.h">
+      <Filter>소스 파일\0Scene\Scene\GameScene</Filter>
+    </ClInclude>
+    <ClInclude Include="SelfMoveObject.h">
+      <Filter>소스 파일\GameFilter\Component\Self-MoveObject</Filter>
+    </ClInclude>
+    <ClInclude Include="Component.h">
+      <Filter>소스 파일\GameFilter\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="Map.h">
+      <Filter>소스 파일\GameFilter\Component\Map</Filter>
+    </ClInclude>
+    <ClInclude Include="TileCell.h">
+      <Filter>소스 파일\GameFilter\Component\TileCell</Filter>
+    </ClInclude>
+    <ClInclude Include="TileObject.h">
+      <Filter>소스 파일\GameFilter\Component\TileObject</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

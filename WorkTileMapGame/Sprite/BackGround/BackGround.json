@@ -1,0 +1,5 @@
+[
+{"texture":"BackGround.jpg","x":0,"y":0,"width":1024,"height":800,"freamDelay":0.1},
+{"x":1024,"y":0,"width":1024,"height":800,"freamDelay":10},
+{"x":3072,"y":0,"width":1024,"height":800,"freamDelay":5},
+]
