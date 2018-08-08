@@ -45,10 +45,23 @@ void State::Init(SelfMoveObject * moveObject)
 	}
 
 }
+void State::Start()
+{
+	_nextState = eState::STATE_NONE;
+}
+void State::Stop()
+{
 
+}
 void State::Update(float deltaTime)
 {
 	_spriteList[_moveObject->GetDirection()]->Update(deltaTime);
+
+	if (eState::STATE_NONE != _nextState)
+	{
+		_moveObject->changeState(_nextState);
+		return;
+	}
 }
 void State::render()
 {
@@ -61,4 +74,9 @@ void State::DeInit()
 	{
 		_spriteList[_moveObject->GetDirection()]->deInit();
 	}
+}
+
+void State::NextState(eState stateType)
+{
+	_nextState = stateType;
 }

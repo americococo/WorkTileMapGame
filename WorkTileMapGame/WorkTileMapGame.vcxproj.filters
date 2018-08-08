@@ -76,6 +76,9 @@
     <Filter Include="소스 파일\GameFilter\Component\Self-MoveObject\State\IDLE_State">
       <UniqueIdentifier>{acf01a26-e24d-4eb8-a8fd-7c339abea6e5}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\GameFilter\Component\Self-MoveObject\State\MOVE_State">
+      <UniqueIdentifier>{6c2fcc1c-1b6f-4b99-ad90-f8a5c083c325}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -135,6 +138,9 @@
     <ClCompile Include="IDLE_State.cpp">
       <Filter>소스 파일\GameFilter\Component\Self-MoveObject\State\IDLE_State</Filter>
     </ClCompile>
+    <ClCompile Include="MOVE_State.cpp">
+      <Filter>소스 파일\GameFilter\Component\Self-MoveObject\State\MOVE_State</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Font.h">
@@ -190,6 +196,9 @@
     </ClInclude>
     <ClInclude Include="IDLE_State.h">
       <Filter>소스 파일\GameFilter\Component\Self-MoveObject\State\IDLE_State</Filter>
+    </ClInclude>
+    <ClInclude Include="MOVE_State.h">
+      <Filter>소스 파일\GameFilter\Component\Self-MoveObject\State\MOVE_State</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

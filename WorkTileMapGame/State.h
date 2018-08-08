@@ -7,6 +7,7 @@ enum eState
 {
 	STATE_IDLE,
 	STATE_MOVE,
+	STATE_NONE,
 };
 
 enum eDirection;
@@ -17,12 +18,18 @@ public:
 	State();
 	~State();
 
-	virtual	void Init(SelfMoveObject * moveObject);
+	void Init(SelfMoveObject * moveObject);
+	virtual	void Start();
+	virtual	void Stop();
 	virtual	void Update(float deltaTime);
 	virtual	void render();
 	virtual	void DeInit();
 
-private:
+
+	void NextState(eState stateType);
+protected:
 	std::map<eDirection,Sprite*> _spriteList;
 	SelfMoveObject * _moveObject;
+
+	eState _nextState;
 };

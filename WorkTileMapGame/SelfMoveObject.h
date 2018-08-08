@@ -13,6 +13,7 @@ enum eDirection
 	DIRCTION_RIGHT,
 	DIRCTION_UP,
 	DIRCTION_DOWN,
+	DIRCTION_NONE,
 };
 
 class SelfMoveObject : 	public Component
@@ -37,7 +38,17 @@ private:
 	eDirection _currentDirection;
 
 public:
+	void SetDirection(eDirection direction) { _currentDirection = direction; }
+
+public:
+	void changeState(eState changestate);
+
+public:
 	eDirection GetDirection() { return _currentDirection; }
 
+
+
+
+	void UpdateMove();
 };
 
