@@ -16,6 +16,8 @@ public:
 
 	virtual void SetPosition(float posX, float posY) {}
 
+	float GetPositionX() { return _posX; }
+	float GetPositionY() { return _posY; }
 
 protected:
 	std::wstring _name;

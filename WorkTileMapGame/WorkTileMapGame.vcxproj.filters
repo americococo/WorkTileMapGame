@@ -70,6 +70,9 @@
     <Filter Include="소스 파일\GameFilter\Component\TileObject">
       <UniqueIdentifier>{48530139-28b6-4296-a897-5d187287e3b0}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\GameFilter\Component\Self-MoveObject\State">
+      <UniqueIdentifier>{6de88bcc-a5ad-40a7-a8f8-00688045b83e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -123,6 +126,9 @@
     <ClCompile Include="TileObject.cpp">
       <Filter>소스 파일\GameFilter\Component\TileObject</Filter>
     </ClCompile>
+    <ClCompile Include="State.cpp">
+      <Filter>소스 파일\GameFilter\Component\Self-MoveObject\State</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Font.h">
@@ -172,6 +178,9 @@
     </ClInclude>
     <ClInclude Include="TileObject.h">
       <Filter>소스 파일\GameFilter\Component\TileObject</Filter>
+    </ClInclude>
+    <ClInclude Include="State.h">
+      <Filter>소스 파일\GameFilter\Component\Self-MoveObject\State</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
