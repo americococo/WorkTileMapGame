@@ -2,11 +2,14 @@
 #include "Component.h"
 #include <string>
 #include "Position.h"
+
+enum eTileLayer;
 class Sprite;
 class TileObject : public Component
 {
 public:
-	TileObject(std::wstring name, Sprite * sprite, Position tilePosition);
+	TileObject() {}
+	TileObject(std::wstring name, Sprite * sprite, Position tilePosition, eTileLayer tileLayer);
 	~TileObject();
 
 
@@ -22,10 +25,16 @@ public:
 
 
 	void SetPosition(float posX,float posY);
+
+	eTileLayer GetLayer() { return _tileLayer; }
 private:
 	Sprite * _sprite;
 
 
+
+protected:
 	bool _isMoving;
+
+	eTileLayer _tileLayer;
 };
 

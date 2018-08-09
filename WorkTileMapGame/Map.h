@@ -6,7 +6,8 @@
 #include "Position.h"
 class Sprite;
 class TileCell;
-
+class TileObject;
+enum eTileLayer;
 class Map : public Component
 {
 public:
@@ -42,8 +43,11 @@ public:
 	TileCell * GetTileCell(Position tileposition) { return _tileMap[tileposition.y][tileposition.x]; }
 
 
-	void removeComponent(Position tileposition,Component * com);
+	void removeComponent(Position tileposition, TileObject * tileobjet);
 
-	void setTileComponent(Position tilePos, Component* component);
+	void setTileComponent(Position tilePos, TileObject * tileobjet);
+
+
+	bool CanMove(Position tilePosition,eTileLayer layer);
 };
 

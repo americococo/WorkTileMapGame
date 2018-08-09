@@ -3,6 +3,15 @@
 #include "Component.h"
 #include "Position.h"
 
+#include <map>
+class TileObject;
+enum eTileLayer
+{
+	TileLayer_GROUND,
+	TileLayer_MIDLLE,
+	TileLayer_SKY,
+};
+
 class TileCell : public Component
 {
 public:
@@ -19,12 +28,15 @@ public:
 	void render();
 
 private:
-	std::list<Component*> _removeList;
+	std::list<TileObject*> _removeList;
 public:
-	void removeComponent(Component * com);
+	void removeComponent(TileObject * tileobject);
 private:
-	std::list<Component*> _componentList;
+	std::map<eTileLayer,TileObject*> _componentList;
 public:
-	void AddComponent(Component * com);
+	void AddTileObject(TileObject * tileobject);
+
+public:
+	bool CanMove(eTileLayer layer);
 };
 

@@ -1,5 +1,5 @@
 #pragma once
-#include "Component.h"
+#include "TileObject.h"
 #include <map>
 #include <string>
 
@@ -18,7 +18,7 @@ enum eDirection
 	DIRCTION_NONE,
 };
 
-class SelfMoveObject : 	public Component
+class SelfMoveObject : 	public TileObject
 {
 public:
 	SelfMoveObject(std::wstring name);
@@ -58,4 +58,3 @@ public:
 	float GetMovingTime() { return _movingTime; }
 
 };
-

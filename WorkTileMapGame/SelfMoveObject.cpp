@@ -12,9 +12,13 @@
 #include "MOVE_State.h"
 #include "GameSystem.h"
 
-SelfMoveObject::SelfMoveObject(std::wstring name):Component(name)
+SelfMoveObject::SelfMoveObject(std::wstring name) : TileObject()
 {
 	_state = nullptr;
+	_name = name;
+	_tileLayer = eTileLayer::TileLayer_MIDLLE;
+	
+	_isMoving = false;
 }
 
 
@@ -51,7 +55,7 @@ void SelfMoveObject::Init()
 	_tilePosition.y= 1;
 
 	TileCell * tileCell = map->GetTileCell(_tilePosition);
-	tileCell->AddComponent(this);
+	tileCell->AddTileObject(this);
 }
 
 void SelfMoveObject::changeState(eState statetype)

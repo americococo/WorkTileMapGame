@@ -1,9 +1,10 @@
 #include "TileObject.h"
 #include "Sprite.h"
-TileObject::TileObject(std::wstring name, Sprite * sprite, Position tilePosition)
+TileObject::TileObject(std::wstring name, Sprite * sprite, Position tilePosition, eTileLayer tileLayer)
 {
 	_sprite = sprite;
 	_tilePosition = tilePosition;
+	_tileLayer = tileLayer;
 }
 
 TileObject::~TileObject()

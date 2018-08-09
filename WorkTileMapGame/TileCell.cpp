@@ -1,5 +1,5 @@
 #include "TileCell.h"
-
+#include "TileObject.h"
 TileCell::TileCell(Position tilePosition)
 {
 	_tilePosition = tilePosition;
@@ -15,9 +15,10 @@ void TileCell::Init()
 }
 void TileCell::DeInit()
 {
-	for (std::list<Component*>::iterator itr = _componentList.begin(); itr != _componentList.end(); itr++)
+	
+	for (std::map<eTileLayer, TileObject*>::iterator itr = _componentList.begin(); itr != _componentList.end(); itr++)
 	{
-		(*itr)->DeInit();
+		itr->second->DeInit();
 	}
 }
 
@@ -26,39 +27,49 @@ void TileCell::setPostition(float posX, float posY)
 	_posX = posX;
 	_posY = posY;
 
-	for (std::list<Component*>::iterator itr = _componentList.begin(); itr != _componentList.end(); itr++)
+	for (std::map<eTileLayer, TileObject*>::iterator itr = _componentList.begin(); itr != _componentList.end(); itr++)
 	{
-		(*itr)->SetPosition(posX,posY);
+		if (nullptr != itr->second)
+			itr->second->SetPosition(posX, posY);
 	}
 }
 
-void TileCell::AddComponent(Component * com)
+void TileCell::AddTileObject(TileObject * tileobject)
 {
-	_componentList.push_back(com);
+	_componentList[tileobject->GetLayer()] = tileobject;
 }
 
 void TileCell::Update(float deltaTime)
 {
 	while (false == _removeList.empty())
 	{
-		_componentList.remove(_removeList.front());
+		_componentList[_removeList.front()->GetLayer()] = nullptr;
 		_removeList.pop_front();
 	}
 	
 
-	for (std::list<Component*>::iterator itr = _componentList.begin(); itr != _componentList.end(); itr++)
+	for (std::map<eTileLayer, TileObject*>::iterator itr = _componentList.begin(); itr != _componentList.end(); itr++)
 	{
-		(*itr)->Update(deltaTime);
+		if (nullptr != itr->second)
+			itr->second->Update(deltaTime);
 	}
 }
 void TileCell::render()
 {
-	for (std::list<Component*>::iterator itr = _componentList.begin(); itr != _componentList.end(); itr++)
+	for (std::map<eTileLayer, TileObject*>::iterator itr = _componentList.begin(); itr != _componentList.end(); itr++)
 	{
-		(*itr)->render();
+		if (nullptr != itr->second)
+			itr->second->render();
 	}
 }
-void TileCell::removeComponent(Component * com)
+void TileCell::removeComponent(TileObject * tileobject)
 {
-	_removeList.push_back(com);
+	_removeList.push_back(tileobject);
+
+}
+bool TileCell::CanMove(eTileLayer layer)
+{
+	if (nullptr != _componentList[layer])
+		return _componentList[layer]->CanMove();
+	return true;
 }

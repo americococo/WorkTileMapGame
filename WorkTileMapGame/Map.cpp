@@ -97,10 +97,9 @@ void Map::CreateMap_layer1()
 						WCHAR componetName[256];
 						wsprintf(componetName, L"MapData_layer1_%d_%d", line, x);
 
-						TileObject * tileObject = new TileObject(componetName, _spriteList[index],tileposition);
-
+						TileObject * tileObject = new TileObject(componetName, _spriteList[index], tileposition, eTileLayer::TileLayer_GROUND);
 						tileObject->setCanMove(true);
-						tilecell->AddComponent(tileObject);
+						tilecell->AddTileObject(tileObject);
 						rowList.push_back(tilecell);
 						token = strtok(NULL, ",");
 					}
@@ -158,9 +157,9 @@ void Map::CreateMap_layer2()
 							Position tileposition;
 							tileposition.x = x;
 							tileposition.y = row;
-							TileObject * tileObject = new TileObject(componetName, _spriteList[index],tileposition);
+							TileObject * tileObject = new TileObject(componetName, _spriteList[index],tileposition,eTileLayer::TileLayer_MIDLLE);
 							tileObject->setCanMove(false);
-							tilecell->AddComponent(tileObject);
+							tilecell->AddTileObject(tileObject);
 						}
 
 						token = strtok(NULL, ",");
@@ -225,12 +224,16 @@ void Map::DeInit()
 		}
 	}
 }
-void Map::setTileComponent(Position tilePos, Component* component)
+void Map::setTileComponent(Position tilePos, TileObject * tileobjet)
 {
-	_tileMap[tilePos.y][tilePos.x]->AddComponent(component);
+	_tileMap[tilePos.y][tilePos.x]->AddTileObject(tileobjet);
 }
 
-void Map::removeComponent(Position tileposition,Component * com)
+void Map::removeComponent(Position tileposition, TileObject * tileobjet)
 {
-	_tileMap[tileposition.y][tileposition.x]->removeComponent(com);
+	_tileMap[tileposition.y][tileposition.x]->removeComponent(tileobjet);
+}
+bool Map::CanMove(Position tilePosition,eTileLayer layer)
+{
+	return _tileMap[tilePosition.y][tilePosition.x]->CanMove(layer);
 }

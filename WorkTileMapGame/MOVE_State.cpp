@@ -56,7 +56,15 @@ void MOVE_State::Start()
 	if (gmScene->GetMap()->GetHeight() <= currenPos.y)
 		currenPos.y= currenPos.y - 1;
 
-	_moveObject->Moving(currenPos);
+
+	if (false == gmScene->GetMap()->CanMove(currenPos,_moveObject->GetLayer()))
+	{
+		_nextState = eState::STATE_IDLE;
+	}
+	else
+	{
+		_moveObject->Moving(currenPos);
+	}
 }
 void MOVE_State::Stop()
 {
