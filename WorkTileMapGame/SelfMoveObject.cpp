@@ -26,8 +26,13 @@ SelfMoveObject::~SelfMoveObject()
 {
 	
 }
-void SelfMoveObject::Init()
+void SelfMoveObject::Init(int activePoint)
 {
+	_maxActivePoint = activePoint;
+	
+	InitActivePoint();
+
+
 	Map * map = ((GameScene*)SceneManager::GetInstance()->GetScene())->GetMap();
 
 	
@@ -120,4 +125,10 @@ void SelfMoveObject::Moving(Position movingPos)
 
 	_tilePosition = movingPos;
 	map->setTileComponent(_tilePosition, this);
+}
+void SelfMoveObject::DecressActivePoint(int activePoint)
+{
+	_activePoint -= activePoint;
+	if (_activePoint <= 0)
+		_activePoint = 0;
 }

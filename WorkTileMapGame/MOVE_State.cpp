@@ -63,6 +63,7 @@ void MOVE_State::Start()
 	}
 	else
 	{
+		_moveObject->DecressActivePoint(1);
 		_moveObject->Moving(currenPos);
 	}
 }

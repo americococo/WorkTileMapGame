@@ -184,7 +184,11 @@ void Map::Init()
 	CreateMap();
 
 	SelfMoveObject * moveobject = new SelfMoveObject(L"player");
-	moveobject->Init();
+	moveobject->Init(3);
+	_turnList.push_back(moveobject);
+
+
+	_turnCircle = _turnList.begin();
 }
 
 void Map::Update(float deltaTime)
@@ -203,6 +207,19 @@ void Map::Update(float deltaTime)
 		posX = _startX;
 		posY += _tileSize;
 	}
+
+	
+
+	if (false == (*_turnCircle)->IsActive())
+	{
+		if (_turnCircle == _turnList.end() | _turnList.size()<=1)
+			_turnCircle = _turnList.begin();
+		else
+			_turnCircle++;
+
+		(*_turnCircle)->InitActivePoint();
+	}
+
 }
 void Map::render()
 {

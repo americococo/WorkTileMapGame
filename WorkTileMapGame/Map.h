@@ -4,10 +4,12 @@
 #include <list>
 #include <vector>
 #include "Position.h"
+
 class Sprite;
 class TileCell;
 class TileObject;
 enum eTileLayer;
+class SelfMoveObject;
 class Map : public Component
 {
 public:
@@ -49,5 +51,11 @@ public:
 
 
 	bool CanMove(Position tilePosition,eTileLayer layer);
+
+
+	//Turn ฐüทร
+private:
+	std::list<SelfMoveObject*> _turnList;
+	std::list<SelfMoveObject*>::iterator _turnCircle;
 };
 

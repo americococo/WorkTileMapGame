@@ -24,7 +24,7 @@ public:
 	SelfMoveObject(std::wstring name);
 	~SelfMoveObject();
 
-	void Init();
+	void Init(int activePoint);
 	void Update(float deltaTime);
 	void render();
 	void DeInit();
@@ -57,4 +57,12 @@ private:
 public:
 	float GetMovingTime() { return _movingTime; }
 
+
+private:
+	int _activePoint;
+	int _maxActivePoint;
+public:
+	void DecressActivePoint(int activePoint);
+	bool IsActive() { return (0 < _activePoint); }
+	void InitActivePoint() { _activePoint = _maxActivePoint; }
 };
