@@ -22,7 +22,8 @@ void IDLE_State::Update(float deltaTime)
 {
 	eDirection direction = eDirection::DIRCTION_NONE;
 	
-	_moveObject->UpdateMove();
+	if (_moveObject->IsActive())
+		_moveObject->UpdateMove();
 
 	State::Update(deltaTime);
 }

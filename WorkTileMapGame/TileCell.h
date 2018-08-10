@@ -35,8 +35,9 @@ private:
 	std::map<eTileLayer,TileObject*> _componentList;
 public:
 	void AddTileObject(TileObject * tileobject);
-
+	TileObject * GetTileObject(eTileLayer layer) { return _componentList[layer]; }
 public:
 	bool CanMove(eTileLayer layer);
+
 };
 

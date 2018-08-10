@@ -26,10 +26,12 @@ SelfMoveObject::~SelfMoveObject()
 {
 	
 }
-void SelfMoveObject::Init(int activePoint)
+void SelfMoveObject::Init(int activePoint,Position tilePosition,eTileLayer layer)
 {
 	_maxActivePoint = activePoint;
 	
+	_tileLayer = layer;
+
 	InitActivePoint();
 
 
@@ -56,8 +58,7 @@ void SelfMoveObject::Init(int activePoint)
 
 	_movingTime = 0.3f;
 
-	_tilePosition.x= 1;
-	_tilePosition.y= 1;
+	_tilePosition = tilePosition;
 
 	TileCell * tileCell = map->GetTileCell(_tilePosition);
 	tileCell->AddTileObject(this);

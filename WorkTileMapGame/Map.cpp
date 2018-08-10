@@ -183,18 +183,41 @@ void Map::Init()
 {
 	CreateMap();
 
-	SelfMoveObject * moveobject = new SelfMoveObject(L"player");
-	moveobject->Init(3);
-	_turnList.push_back(moveobject);
+	{
+		SelfMoveObject * moveobject = new SelfMoveObject(L"player");
+		Position tilePosition;
+		tilePosition.x = 1;
+		tilePosition.y = 1;
+		moveobject->Init(1, tilePosition,eTileLayer::TileLayer_MIDLLE);
+		_turnList.push_back(moveobject);
+	}
+	{
+		SelfMoveObject * moveobject = new SelfMoveObject(L"player");
+		Position tilePosition;
+		tilePosition.x = 5;
+		tilePosition.y = 2;
+		moveobject->Init(4, tilePosition,eTileLayer::TileLayer_SKY);
+		_turnList.push_back(moveobject);
+	}
 
+	initViewer(_tileMap[4][4]->GetTileObject(eTileLayer::TileLayer_GROUND));
 
 	_turnCircle = _turnList.begin();
 }
 
 void Map::Update(float deltaTime)
 {
+	int midX = GameSystem::GetInstance()->GetWidth() / 2;
+	int midY = GameSystem::GetInstance()->GetHeight() / 2;
+
+	//뷰어의 위치를 기준으로 시작 픽셀 위치를 계산
+	_startX = (-_viewer->GetTileX()*_tileSize) + midX - _tileSize / 2;
+	_startY = (-_viewer->GetTileY()*_tileSize) + midY - _tileSize / 2;
+
+	//해당위치에 타일그림
 	float posX = _startX;
 	float posY = _startY;
+
 
 	for (int y = 0; y < _height; y++)
 	{
@@ -208,16 +231,22 @@ void Map::Update(float deltaTime)
 		posY += _tileSize;
 	}
 
-	
+	SelfMoveObject * currentTurnOwner = (*_turnCircle);
 
-	if (false == (*_turnCircle)->IsActive())
+	if (false == currentTurnOwner->IsActive())
 	{
-		if (_turnCircle == _turnList.end() | _turnList.size()<=1)
+		_turnCircle++;
+			
+		if(_turnCircle== _turnList.end())
 			_turnCircle = _turnList.begin();
-		else
-			_turnCircle++;
 
-		(*_turnCircle)->InitActivePoint();
+		for (std::list<SelfMoveObject*>::iterator itr = _turnList.begin(); itr != _turnList.end(); itr++)
+		{
+			if (_turnCircle == itr)
+				(*itr)->InitActivePoint();
+			else
+				(*itr)->ResetActivePoint();
+		}
 	}
 
 }
@@ -238,8 +267,43 @@ void Map::DeInit()
 		for (int x = 0; x < _width; x++)
 		{
 			_tileMap[y][x]->DeInit();
+			delete _tileMap[y][x];
 		}
 	}
+}
+
+void Map::initViewer(TileObject * viewer)
+{
+	_viewer = viewer;
+
+	//영역
+	//최소x=뷰어의 현재 타일 x의 위치-(중심축의x좌표/타일 크기)-1 
+	//최소y=뷰어의 현재 타일 y의 위치-(중심축의y좌표/타일 크기)-1
+	//최대X=뷰어의 현재 타일 x의 위치+(중심축의x좌표/타일 크기)+1
+	//최대y=뷰어의 현재 타일 y의 위치+(중심축의y좌표/타일 크기)+1
+
+	int midX = GameSystem::GetInstance()->GetWidth() / 2;
+	int midY = GameSystem::GetInstance()->GetHeight() / 2;
+
+	//뷰어의 위치를 기준으로 시작 픽셀 위치를 계산
+	_startX = (-_viewer->GetTileX()*_tileSize) + midX - _tileSize / 2;
+	_startY = (-_viewer->GetTileY()*_tileSize) + midY - _tileSize / 2;
+
+	//해당위치에 타일그림
+	float posX = _startX;
+	float posY = _startY;
+
+	for (int y = 0; y < _height; y++)
+	{
+		for (int x = 0; x < _width; x++)
+		{
+			posX += _tileSize;
+			_tileMap[y][x]->setPostition(posX, posY);
+		}
+		posX = _startX;
+		posY += _tileSize;
+	}
+
 }
 void Map::setTileComponent(Position tilePos, TileObject * tileobjet)
 {

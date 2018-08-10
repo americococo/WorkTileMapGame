@@ -52,7 +52,11 @@ public:
 
 	bool CanMove(Position tilePosition,eTileLayer layer);
 
+private:
+	TileObject * _viewer;
+public:
 
+	void initViewer(TileObject * viewer);
 	//Turn ฐüทร
 private:
 	std::list<SelfMoveObject*> _turnList;

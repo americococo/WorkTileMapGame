@@ -6,8 +6,10 @@
 
 #include "Position.h"
 class Sprite;
-enum eState;
 class State;
+
+enum eState;
+enum eTileLayer;
 
 enum eDirection
 {
@@ -24,7 +26,7 @@ public:
 	SelfMoveObject(std::wstring name);
 	~SelfMoveObject();
 
-	void Init(int activePoint);
+	void Init(int activePoint,Position tilePosition,eTileLayer tileLayer);
 	void Update(float deltaTime);
 	void render();
 	void DeInit();
@@ -48,7 +50,7 @@ public:
 public:
 	eDirection GetDirection() { return _currentDirection; }
 
-	void UpdateMove();
+	virtual void UpdateMove();
 
 	void Moving(Position movingPos);
 
@@ -63,6 +65,7 @@ private:
 	int _maxActivePoint;
 public:
 	void DecressActivePoint(int activePoint);
-	bool IsActive() { return (0 < _activePoint); }
+	bool IsActive() { return (0 != _activePoint); }
 	void InitActivePoint() { _activePoint = _maxActivePoint; }
+	void ResetActivePoint() { _activePoint = 0; }
 };
