@@ -52,11 +52,13 @@ public:
 
 	bool CanMove(Position tilePosition,eTileLayer layer);
 
+
+	//Map 그리기 중심 맞추기 관련
 private:
 	TileObject * _viewer;
 public:
-
 	void initViewer(TileObject * viewer);
+
 	//Turn 관련
 private:
 	std::list<SelfMoveObject*> _turnList;

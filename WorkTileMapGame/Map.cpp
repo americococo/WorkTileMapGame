@@ -200,7 +200,7 @@ void Map::Init()
 		_turnList.push_back(moveobject);
 	}
 
-	initViewer(_tileMap[4][4]->GetTileObject(eTileLayer::TileLayer_GROUND));
+	initViewer(_tileMap[_width / 2 - 1][_height / 2 - 1]->GetTileObject(eTileLayer::TileLayer_GROUND));
 
 	_turnCircle = _turnList.begin();
 }
