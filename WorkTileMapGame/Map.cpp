@@ -7,13 +7,15 @@
 #include "GameSystem.h"
 
 #include "SelfMoveObject.h"
-
+#include "Player.h"
+#include "Monster.h"
 #include <fstream>
 
 Map::Map(std::wstring name) :Component(name)
 {
 	_startX = _startY = 0.0f;
 	_posX = _posY = 0.0f;
+
 }
 
 Map::~Map()
@@ -184,25 +186,27 @@ void Map::Init()
 	CreateMap();
 
 	{
-		SelfMoveObject * moveobject = new SelfMoveObject(L"player");
+		Player * moveobject = new Player(L"player");
 		Position tilePosition;
 		tilePosition.x = 1;
 		tilePosition.y = 1;
-		moveobject->Init(1, tilePosition,eTileLayer::TileLayer_MIDLLE);
+		moveobject->Init(3, tilePosition,eTileLayer::TileLayer_MIDLLE);
 		_turnList.push_back(moveobject);
 	}
 	{
-		SelfMoveObject * moveobject = new SelfMoveObject(L"player");
+		Monster * moveobject = new Monster(L"monster");
 		Position tilePosition;
-		tilePosition.x = 5;
-		tilePosition.y = 2;
-		moveobject->Init(4, tilePosition,eTileLayer::TileLayer_SKY);
+		tilePosition.x = 9;
+		tilePosition.y = 9;
+		moveobject->Init(3, tilePosition,eTileLayer::TileLayer_SKY);
 		_turnList.push_back(moveobject);
 	}
 
 	initViewer(_tileMap[_width / 2 - 1][_height / 2 - 1]->GetTileObject(eTileLayer::TileLayer_GROUND));
 
 	_turnCircle = _turnList.begin();
+
+	(*_turnCircle)->InitActivePoint();
 }
 
 void Map::Update(float deltaTime)
@@ -233,13 +237,23 @@ void Map::Update(float deltaTime)
 
 	SelfMoveObject * currentTurnOwner = (*_turnCircle);
 
+
 	if (false == currentTurnOwner->IsActive())
 	{
-		_turnCircle++;
-			
-		if(_turnCircle== _turnList.end())
-			_turnCircle = _turnList.begin();
 
+		std::list<SelfMoveObject*>::iterator end = _turnList.end();
+
+		--end;
+
+		if (currentTurnOwner == (*end))
+		{
+			_turnCircle = _turnList.begin();
+		}
+
+		else
+			_turnCircle++;
+
+	
 		for (std::list<SelfMoveObject*>::iterator itr = _turnList.begin(); itr != _turnList.end(); itr++)
 		{
 			if (_turnCircle == itr)
@@ -247,9 +261,11 @@ void Map::Update(float deltaTime)
 			else
 				(*itr)->ResetActivePoint();
 		}
-	}
 
+	}
 }
+
+
 void Map::render()
 {
 	for (int y = 0; y < _height; y++)

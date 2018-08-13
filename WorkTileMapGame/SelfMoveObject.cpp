@@ -32,8 +32,6 @@ void SelfMoveObject::Init(int activePoint,Position tilePosition,eTileLayer layer
 	
 	_tileLayer = layer;
 
-	InitActivePoint();
-
 
 	Map * map = ((GameScene*)SceneManager::GetInstance()->GetScene())->GetMap();
 

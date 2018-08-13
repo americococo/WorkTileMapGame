@@ -26,14 +26,14 @@ public:
 	SelfMoveObject(std::wstring name);
 	~SelfMoveObject();
 
-	void Init(int activePoint,Position tilePosition,eTileLayer tileLayer);
+	virtual void Init(int activePoint,Position tilePosition,eTileLayer tileLayer);
 	void Update(float deltaTime);
 	void render();
 	void DeInit();
 
 	
 
-private:
+protected:
 
 	std::map<eState, State*> _stateDirection;
 	State * _state;
@@ -54,18 +54,18 @@ public:
 
 	void Moving(Position movingPos);
 
-private:
+protected:
 	float _movingTime;
 public:
 	float GetMovingTime() { return _movingTime; }
 
 
-private:
+protected:
 	int _activePoint;
 	int _maxActivePoint;
 public:
 	void DecressActivePoint(int activePoint);
-	bool IsActive() { return (0 != _activePoint); }
+	bool IsActive() { return (0  < _activePoint); }
 	void InitActivePoint() { _activePoint = _maxActivePoint; }
 	void ResetActivePoint() { _activePoint = 0; }
 };

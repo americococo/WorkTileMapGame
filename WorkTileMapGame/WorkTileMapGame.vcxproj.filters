@@ -82,6 +82,12 @@
     <Filter Include="소스 파일\GameFilter\dataStruct">
       <UniqueIdentifier>{c23613d6-4e7b-41ce-9349-404f8788fb2c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\GameFilter\Component\Self-MoveObject\Player">
+      <UniqueIdentifier>{6ea76792-6426-4ea8-a066-df073e14a041}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\GameFilter\Component\Self-MoveObject\Monster">
+      <UniqueIdentifier>{408d0c9e-51fa-4080-b12e-72bf7ce30557}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -144,6 +150,12 @@
     <ClCompile Include="MOVE_State.cpp">
       <Filter>소스 파일\GameFilter\Component\Self-MoveObject\State\MOVE_State</Filter>
     </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>소스 파일\GameFilter\Component\Self-MoveObject\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="Monster.cpp">
+      <Filter>소스 파일\GameFilter\Component\Self-MoveObject\Monster</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Font.h">
@@ -205,6 +217,12 @@
     </ClInclude>
     <ClInclude Include="Position.h">
       <Filter>소스 파일\GameFilter\dataStruct</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>소스 파일\GameFilter\Component\Self-MoveObject\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="Monster.h">
+      <Filter>소스 파일\GameFilter\Component\Self-MoveObject\Monster</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
