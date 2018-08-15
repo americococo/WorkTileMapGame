@@ -10,7 +10,7 @@
 #include "Player.h"
 #include "Monster.h"
 #include <fstream>
-
+#include <string.h>
 Map::Map(std::wstring name) :Component(name)
 {
 	_startX = _startY = 0.0f;
@@ -181,12 +181,13 @@ void Map::Create_Component()
 		int row = 0;
 		int line = 0;
 		char record[1024 * 4];
+		char * context = NULL;
 		std::ifstream infile(layer02Name);
 		while (!infile.eof())
 		{
 			infile.getline(record, 1024 * 4);
-
-			char *token = strtok(record, ",");
+			
+			char *token = strtok_s(record, ",",&context);
 			switch (line)
 			{
 			case 0:
@@ -201,9 +202,7 @@ void Map::Create_Component()
 					std::vector<TileCell*> rowList = _tileMap[row];
 					for (int x = 0; x < _width; x++)
 					{
-						int index = atoi(token);
-
-						if (0 <= index)
+						if (strcmp(token,"NoBoady"))
 						{
 							TileCell* tilecell = rowList[x];
 							Position tileposition;
@@ -211,13 +210,24 @@ void Map::Create_Component()
 							tileposition.y = row;
 
 							eTileLayer layer;
+							eObjectType objectType;
+							int activepoint;
+							char * tmp = strtok(token, ":");
+							{
+								if (!(strcmp(tmp, "Player")))
+									objectType = eObjectType::OBJECT_TYPE_PLAYER;
+								if (!(strcmp(tmp, "Monster")))
+									objectType = eObjectType::OBJECT_TYPE_MONSTER;
 
-							layer = (eTileLayer)(index / 1000);
+								tmp=strtok(NULL, ":");
+								activepoint = atoi(tmp);
 
-							int activepoint=( index / 100 - layer * 10  );
 
-							eObjectType objectType=(eObjectType)(index % 100);
+								tmp = strtok(NULL, ":");
+								layer = (eTileLayer)(atoi(tmp));
 
+								tmp = strtok(NULL, ":");
+							}
 
 
 							SelfMoveObject * move;
@@ -244,7 +254,7 @@ void Map::Create_Component()
 							
 						}
 
-						token = strtok(NULL, ",");
+						token = strtok_s(NULL, ",",&context);
 					}
 					row++;
 				}
