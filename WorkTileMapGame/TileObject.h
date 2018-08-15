@@ -19,11 +19,6 @@ public:
 	void render();
 	void DeInit();
 
-	void setCanMove(bool ismoving) { _isMoving = ismoving; }
-
-	bool CanMove() { return _isMoving; }
-
-
 	void SetPosition(float posX,float posY);
 
 	eTileLayer GetLayer() { return _tileLayer; }
@@ -33,7 +28,7 @@ private:
 
 
 protected:
-	bool _isMoving;
+	
 
 	eTileLayer _tileLayer;
 };

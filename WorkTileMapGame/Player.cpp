@@ -12,7 +12,7 @@
 
 Player::Player(std::wstring name):SelfMoveObject(name)
 {
-
+	_objectType = eObjectType::OBJECT_TYPE_PLAYER;
 }
 
 
@@ -51,8 +51,6 @@ void Player::Init(int activePoint, Position tilePosition, eTileLayer layer)
 
 	_tilePosition = tilePosition;
 
-	TileCell * tileCell = map->GetTileCell(_tilePosition);
-	tileCell->AddTileObject(this);
 }
 void Player::UpdateMove()
 {

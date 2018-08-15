@@ -70,6 +70,6 @@ void TileCell::removeComponent(TileObject * tileobject)
 bool TileCell::CanMove(eTileLayer layer)
 {
 	if (nullptr != _componentList[layer])
-		return _componentList[layer]->CanMove();
+		return false;
 	return true;
 }

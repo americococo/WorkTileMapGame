@@ -2,6 +2,14 @@
 #include <string>
 #include "Position.h"
 
+enum eObjectType
+{
+	OBJECT_TYPE_NONE,
+	OBJECT_TYPE_TILE,
+	OBJECT_TYPE_PLAYER,
+	OBJECT_TYPE_MONSTER,
+};
+
 class Component
 {
 public:
@@ -31,6 +39,7 @@ protected:
 
 	Position _tilePosition;
 
+	eObjectType _objectType;
 public:
 	int GetTileX() { return _tilePosition.x; }
 	int GetTileY() { return _tilePosition.y; }

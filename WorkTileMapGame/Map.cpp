@@ -75,7 +75,6 @@ void Map::CreateMap_layer_Ground()
 						wsprintf(componetName, L"MapData_layer%d_%d_%d", eTileLayer::TileLayer_GROUND +1 , line, x);
 
 						TileObject * tileObject = new TileObject(componetName, _spriteList[index], tileposition, eTileLayer::TileLayer_GROUND);
-						tileObject->setCanMove(true);
 						tilecell->AddTileObject(tileObject);
 						rowList.push_back(tilecell);
 						token = strtok(NULL, ",");
@@ -146,7 +145,6 @@ void Map::CreateMap_layer(eTileLayer layer, bool canmove)
 							tileposition.x = x;
 							tileposition.y = row;
 							TileObject * tileObject = new TileObject(componetName, _spriteList[index],tileposition,layer);
-							tileObject->setCanMove(canmove);
 							tilecell->AddTileObject(tileObject);
 						}
 
@@ -165,8 +163,104 @@ void Map::CreateMap_layer(eTileLayer layer, bool canmove)
 void Map::CreateMap()
 {
 	CreateMap_layer_Ground();
-	CreateMap_layer(eTileLayer::TileLayer_MIDLLE, true);
+	CreateMap_layer(eTileLayer::TileLayer_MIDLLE, false);
 }
+void Map::Create_Component()
+{
+	std::wstring wName = _name;
+	std::string name = "";
+	name.assign(wName.begin(), wName.end());
+
+	char layer01Name[256];
+	sprintf(layer01Name, "./MapData/%s_", name.c_str());
+
+	char layer02Name[256];
+	sprintf(layer02Name, "%sComponent_Setting.csv", layer01Name);
+
+	{
+		int row = 0;
+		int line = 0;
+		char record[1024 * 4];
+		std::ifstream infile(layer02Name);
+		while (!infile.eof())
+		{
+			infile.getline(record, 1024 * 4);
+
+			char *token = strtok(record, ",");
+			switch (line)
+			{
+			case 0:
+				break;
+			case 1:
+				break;
+
+			default:
+				//∏ µ•¿Ã≈Õ
+				if (NULL != token)
+				{
+					std::vector<TileCell*> rowList = _tileMap[row];
+					for (int x = 0; x < _width; x++)
+					{
+						int index = atoi(token);
+
+						if (0 <= index)
+						{
+							TileCell* tilecell = rowList[x];
+							Position tileposition;
+							tileposition.x = x;
+							tileposition.y = row;
+
+							eTileLayer layer;
+
+							layer = (eTileLayer)(index / 100);
+
+							eObjectType objectType=(eObjectType)(index % 100);
+
+							SelfMoveObject * move;
+
+							switch (objectType)
+							{
+							case OBJECT_TYPE_PLAYER:
+								move =new Player(L"player");
+								move->Init(3, tileposition, layer);
+								tilecell->AddTileObject(move);
+
+								_turnList.push_back(move);
+								break;
+							case OBJECT_TYPE_MONSTER:
+								move = new Monster(L"monster");
+								move->Init(3, tileposition, layer);
+								tilecell->AddTileObject(move);
+
+								_turnList.push_back(move);
+								break;
+							default:
+								break;
+							}
+							
+						}
+
+						token = strtok(NULL, ",");
+					}
+					row++;
+				}
+				break;
+			}
+			line++;
+		}
+
+	}
+
+
+	if (_turnList.size() >= 2)
+	{
+		_turnCircle = _turnList.begin();
+		(*_turnCircle)->InitActivePoint();
+	}
+
+
+}
+
 void Map::Init()
 {
 	_tileSize = 32;
@@ -195,29 +289,10 @@ void Map::Init()
 
 
 	CreateMap();
-
-	{
-		Player * moveobject = new Player(L"player");
-		Position tilePosition;
-		tilePosition.x = 1;
-		tilePosition.y = 1;
-		moveobject->Init(3, tilePosition,eTileLayer::TileLayer_MIDLLE);
-		_turnList.push_back(moveobject);
-	}
-	{
-		Monster * moveobject = new Monster(L"monster");
-		Position tilePosition;
-		tilePosition.x = 9;
-		tilePosition.y = 9;
-		moveobject->Init(3, tilePosition,eTileLayer::TileLayer_SKY);
-		_turnList.push_back(moveobject);
-	}
+	Create_Component();
 
 	initViewer(_tileMap[_width / 2 - 1][_height / 2 - 1]->GetTileObject(eTileLayer::TileLayer_GROUND));
 
-	_turnCircle = _turnList.begin();
-
-	(*_turnCircle)->InitActivePoint();
 }
 
 void Map::Update(float deltaTime)
@@ -246,6 +321,14 @@ void Map::Update(float deltaTime)
 		posY += _tileSize;
 	}
 
+	turnUpdate();
+}
+
+void Map::turnUpdate()
+{
+	if (false == (_turnList.size() >= 2))
+		return;
+
 	SelfMoveObject * currentTurnOwner = (*_turnCircle);
 
 
@@ -264,7 +347,7 @@ void Map::Update(float deltaTime)
 		else
 			_turnCircle++;
 
-	
+
 		for (std::list<SelfMoveObject*>::iterator itr = _turnList.begin(); itr != _turnList.end(); itr++)
 		{
 			if (_turnCircle == itr)
@@ -275,8 +358,6 @@ void Map::Update(float deltaTime)
 
 	}
 }
-
-
 void Map::render()
 {
 	for (int y = 0; y < _height; y++)

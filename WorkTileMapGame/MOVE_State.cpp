@@ -73,14 +73,6 @@ void MOVE_State::Stop()
 }
 void MOVE_State::Update(float deltaTime)
 {
-	//유사코드
-	//direction moveobejcet->getdirection
-	//(direction + tile위치값 ) == canmove?
-	//true
-	//move
-	//false
-	//not Moving
-
 	_movecheckTime += deltaTime;
 
 	if (_movecheckTime >= _moveObject->GetMovingTime())

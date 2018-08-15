@@ -17,8 +17,7 @@ SelfMoveObject::SelfMoveObject(std::wstring name) : TileObject()
 	_state = nullptr;
 	_name = name;
 	_tileLayer = eTileLayer::TileLayer_MIDLLE;
-	
-	_isMoving = false;
+
 }
 
 
@@ -57,9 +56,6 @@ void SelfMoveObject::Init(int activePoint,Position tilePosition,eTileLayer layer
 	_movingTime = 0.3f;
 
 	_tilePosition = tilePosition;
-
-	TileCell * tileCell = map->GetTileCell(_tilePosition);
-	tileCell->AddTileObject(this);
 }
 
 void SelfMoveObject::changeState(eState statetype)

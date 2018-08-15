@@ -20,6 +20,9 @@ enum eDirection
 	DIRCTION_NONE,
 };
 
+
+
+
 class SelfMoveObject : 	public TileObject
 {
 public:

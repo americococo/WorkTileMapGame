@@ -5,6 +5,7 @@
 
 Monster::Monster(std::wstring name):SelfMoveObject(name)
 {
+	_objectType = eObjectType::OBJECT_TYPE_MONSTER;
 }
 
 

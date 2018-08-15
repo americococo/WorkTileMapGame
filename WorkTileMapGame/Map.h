@@ -25,7 +25,7 @@ private:
 	void CreateMap();//¸Ê»ý¼º
 	void CreateMap_layer_Ground();
 	void CreateMap_layer(eTileLayer layer, bool canmove);
-	//void CreateMap_layer2();
+	void Create_Component();
 
 private:
 	int _width;
@@ -64,5 +64,8 @@ public:
 private:
 	std::list<SelfMoveObject*> _turnList;
 	std::list<SelfMoveObject*>::iterator _turnCircle;
+
+
+	void turnUpdate();
 };
 

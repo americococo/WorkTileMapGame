@@ -5,6 +5,8 @@ TileObject::TileObject(std::wstring name, Sprite * sprite, Position tilePosition
 	_sprite = sprite;
 	_tilePosition = tilePosition;
 	_tileLayer = tileLayer;
+
+	_objectType = eObjectType::OBJECT_TYPE_TILE;
 }
 
 TileObject::~TileObject()
