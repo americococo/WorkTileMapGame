@@ -43,6 +43,9 @@ protected:
 
 	eDirection _currentDirection;
 
+
+	Sprite * _wing;
+
 public:
 	void SetDirection(eDirection direction) { _currentDirection = direction; }
 	void SetPosition(float posX, float posY);

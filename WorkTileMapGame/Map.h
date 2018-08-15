@@ -24,7 +24,7 @@ public:
 private:
 	void CreateMap();//¸Ê»ý¼º
 	void CreateMap_layer_Ground();
-	void CreateMap_layer(eTileLayer layer, bool canmove);
+	void CreateMap_layer(eTileLayer layer);
 	void Create_Component();
 
 private:

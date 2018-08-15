@@ -88,11 +88,11 @@ void Map::CreateMap_layer_Ground()
 			}
 			line++;
 		}
-
+		initViewer(_tileMap[_width / 2 - 1][_height / 2 - 1]->GetTileObject(eTileLayer::TileLayer_GROUND));
 	}
 }
 
-void Map::CreateMap_layer(eTileLayer layer, bool canmove)
+void Map::CreateMap_layer(eTileLayer layer)
 {
 
 	std::wstring wName = _name;
@@ -163,7 +163,7 @@ void Map::CreateMap_layer(eTileLayer layer, bool canmove)
 void Map::CreateMap()
 {
 	CreateMap_layer_Ground();
-	CreateMap_layer(eTileLayer::TileLayer_MIDLLE, false);
+	CreateMap_layer(eTileLayer::TileLayer_MIDLLE);
 }
 void Map::Create_Component()
 {
@@ -212,9 +212,13 @@ void Map::Create_Component()
 
 							eTileLayer layer;
 
-							layer = (eTileLayer)(index / 100);
+							layer = (eTileLayer)(index / 1000);
+
+							int activepoint=( index / 100 - layer * 10  );
 
 							eObjectType objectType=(eObjectType)(index % 100);
+
+
 
 							SelfMoveObject * move;
 
@@ -222,14 +226,14 @@ void Map::Create_Component()
 							{
 							case OBJECT_TYPE_PLAYER:
 								move =new Player(L"player");
-								move->Init(3, tileposition, layer);
+								move->Init(activepoint, tileposition, layer);
 								tilecell->AddTileObject(move);
 
 								_turnList.push_back(move);
 								break;
 							case OBJECT_TYPE_MONSTER:
 								move = new Monster(L"monster");
-								move->Init(3, tileposition, layer);
+								move->Init(activepoint, tileposition, layer);
 								tilecell->AddTileObject(move);
 
 								_turnList.push_back(move);
@@ -291,7 +295,7 @@ void Map::Init()
 	CreateMap();
 	Create_Component();
 
-	initViewer(_tileMap[_width / 2 - 1][_height / 2 - 1]->GetTileObject(eTileLayer::TileLayer_GROUND));
+	
 
 }
 

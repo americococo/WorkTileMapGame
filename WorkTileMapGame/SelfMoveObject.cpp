@@ -16,6 +16,7 @@ SelfMoveObject::SelfMoveObject(std::wstring name) : TileObject()
 {
 	_state = nullptr;
 	_name = name;
+	_wing = nullptr;
 	_tileLayer = eTileLayer::TileLayer_MIDLLE;
 
 }
@@ -34,6 +35,12 @@ void SelfMoveObject::Init(int activePoint,Position tilePosition,eTileLayer layer
 
 	Map * map = ((GameScene*)SceneManager::GetInstance()->GetScene())->GetMap();
 
+	if (layer == eTileLayer::TileLayer_SKY)
+	{
+		_wing = new Sprite(L"./Sprite/wing/Sprite.png", L"./Sprite/wing/Sprite.json");
+		_wing->Init();
+		_wing->setPostition(_posX, _posY);
+	}
 	
 
 	_currentDirection = eDirection::DIRCTION_DOWN;
@@ -73,16 +80,26 @@ void SelfMoveObject::changeState(eState statetype)
 void SelfMoveObject::Update(float deltaTime)
 {
 	_state->Update(deltaTime);
+
+	if (_wing != nullptr)
+		_wing->Update(deltaTime);
 }
 void SelfMoveObject::SetPosition(float posX, float posY)
 {
 	_posX = posX;
 	_posY = posY;
+	
 }
 
 void SelfMoveObject::render()
 {
 	_state->render();
+
+	if (_wing != nullptr)
+	{
+		_wing->setPostition(_posX, _posY);
+		_wing->render();
+	}
 }
 void SelfMoveObject::DeInit()
 {
