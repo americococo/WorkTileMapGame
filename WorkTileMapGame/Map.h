@@ -67,5 +67,8 @@ private:
 
 
 	void turnUpdate();
+
+public:
+	void PushTurnList(SelfMoveObject * objcet);
 };
 

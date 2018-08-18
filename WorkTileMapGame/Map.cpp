@@ -276,6 +276,10 @@ void Map::Create_Component()
 
 
 }
+void Map::PushTurnList(SelfMoveObject * objcet)
+{
+	_turnList.push_back(objcet);
+}
 
 void Map::Init()
 {

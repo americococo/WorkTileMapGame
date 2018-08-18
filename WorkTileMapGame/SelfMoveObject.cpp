@@ -53,6 +53,8 @@ void SelfMoveObject::Init(WCHAR * TableFileName, Position tilePosition)
 	}
 
 
+	((GameScene*)SceneManager::GetInstance()->GetScene())->GetMap()->PushTurnList(this);
+
 	Map * map = ((GameScene*)SceneManager::GetInstance()->GetScene())->GetMap();
 
 	if (_tileLayer == eTileLayer::TileLayer_SKY)
