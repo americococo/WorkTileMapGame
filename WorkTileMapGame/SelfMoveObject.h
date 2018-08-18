@@ -1,5 +1,5 @@
 #pragma once
-#include "TileObject.h"
+#include "Object.h"
 #include <map>
 #include <string>
 
@@ -23,13 +23,13 @@ enum eDirection
 
 
 
-class SelfMoveObject : 	public TileObject
+class SelfMoveObject : 	public Object
 {
 public:
 	SelfMoveObject(std::wstring name);
 	~SelfMoveObject();
 
-	virtual void Init(int activePoint,Position tilePosition,eTileLayer tileLayer);
+	virtual void Init(WCHAR * TableFileName, Position tilePosition);
 	void Update(float deltaTime);
 	void render();
 	void DeInit();

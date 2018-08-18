@@ -7,3 +7,10 @@ Component::Component(std::wstring name)
 Component::~Component()
 {
 }
+void Component::ReciverMessage(MessageFrom msgFrom)
+{
+	if (L"Collison" == msgFrom.message)
+	{
+		//충돌처리
+	}
+}

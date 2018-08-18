@@ -12,7 +12,7 @@ public:
 	~Player();
 
 
-	void Init(int activePoint, Position tilePosition, eTileLayer layer);
+	void Init(WCHAR * TableFileName, Position tilePosition);
 
 	void UpdateMove();
 };

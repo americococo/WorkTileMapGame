@@ -19,37 +19,10 @@ Player::Player(std::wstring name):SelfMoveObject(name)
 Player::~Player()
 {
 }
-void Player::Init(int activePoint, Position tilePosition, eTileLayer layer)
+void Player::Init(WCHAR * TableFileName, Position tilePosition)
 {
-	_maxActivePoint = activePoint;
-
-	_tileLayer = layer;
-
-
-	Map * map = ((GameScene*)SceneManager::GetInstance()->GetScene())->GetMap();
-
-
-
-	_currentDirection = eDirection::DIRCTION_DOWN;
-
-	{
-		State * state = new IDLE_State();
-		state->Init(this);
-		_stateDirection[eState::STATE_IDLE] = state;
-	}
-
-	{
-		State * state = new MOVE_State();
-		state->Init(this);
-		_stateDirection[eState::STATE_MOVE] = state;
-	}
-
-
-	changeState(eState::STATE_IDLE);
-
-	_movingTime = 0.3f;
-
-	_tilePosition = tilePosition;
+	
+	SelfMoveObject::Init(TableFileName, tilePosition);
 
 }
 void Player::UpdateMove()

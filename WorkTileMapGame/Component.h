@@ -8,8 +8,9 @@ enum eObjectType
 	OBJECT_TYPE_TILE,
 	OBJECT_TYPE_PLAYER,
 	OBJECT_TYPE_MONSTER,
+	OBJECT_TYPE_ITEM,
 };
-
+#include "MessageFrom.h"
 class Component
 {
 public:
@@ -43,5 +44,11 @@ protected:
 public:
 	int GetTileX() { return _tilePosition.x; }
 	int GetTileY() { return _tilePosition.y; }
+
+
+
+	//¸Þ¼¼Áö
+
+	virtual void ReciverMessage(MessageFrom msgFrom);
 };
 

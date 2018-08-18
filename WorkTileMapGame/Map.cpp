@@ -9,8 +9,18 @@
 #include "SelfMoveObject.h"
 #include "Player.h"
 #include "Monster.h"
+
+#include "Item.h"
+
+#include "Object.h"
+
 #include <fstream>
+
+#include <reader.h>
+#include "ResourceManager.h"
 #include <string.h>
+#include "DataFrom.h"
+
 Map::Map(std::wstring name) :Component(name)
 {
 	_startX = _startY = 0.0f;
@@ -192,14 +202,14 @@ void Map::Create_Component()
 			{
 			case 0:
 				break;
-			case 1:
+			case 1://오브젝트 설치 형식 써있음
 				break;
 
 			default:
-				//맵데이터
 				if (NULL != token)
 				{
 					std::vector<TileCell*> rowList = _tileMap[row];
+					WCHAR DataFileName[256];
 					for (int x = 0; x < _width; x++)
 					{
 						if (strcmp(token,"NoBoady"))
@@ -212,46 +222,38 @@ void Map::Create_Component()
 							eTileLayer layer;
 							eObjectType objectType;
 							int activepoint;
+
+							Object * com;
+
 							char * tmp = strtok(token, ":");
 							{
 								if (!(strcmp(tmp, "Player")))
+								{
+									com = new Player(ConverCtoWC(tmp));
 									objectType = eObjectType::OBJECT_TYPE_PLAYER;
+								}
 								if (!(strcmp(tmp, "Monster")))
+								{
+									com = new Monster(ConverCtoWC(tmp));
 									objectType = eObjectType::OBJECT_TYPE_MONSTER;
 
-								tmp=strtok(NULL, ":");
-								activepoint = atoi(tmp);
+								}
+								if (!(strcmp(tmp, "Item")))
+								{
+									com = new Item(ConverCtoWC(tmp));
+									objectType = eObjectType::OBJECT_TYPE_ITEM;
 
+								}
 
 								tmp = strtok(NULL, ":");
-								layer = (eTileLayer)(atoi(tmp));
 
-								tmp = strtok(NULL, ":");
+								wsprintf(DataFileName, L"./ObjectData/%s.json", ConverCtoWC(tmp));
+
+								com->Init(DataFileName, tileposition);
+
+								tilecell->AddTileObject(com);
 							}
 
-
-							SelfMoveObject * move;
-
-							switch (objectType)
-							{
-							case OBJECT_TYPE_PLAYER:
-								move =new Player(L"player");
-								move->Init(activepoint, tileposition, layer);
-								tilecell->AddTileObject(move);
-
-								_turnList.push_back(move);
-								break;
-							case OBJECT_TYPE_MONSTER:
-								move = new Monster(L"monster");
-								move->Init(activepoint, tileposition, layer);
-								tilecell->AddTileObject(move);
-
-								_turnList.push_back(move);
-								break;
-							default:
-								break;
-							}
-							
 						}
 
 						token = strtok_s(NULL, ",",&context);

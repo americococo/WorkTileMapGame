@@ -12,7 +12,10 @@
 #include "MOVE_State.h"
 #include "GameSystem.h"
 
-SelfMoveObject::SelfMoveObject(std::wstring name) : TileObject()
+#include <reader.h>
+#include "ResourceManager.h"
+
+SelfMoveObject::SelfMoveObject(std::wstring name)
 {
 	_state = nullptr;
 	_name = name;
@@ -26,16 +29,33 @@ SelfMoveObject::~SelfMoveObject()
 {
 	
 }
-void SelfMoveObject::Init(int activePoint,Position tilePosition,eTileLayer layer)
+void SelfMoveObject::Init(WCHAR * TableFileName, Position tilePosition)
 {
-	_maxActivePoint = activePoint;
-	
-	_tileLayer = layer;
+	std::vector<std::string> ScriptList = ResourceManager::GetInstance()->LoadScript(TableFileName);
+
+	for (int i = 0; i < ScriptList.size(); i++)
+	{
+		std::string record = ScriptList[i];
+
+		//Sinfile.getline(inputBuffer, 100);
+
+		Json::Value root;
+		Json::Reader reader;
+
+		bool isSuccess = reader.parse(record, root);
+		if (isSuccess)
+		{
+
+			_maxActivePoint = root["ActivePoint"].asInt();
+			_tileLayer = (eTileLayer)root["layer"].asInt();
+
+		}
+	}
 
 
 	Map * map = ((GameScene*)SceneManager::GetInstance()->GetScene())->GetMap();
 
-	if (layer == eTileLayer::TileLayer_SKY)
+	if (_tileLayer == eTileLayer::TileLayer_SKY)
 	{
 		_wing = new Sprite(L"./Sprite/wing/Sprite.png", L"./Sprite/wing/Sprite.json");
 		_wing->Init();

@@ -5,10 +5,6 @@
       <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
       <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
     </Filter>
-    <Filter Include="헤더 파일">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
-    </Filter>
     <Filter Include="리소스 파일">
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
@@ -58,9 +54,6 @@
     <Filter Include="소스 파일\GameFilter\Component">
       <UniqueIdentifier>{5a16c0e4-53d4-4ed6-88c5-2a00f0e7a24c}</UniqueIdentifier>
     </Filter>
-    <Filter Include="소스 파일\GameFilter\Component\Self-MoveObject">
-      <UniqueIdentifier>{00709cf5-1c39-40ee-b23b-a943af31cc4d}</UniqueIdentifier>
-    </Filter>
     <Filter Include="소스 파일\GameFilter\Component\Map">
       <UniqueIdentifier>{3469ebb7-b336-4fe1-b555-7e91ac65dd0e}</UniqueIdentifier>
     </Filter>
@@ -70,23 +63,39 @@
     <Filter Include="소스 파일\GameFilter\Component\TileObject">
       <UniqueIdentifier>{48530139-28b6-4296-a897-5d187287e3b0}</UniqueIdentifier>
     </Filter>
-    <Filter Include="소스 파일\GameFilter\Component\Self-MoveObject\State">
-      <UniqueIdentifier>{6de88bcc-a5ad-40a7-a8f8-00688045b83e}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="소스 파일\GameFilter\Component\Self-MoveObject\State\IDLE_State">
-      <UniqueIdentifier>{acf01a26-e24d-4eb8-a8fd-7c339abea6e5}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="소스 파일\GameFilter\Component\Self-MoveObject\State\MOVE_State">
-      <UniqueIdentifier>{6c2fcc1c-1b6f-4b99-ad90-f8a5c083c325}</UniqueIdentifier>
-    </Filter>
     <Filter Include="소스 파일\GameFilter\dataStruct">
       <UniqueIdentifier>{c23613d6-4e7b-41ce-9349-404f8788fb2c}</UniqueIdentifier>
     </Filter>
-    <Filter Include="소스 파일\GameFilter\Component\Self-MoveObject\Player">
+    <Filter Include="소스 파일\GameSystem\MessageManager">
+      <UniqueIdentifier>{7e011fc5-1878-4955-ae92-be9df3cf892e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\GameFilter\Component\TileObject\Self-MoveObject">
+      <UniqueIdentifier>{00709cf5-1c39-40ee-b23b-a943af31cc4d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\GameFilter\Component\TileObject\Self-MoveObject\State">
+      <UniqueIdentifier>{6de88bcc-a5ad-40a7-a8f8-00688045b83e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\GameFilter\Component\TileObject\Self-MoveObject\State\IDLE_State">
+      <UniqueIdentifier>{acf01a26-e24d-4eb8-a8fd-7c339abea6e5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\GameFilter\Component\TileObject\Self-MoveObject\State\MOVE_State">
+      <UniqueIdentifier>{6c2fcc1c-1b6f-4b99-ad90-f8a5c083c325}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\GameFilter\Component\TileObject\Self-MoveObject\Player">
       <UniqueIdentifier>{6ea76792-6426-4ea8-a066-df073e14a041}</UniqueIdentifier>
     </Filter>
-    <Filter Include="소스 파일\GameFilter\Component\Self-MoveObject\Monster">
+    <Filter Include="소스 파일\GameFilter\Component\TileObject\Self-MoveObject\Monster">
       <UniqueIdentifier>{408d0c9e-51fa-4080-b12e-72bf7ce30557}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\GameFilter\Component\TileObject\Unself-MoveObject">
+      <UniqueIdentifier>{aa6d7099-d888-450d-b2e7-8b1309475622}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\GameFilter\Component\TileObject\Unself-MoveObject\Item">
+      <UniqueIdentifier>{2ff339b0-061f-4e50-8f45-0f437fd3f5e8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="헤더 파일">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -127,7 +136,7 @@
       <Filter>소스 파일\0Scene\Scene\GameScene</Filter>
     </ClCompile>
     <ClCompile Include="SelfMoveObject.cpp">
-      <Filter>소스 파일\GameFilter\Component\Self-MoveObject</Filter>
+      <Filter>소스 파일\GameFilter\Component\TileObject\Self-MoveObject</Filter>
     </ClCompile>
     <ClCompile Include="Component.cpp">
       <Filter>소스 파일\GameFilter\Component</Filter>
@@ -142,19 +151,31 @@
       <Filter>소스 파일\GameFilter\Component\TileObject</Filter>
     </ClCompile>
     <ClCompile Include="State.cpp">
-      <Filter>소스 파일\GameFilter\Component\Self-MoveObject\State</Filter>
+      <Filter>소스 파일\GameFilter\Component\TileObject\Self-MoveObject\State</Filter>
     </ClCompile>
     <ClCompile Include="IDLE_State.cpp">
-      <Filter>소스 파일\GameFilter\Component\Self-MoveObject\State\IDLE_State</Filter>
+      <Filter>소스 파일\GameFilter\Component\TileObject\Self-MoveObject\State\IDLE_State</Filter>
     </ClCompile>
     <ClCompile Include="MOVE_State.cpp">
-      <Filter>소스 파일\GameFilter\Component\Self-MoveObject\State\MOVE_State</Filter>
+      <Filter>소스 파일\GameFilter\Component\TileObject\Self-MoveObject\State\MOVE_State</Filter>
     </ClCompile>
     <ClCompile Include="Player.cpp">
-      <Filter>소스 파일\GameFilter\Component\Self-MoveObject\Player</Filter>
+      <Filter>소스 파일\GameFilter\Component\TileObject\Self-MoveObject\Player</Filter>
     </ClCompile>
     <ClCompile Include="Monster.cpp">
-      <Filter>소스 파일\GameFilter\Component\Self-MoveObject\Monster</Filter>
+      <Filter>소스 파일\GameFilter\Component\TileObject\Self-MoveObject\Monster</Filter>
+    </ClCompile>
+    <ClCompile Include="MessagePost.cpp">
+      <Filter>소스 파일\GameSystem\MessageManager</Filter>
+    </ClCompile>
+    <ClCompile Include="Item.cpp">
+      <Filter>소스 파일\GameFilter\Component\TileObject\Unself-MoveObject\Item</Filter>
+    </ClCompile>
+    <ClCompile Include="Object.cpp">
+      <Filter>소스 파일\GameFilter\Component\TileObject</Filter>
+    </ClCompile>
+    <ClCompile Include="DataFrom.cpp">
+      <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -192,7 +213,7 @@
       <Filter>소스 파일\0Scene\Scene\GameScene</Filter>
     </ClInclude>
     <ClInclude Include="SelfMoveObject.h">
-      <Filter>소스 파일\GameFilter\Component\Self-MoveObject</Filter>
+      <Filter>소스 파일\GameFilter\Component\TileObject\Self-MoveObject</Filter>
     </ClInclude>
     <ClInclude Include="Component.h">
       <Filter>소스 파일\GameFilter\Component</Filter>
@@ -207,22 +228,37 @@
       <Filter>소스 파일\GameFilter\Component\TileObject</Filter>
     </ClInclude>
     <ClInclude Include="State.h">
-      <Filter>소스 파일\GameFilter\Component\Self-MoveObject\State</Filter>
+      <Filter>소스 파일\GameFilter\Component\TileObject\Self-MoveObject\State</Filter>
     </ClInclude>
     <ClInclude Include="IDLE_State.h">
-      <Filter>소스 파일\GameFilter\Component\Self-MoveObject\State\IDLE_State</Filter>
+      <Filter>소스 파일\GameFilter\Component\TileObject\Self-MoveObject\State\IDLE_State</Filter>
     </ClInclude>
     <ClInclude Include="MOVE_State.h">
-      <Filter>소스 파일\GameFilter\Component\Self-MoveObject\State\MOVE_State</Filter>
+      <Filter>소스 파일\GameFilter\Component\TileObject\Self-MoveObject\State\MOVE_State</Filter>
     </ClInclude>
     <ClInclude Include="Position.h">
       <Filter>소스 파일\GameFilter\dataStruct</Filter>
     </ClInclude>
     <ClInclude Include="Player.h">
-      <Filter>소스 파일\GameFilter\Component\Self-MoveObject\Player</Filter>
+      <Filter>소스 파일\GameFilter\Component\TileObject\Self-MoveObject\Player</Filter>
     </ClInclude>
     <ClInclude Include="Monster.h">
-      <Filter>소스 파일\GameFilter\Component\Self-MoveObject\Monster</Filter>
+      <Filter>소스 파일\GameFilter\Component\TileObject\Self-MoveObject\Monster</Filter>
+    </ClInclude>
+    <ClInclude Include="MessageFrom.h">
+      <Filter>소스 파일\GameSystem\MessageManager</Filter>
+    </ClInclude>
+    <ClInclude Include="MessagePost.h">
+      <Filter>소스 파일\GameSystem\MessageManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Item.h">
+      <Filter>소스 파일\GameFilter\Component\TileObject\Unself-MoveObject\Item</Filter>
+    </ClInclude>
+    <ClInclude Include="Object.h">
+      <Filter>소스 파일\GameFilter\Component\TileObject</Filter>
+    </ClInclude>
+    <ClInclude Include="DataFrom.h">
+      <Filter>소스 파일</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
