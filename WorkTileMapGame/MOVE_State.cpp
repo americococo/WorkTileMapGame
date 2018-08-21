@@ -6,8 +6,11 @@
 #include "Map.h"
 
 #include "GameSystem.h"
-
+#include "TileCell.h"
 #include "Position.h"
+
+#include "MessagePost.h"
+#include "MessageFrom.h"
 MOVE_State::MOVE_State()
 {
 	
@@ -44,23 +47,34 @@ void MOVE_State::Start()
 		currenPos.y++;
 		break;
 	}
-	if (currenPos.x < 0)
-		currenPos.x = 0;
-	if (currenPos.y < 0)
-		currenPos.y = 0;
+
 
 	GameScene * gmScene = ((GameScene*)SceneManager::GetInstance()->GetScene());
 
-	if (gmScene->GetMap()->GetWidth() <= currenPos.x)
-		currenPos.x = currenPos.x - 1;
-	if (gmScene->GetMap()->GetHeight() <= currenPos.y)
-		currenPos.y= currenPos.y - 1;
+
 
 
 	if (false == gmScene->GetMap()->CanMove(currenPos,_moveObject->GetLayer()))
 	{
+		if (currenPos.x < 0 || currenPos.y < 0 || gmScene->GetMap()->GetWidth() <= currenPos.x || gmScene->GetMap()->GetHeight() <= currenPos.y)//예외처리 오브젝트가 맵밖으로 나가지지않기위함
+			return;
+
+		TileCell * tilecell = gmScene->GetMap()->GetTileCell(currenPos);
+
+		if (nullptr!= tilecell && eObjectType::OBJECT_TYPE_ITEM == tilecell->GetTileObject(eTileLayer::TileLayer_MIDLLE)->GetObjectType())
+		{
+			MessageFrom messagefrom;
+			messagefrom.message = L"UseItem";
+			messagefrom.sender = _moveObject;
+			messagefrom.reciver = gmScene->GetMap()->GetTileCell(currenPos)->GetTileObject(eTileLayer::TileLayer_MIDLLE);
+			gmScene->GetMap()->AddMessage(messagefrom);
+		}
+
 		_nextState = eState::STATE_IDLE;
 	}
+
+	
+
 	else
 	{
 		_moveObject->DecressActivePoint(1);

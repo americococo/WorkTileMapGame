@@ -20,5 +20,9 @@ public:
 
 private:
 	Sprite * _sprite;
+
+
+public:
+	void ReciverMessage(MessageFrom msgFrom);
 };
 

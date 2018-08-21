@@ -1,12 +1,23 @@
 #include "Item.h"
 
+
+#include "SceneManager.h"
+#include "GameScene.h"
+#include "Map.h"
+
 #include "ResourceManager.h"
 #include <reader.h>
 
+#include "DataFrom.h"
 
+
+#include "SceneManager.h"
+#include "GameScene.h"
+#include <wchar.h>
 Item::Item(std::wstring name)
 {
 	_name = name;
+	_objectType = eObjectType::OBJECT_TYPE_ITEM;
 }
 
 
@@ -59,4 +70,23 @@ void Item::render()
 void Item::DeInit()
 {
 	_sprite->deInit();
+}
+
+void Item::ReciverMessage(MessageFrom msgFrom)
+{
+	if (L"UseItem" == msgFrom.message)
+	{
+		if(0==wcscmp(_name.c_str(), L"Position"))
+		{
+			//reciver is me!!!
+
+			Map * map= ((GameScene*)SceneManager::GetInstance()->GetScene())->GetMap();
+			
+
+			//msgFrom.sender에게 체력회복
+
+			map->destroyComponent(_tilePosition,msgFrom.reciver);
+			
+		}
+	}
 }

@@ -2,6 +2,8 @@
 #include <queue>
 
 #include "MessageFrom.h"
+
+
 class MessagePost
 {
 public:
@@ -14,12 +16,17 @@ private:
 public:
 
 	
-	void SendMessageW(const MessageFrom & messageFrom);
+	void SendMessage(const MessageFrom & messageFrom);
 	void ProcessMessageQueue();
 
 	void Clear();
 
 
 	void Update();
+
+
+
+public:
+	void AddMessage(MessageFrom messagefrom);
 };
 

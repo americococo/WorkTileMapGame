@@ -46,7 +46,17 @@ void TileCell::Update(float deltaTime)
 		_componentList[_removeList.front()->GetLayer()] = nullptr;
 		_removeList.pop_front();
 	}
-	
+
+	while (false == _destroyList.empty())
+	{
+		 TileObject * object= _destroyList.front();
+		_componentList[_destroyList.front()->GetLayer()] = nullptr;
+		_destroyList.pop_front();
+
+		object->DeInit();
+		delete object;
+	}
+
 
 	for (std::map<eTileLayer, TileObject*>::iterator itr = _componentList.begin(); itr != _componentList.end(); itr++)
 	{
@@ -66,6 +76,10 @@ void TileCell::removeComponent(TileObject * tileobject)
 {
 	_removeList.push_back(tileobject);
 
+}
+void TileCell::destroyComponent(TileObject * tileobject)
+{
+	_destroyList.push_back(tileobject);
 }
 bool TileCell::CanMove(eTileLayer layer)
 {

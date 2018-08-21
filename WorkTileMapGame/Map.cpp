@@ -6,6 +6,10 @@
 
 #include "GameSystem.h"
 
+#include "SceneManager.h"
+#include "GameScene.h"
+#include "Map.h"
+
 #include "SelfMoveObject.h"
 #include "Player.h"
 #include "Monster.h"
@@ -20,12 +24,12 @@
 #include "ResourceManager.h"
 #include <string.h>
 #include "DataFrom.h"
-
+#include "MessagePost.h"
 Map::Map(std::wstring name) :Component(name)
 {
 	_startX = _startY = 0.0f;
 	_posX = _posY = 0.0f;
-
+	_messagepost = new MessagePost();
 }
 
 Map::~Map()
@@ -185,7 +189,7 @@ void Map::Create_Component()
 	sprintf(layer01Name, "./MapData/%s_", name.c_str());
 
 	char layer02Name[256];
-	sprintf(layer02Name, "%sComponent_Setting.csv", layer01Name);
+	sprintf(layer02Name, "%sComponent_Setting2.csv", layer01Name);
 
 	{
 		int row = 0;
@@ -342,6 +346,9 @@ void Map::Update(float deltaTime)
 	}
 
 	turnUpdate();
+
+
+	_messagepost->Update();
 }
 
 void Map::turnUpdate()
@@ -398,6 +405,8 @@ void Map::DeInit()
 			delete _tileMap[y][x];
 		}
 	}
+	_messagepost->Clear();
+	 delete _messagepost;
 }
 
 void Map::initViewer(TileObject * viewer)
@@ -442,7 +451,30 @@ void Map::removeComponent(Position tileposition, TileObject * tileobjet)
 {
 	_tileMap[tileposition.y][tileposition.x]->removeComponent(tileobjet);
 }
+void Map::destroyComponent(Position tileposition, TileObject * tileobjet)
+{
+	_tileMap[tileposition.y][tileposition.x]->destroyComponent(tileobjet);
+}
+
 bool Map::CanMove(Position tilePosition,eTileLayer layer)
 {
+	GameScene * gmScene = ((GameScene*)SceneManager::GetInstance()->GetScene());
+
+	if (tilePosition.x < 0)
+		return false;
+	if (tilePosition.y < 0)
+		return false;
+
+	if (gmScene->GetMap()->GetWidth() <= tilePosition.x)
+		return false;
+	if (gmScene->GetMap()->GetHeight() <= tilePosition.y)
+		return false;
+
 	return _tileMap[tilePosition.y][tilePosition.x]->CanMove(layer);
+}
+
+
+void Map::AddMessage(MessageFrom messagefrom)
+{
+	_messagepost->AddMessage(messagefrom);
 }

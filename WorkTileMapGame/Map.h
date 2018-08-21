@@ -10,6 +10,7 @@ class TileCell;
 class TileObject;
 enum eTileLayer;
 class SelfMoveObject;
+class MessagePost;
 class Map : public Component
 {
 public:
@@ -20,7 +21,7 @@ public:
 	void Update(float deltaTime);
 	void render();
 	void DeInit();
-
+	
 private:
 	void CreateMap();//¸Ê»ý¼º
 	void CreateMap_layer_Ground();
@@ -47,6 +48,7 @@ public:
 
 
 	void removeComponent(Position tileposition, TileObject * tileobjet);
+	void destroyComponent(Position tileposition, TileObject * tileobjet);
 
 	void setTileComponent(Position tilePos, TileObject * tileobjet);
 
@@ -70,5 +72,13 @@ private:
 
 public:
 	void PushTurnList(SelfMoveObject * objcet);
+
+
+private:
+	MessagePost * _messagepost;
+
+
+public:
+	void AddMessage(MessageFrom messagefrom);
 };
 

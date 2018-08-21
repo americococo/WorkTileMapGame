@@ -1,7 +1,8 @@
 #include "MessagePost.h"
 
+#include "MessageFrom.h"
 
-#include "Component.h"
+#include "TileObject.h"
 MessagePost::MessagePost()
 {
 }
@@ -11,7 +12,7 @@ MessagePost::~MessagePost()
 {
 }
 
-void MessagePost::SendMessageW(const MessageFrom & messageFrom)
+void MessagePost::SendMessage(const MessageFrom & messageFrom)
 {
 	_postQueue.push(messageFrom);
 }
@@ -21,6 +22,7 @@ void MessagePost::ProcessMessageQueue()
 	{
 		MessageFrom messageMail = _postQueue.front();
 		_postQueue.pop();
+
 		messageMail.reciver->ReciverMessage(messageMail);
 	}
 }
@@ -36,4 +38,8 @@ void MessagePost::Clear()
 	{
 		_postQueue.pop();
 	}
+}
+void MessagePost::AddMessage(MessageFrom messagefrom)
+{
+	_postQueue.push(messagefrom);
 }

@@ -50,5 +50,7 @@ public:
 	//¸Þ¼¼Áö
 
 	virtual void ReciverMessage(MessageFrom msgFrom);
+
+	eObjectType GetObjectType() { return _objectType; }
 };
 
