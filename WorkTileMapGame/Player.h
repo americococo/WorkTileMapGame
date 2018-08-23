@@ -3,6 +3,7 @@
 #include <string>
 enum eTileLayer;
 struct Position;
+class Font;
 
 class Player : 	public SelfMoveObject
 {
@@ -13,7 +14,11 @@ public:
 
 
 	void Init(WCHAR * TableFileName, Position tilePosition);
-
+	void Update(float deltaTime);
+	void render();
 	void UpdateMove();
+
+private:
+	Font * _font;
 };
 

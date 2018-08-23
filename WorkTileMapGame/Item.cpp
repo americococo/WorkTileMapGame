@@ -14,6 +14,8 @@
 #include "SceneManager.h"
 #include "GameScene.h"
 #include <wchar.h>
+
+#include "SelfMoveObject.h"
 Item::Item(std::wstring name)
 {
 	_name = name;
@@ -44,6 +46,7 @@ void Item::Init(WCHAR * TableFileName, Position tilePosition)
 			_name.clear();
 			_name.assign(name.begin(), name.end());
 			_tileLayer = (eTileLayer)root["layer"].asInt();
+			_effectPower = root["EffectPower"].asInt();
 		}
 	}
 
@@ -83,7 +86,7 @@ void Item::ReciverMessage(MessageFrom msgFrom)
 			Map * map= ((GameScene*)SceneManager::GetInstance()->GetScene())->GetMap();
 			
 
-			//msgFrom.sender에게 체력회복
+			((SelfMoveObject*)msgFrom.sender)->recovering(_effectPower);
 
 			map->destroyComponent(_tilePosition,msgFrom.reciver);
 			

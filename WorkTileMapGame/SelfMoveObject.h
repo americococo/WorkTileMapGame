@@ -5,6 +5,9 @@
 
 
 #include "Position.h"
+
+#include "LevelInfo.h"
+
 class Sprite;
 class State;
 
@@ -30,7 +33,7 @@ public:
 	~SelfMoveObject();
 
 	virtual void Init(WCHAR * TableFileName, Position tilePosition);
-	void Update(float deltaTime);
+	virtual void Update(float deltaTime);
 	void render();
 	void DeInit();
 
@@ -74,4 +77,11 @@ public:
 	bool IsActive() { return (0  < _activePoint); }
 	void InitActivePoint() { _activePoint = _maxActivePoint; }
 	void ResetActivePoint() { _activePoint = 0; }
+
+
+	void recovering(int recoveringPoint);
+
+protected:
+	sLevelInfo _levelInfo;
+
 };

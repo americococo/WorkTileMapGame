@@ -179,6 +179,7 @@
     <ClInclude Include="gameTimer.h" />
     <ClInclude Include="IDLE_State.h" />
     <ClInclude Include="Item.h" />
+    <ClInclude Include="LevelInfo.h" />
     <ClInclude Include="Map.h" />
     <ClInclude Include="MessageFrom.h" />
     <ClInclude Include="MessagePost.h" />

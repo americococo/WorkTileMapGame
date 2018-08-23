@@ -260,5 +260,8 @@
     <ClInclude Include="DataFrom.h">
       <Filter>소스 파일</Filter>
     </ClInclude>
+    <ClInclude Include="LevelInfo.h">
+      <Filter>소스 파일\GameFilter\dataStruct</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

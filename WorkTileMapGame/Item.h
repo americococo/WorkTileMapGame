@@ -22,6 +22,8 @@ private:
 	Sprite * _sprite;
 
 
+	int _effectPower;
+
 public:
 	void ReciverMessage(MessageFrom msgFrom);
 };

@@ -1,6 +1,8 @@
 #include "SelfMoveObject.h"
 
 #include "Sprite.h"
+#include "Font.h"
+
 
 #include "SceneManager.h"
 #include "GameScene.h"
@@ -21,7 +23,6 @@ SelfMoveObject::SelfMoveObject(std::wstring name)
 	_name = name;
 	_wing = nullptr;
 	_tileLayer = eTileLayer::TileLayer_MIDLLE;
-
 }
 
 
@@ -45,13 +46,22 @@ void SelfMoveObject::Init(WCHAR * TableFileName, Position tilePosition)
 		bool isSuccess = reader.parse(record, root);
 		if (isSuccess)
 		{
-
 			_maxActivePoint = root["ActivePoint"].asInt();
 			_tileLayer = (eTileLayer)root["layer"].asInt();
+			_levelInfo.Health_Point = root["Hp"].asInt();
+			_levelInfo.Mana_Point = root["Mp"].asInt();
 
+			_levelInfo.Attack_Point = root["AttackPoint"].asInt();
+			_levelInfo.Deffence_Point = root["DeffencePoint"].asInt();
 		}
 	}
+	
+	_levelInfo.Max_Health_Point = _levelInfo.Health_Point;
+	_levelInfo.Max_Mana_Point= _levelInfo.Mana_Point;
 
+	_levelInfo.Lv = 1;
+	_levelInfo.Max_Experience_Point = 100;
+	_levelInfo.Experience_Point = 0;
 
 	((GameScene*)SceneManager::GetInstance()->GetScene())->GetMap()->PushTurnList(this);
 
@@ -85,6 +95,8 @@ void SelfMoveObject::Init(WCHAR * TableFileName, Position tilePosition)
 	_movingTime = 0.3f;
 
 	_tilePosition = tilePosition;
+
+
 }
 
 void SelfMoveObject::changeState(eState statetype)
@@ -122,6 +134,8 @@ void SelfMoveObject::render()
 		_wing->setPostition(_posX, _posY);
 		_wing->render();
 	}
+
+
 }
 void SelfMoveObject::DeInit()
 {
@@ -129,23 +143,7 @@ void SelfMoveObject::DeInit()
 }
 void SelfMoveObject::UpdateMove()
 {
-	eDirection direction=eDirection::DIRCTION_NONE;
 
-	if (GameSystem::GetInstance()->IsKeyDown(VK_LEFT))
-		direction = eDirection::DIRCTION_LEFT;
-	if (GameSystem::GetInstance()->IsKeyDown(VK_RIGHT))
-		direction = eDirection::DIRCTION_RIGHT;
-	if (GameSystem::GetInstance()->IsKeyDown(VK_UP))
-		direction = eDirection::DIRCTION_UP;
-	if (GameSystem::GetInstance()->IsKeyDown(VK_DOWN))
-		direction = eDirection::DIRCTION_DOWN;
-
-
-	if (eDirection::DIRCTION_NONE != direction)
-	{
-		_currentDirection = direction;
-		_state->NextState(eState::STATE_MOVE);
-	}
 
 }
 
@@ -160,6 +158,13 @@ void SelfMoveObject::Moving(Position movingPos)
 	_tilePosition = movingPos;
 	map->setTileComponent(_tilePosition, this);
 }
+void SelfMoveObject::recovering(int recoveringPoint)
+{
+	_levelInfo.Health_Point += recoveringPoint;
+	if (_levelInfo.Health_Point >= _levelInfo.Max_Health_Point)
+		_levelInfo.Health_Point = _levelInfo.Max_Health_Point;
+}
+
 void SelfMoveObject::DecressActivePoint(int activePoint)
 {
 	_activePoint -= activePoint;
