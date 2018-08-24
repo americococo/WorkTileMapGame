@@ -52,7 +52,7 @@ std::vector<std::string> ResourceManager::LoadScript(std::wstring scriptFileName
 	std::vector<std::string > _scriptList;
 	while (!infile.eof())
 	{
-		infile.getline(record, 100);
+ 		infile.getline(record, 100);
 		 _scriptList.push_back(record);
 	}
 

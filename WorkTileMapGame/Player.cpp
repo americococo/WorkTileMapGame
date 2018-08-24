@@ -26,11 +26,16 @@ void Player::Init(WCHAR * TableFileName, Position tilePosition)
 	SelfMoveObject::Init(TableFileName, tilePosition);
 
 
+	SelfMoveObject::InitState();
+
 	D3DCOLOR color = D3DCOLOR_ARGB(255, 255, 255, 255);
 	_font = new Font(L"comicsans", 15, color);
 	_font->SetRect(100, 100, GameSystem::GetInstance()->GetWidth(), 100);
 
+	_enemy = eObjectType::OBJECT_TYPE_MONSTER;
+
 }
+
 void Player::Update(float deltaTime)
 {
 	SelfMoveObject::Update(deltaTime);

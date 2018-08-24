@@ -42,11 +42,21 @@ void Item::Init(WCHAR * TableFileName, Position tilePosition)
 		bool isSuccess = reader.parse(record, root);
 		if (isSuccess)
 		{		
-			std::string name = root["ItemName"].asString();
-			_name.clear();
-			_name.assign(name.begin(), name.end());
-			_tileLayer = (eTileLayer)root["layer"].asInt();
-			_effectPower = root["EffectPower"].asInt();
+			std::string name;
+			switch (i)
+			{
+			case 1:
+				 name = root["ItemName"].asString();
+				_name.clear();
+				_name.assign(name.begin(), name.end());
+				_tileLayer = (eTileLayer)root["layer"].asInt();
+				break;
+			case 2:
+				_effectPower = root["EffectPower"].asInt();
+				break;
+			}
+
+			
 		}
 	}
 
@@ -86,7 +96,7 @@ void Item::ReciverMessage(MessageFrom msgFrom)
 			Map * map= ((GameScene*)SceneManager::GetInstance()->GetScene())->GetMap();
 			
 
-			((SelfMoveObject*)msgFrom.sender)->recovering(_effectPower);
+			((SelfMoveObject*)msgFrom.sender)->recoveringHp(_effectPower);
 
 			map->destroyComponent(_tilePosition,msgFrom.reciver);
 			

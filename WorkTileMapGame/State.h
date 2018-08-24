@@ -7,6 +7,7 @@ enum eState
 {
 	STATE_IDLE,
 	STATE_MOVE,
+	STATE_ATTACK,
 	STATE_NONE,
 };
 

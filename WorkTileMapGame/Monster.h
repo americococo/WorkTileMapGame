@@ -6,6 +6,8 @@ public:
 	Monster(std::wstring name);
 	~Monster();
 
+
+	void Init(WCHAR * TableFileName, Position tilePosition);
 	void UpdateMove();
 };
 

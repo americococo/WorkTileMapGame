@@ -7,7 +7,7 @@
 #include "Position.h"
 
 #include "LevelInfo.h"
-
+#include "MessageFrom.h"
 class Sprite;
 class State;
 
@@ -55,7 +55,7 @@ public:
 
 public:
 	void changeState(eState changestate);
-
+	virtual void InitState();
 public:
 	eDirection GetDirection() { return _currentDirection; }
 
@@ -79,9 +79,30 @@ public:
 	void ResetActivePoint() { _activePoint = 0; }
 
 
-	void recovering(int recoveringPoint);
+	void recoveringHp(int recoveringPoint);
+	void DecressingHp(int DecressingPoint);
+	void ReciverMessage(MessageFrom msgFrom);
 
+	int GetMaxActivePoint() { return _maxActivePoint; }
 protected:
 	sLevelInfo _levelInfo;
+
+protected:
+	eObjectType _enemy;
+
+public:
+	eObjectType GetEnemy() { return _enemy; }
+
+
+protected:
+	Component * _target;
+
+public:
+	void SetTarget(Component * target) { _target = target; }
+
+	Component * GetTarget() { return _target; }
+
+public:
+	sLevelInfo GetStatus() { return _levelInfo; }
 
 };

@@ -12,6 +12,8 @@
 #include "State.h"
 #include "IDLE_State.h"
 #include "MOVE_State.h"
+#include "Attack_State.h"
+
 #include "GameSystem.h"
 
 #include <reader.h>
@@ -23,6 +25,10 @@ SelfMoveObject::SelfMoveObject(std::wstring name)
 	_name = name;
 	_wing = nullptr;
 	_tileLayer = eTileLayer::TileLayer_MIDLLE;
+
+
+
+	_target = nullptr;
 }
 
 
@@ -38,21 +44,28 @@ void SelfMoveObject::Init(WCHAR * TableFileName, Position tilePosition)
 	{
 		std::string record = ScriptList[i];
 
-		//Sinfile.getline(inputBuffer, 100);
-
 		Json::Value root;
 		Json::Reader reader;
 
 		bool isSuccess = reader.parse(record, root);
 		if (isSuccess)
 		{
-			_maxActivePoint = root["ActivePoint"].asInt();
-			_tileLayer = (eTileLayer)root["layer"].asInt();
-			_levelInfo.Health_Point = root["Hp"].asInt();
-			_levelInfo.Mana_Point = root["Mp"].asInt();
+			switch (i)
+			{
+			case 1:
+				_maxActivePoint = root["ActivePoint"].asInt();
+				_tileLayer = (eTileLayer)root["layer"].asInt();
+				break;
+			case 2:
+				_levelInfo.Health_Point = root["Hp"].asInt();
+				_levelInfo.Mana_Point = root["Mp"].asInt();
 
-			_levelInfo.Attack_Point = root["AttackPoint"].asInt();
-			_levelInfo.Deffence_Point = root["DeffencePoint"].asInt();
+				_levelInfo.Attack_Point = root["AttackPoint"].asInt();
+				_levelInfo.Deffence_Point = root["DeffencePoint"].asInt();
+				break;
+
+			}
+			
 		}
 	}
 	
@@ -77,6 +90,20 @@ void SelfMoveObject::Init(WCHAR * TableFileName, Position tilePosition)
 
 	_currentDirection = eDirection::DIRCTION_DOWN;
 
+
+
+	//InitState();
+
+
+	_movingTime = 0.3f;
+
+	_tilePosition = tilePosition;
+
+
+}
+void SelfMoveObject::InitState()
+{
+
 	{
 		State * state = new IDLE_State();
 		state->Init(this);
@@ -88,15 +115,13 @@ void SelfMoveObject::Init(WCHAR * TableFileName, Position tilePosition)
 		state->Init(this);
 		_stateDirection[eState::STATE_MOVE] = state;
 	}
-
+	{
+		State * state = new Attack_State();
+		state->Init(this);
+		_stateDirection[eState::STATE_ATTACK] = state;
+	}
 
 	changeState(eState::STATE_IDLE);
-
-	_movingTime = 0.3f;
-
-	_tilePosition = tilePosition;
-
-
 }
 
 void SelfMoveObject::changeState(eState statetype)
@@ -115,9 +140,11 @@ void SelfMoveObject::Update(float deltaTime)
 {
 	_state->Update(deltaTime);
 
+
 	if (_wing != nullptr)
 		_wing->Update(deltaTime);
 }
+
 void SelfMoveObject::SetPosition(float posX, float posY)
 {
 	_posX = posX;
@@ -144,7 +171,6 @@ void SelfMoveObject::DeInit()
 void SelfMoveObject::UpdateMove()
 {
 
-
 }
 
 void SelfMoveObject::Moving(Position movingPos)
@@ -158,11 +184,36 @@ void SelfMoveObject::Moving(Position movingPos)
 	_tilePosition = movingPos;
 	map->setTileComponent(_tilePosition, this);
 }
-void SelfMoveObject::recovering(int recoveringPoint)
+void SelfMoveObject::recoveringHp(int recoveringPoint)
 {
 	_levelInfo.Health_Point += recoveringPoint;
 	if (_levelInfo.Health_Point >= _levelInfo.Max_Health_Point)
 		_levelInfo.Health_Point = _levelInfo.Max_Health_Point;
+}
+void SelfMoveObject::DecressingHp(int DecressingPoint)
+{
+	_levelInfo.Health_Point -= DecressingPoint;
+	if (_levelInfo.Health_Point <= 0)
+	{
+		_levelInfo.Health_Point = 0;
+		Map * map = ((GameScene*)SceneManager::GetInstance()->GetScene())->GetMap();
+		map->GetTileCell(_tilePosition)->destroyComponent(this);
+	}
+}
+
+void SelfMoveObject::ReciverMessage(MessageFrom msgFrom)
+{
+	if (L"Attack" == msgFrom.message)
+	{
+		sLevelInfo stat = ((SelfMoveObject*)msgFrom.sender)->GetStatus();
+
+		int damage;
+		float deffenceRate = 0.01 * (100 - _levelInfo.Deffence_Point);
+
+		damage=(float)(stat.Attack_Point) *  deffenceRate;
+
+		DecressingHp(damage);
+	}
 }
 
 void SelfMoveObject::DecressActivePoint(int activePoint)

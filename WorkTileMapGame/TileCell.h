@@ -42,5 +42,8 @@ public:
 public:
 	bool CanMove(eTileLayer layer);
 
+
+
+
 };
 

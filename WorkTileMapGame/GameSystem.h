@@ -51,7 +51,7 @@ public:
 	int GetHeight();
 	LPD3DXSPRITE GetSprite();
 	LPDIRECT3DDEVICE9 GetDevice();
-
+	HWND GetHwnd() { return hWnd; }
 	//ют╥б
 
 public:

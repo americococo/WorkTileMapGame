@@ -152,7 +152,7 @@ void Map::CreateMap_layer(eTileLayer layer)
 
 						if (0 <= index)
 						{
-							TileCell* tilecell = rowList[x];
+ 							TileCell* tilecell = rowList[x];
 							WCHAR componetName[256];
 							wsprintf(componetName, L"MapData_layer%d_%d_%d",layer+1, line, x);
 							Position tileposition;

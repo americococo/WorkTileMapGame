@@ -13,6 +13,15 @@ Monster::~Monster()
 {
 }
 
+
+void Monster::Init(WCHAR * TableFileName,Position tilePosition)
+{
+	SelfMoveObject::Init(TableFileName, tilePosition);
+
+	SelfMoveObject::InitState();
+
+	_enemy = eObjectType::OBJECT_TYPE_PLAYER;
+}
 void Monster::UpdateMove()
 {
 	eDirection direction = eDirection::DIRCTION_NONE;

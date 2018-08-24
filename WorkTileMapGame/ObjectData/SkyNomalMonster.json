@@ -1,3 +1,4 @@
 [
-{"ActivePoint":3,"layer":2,"Hp":40,"Mp":25,"AttackPoint":60,"DeffencePoint":30}
+{"ActivePoint":3,"layer":2},
+{"Hp":10,"Mp":25,"AttackPoint":20,"DeffencePoint":80}
 ]

@@ -142,6 +142,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Attack_State.cpp" />
     <ClCompile Include="Component.cpp" />
     <ClCompile Include="DataFrom.cpp" />
     <ClCompile Include="Font.cpp" />
@@ -161,6 +162,7 @@
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="SceneManager.cpp" />
     <ClCompile Include="SelfMoveObject.cpp" />
+    <ClCompile Include="soundclass.cpp" />
     <ClCompile Include="Sprite.cpp" />
     <ClCompile Include="State.cpp" />
     <ClCompile Include="Texture.cpp" />
@@ -170,6 +172,7 @@
     <ClCompile Include="IDLE_State.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Attack_State.h" />
     <ClInclude Include="Component.h" />
     <ClInclude Include="DataFrom.h" />
     <ClInclude Include="Font.h" />
@@ -192,6 +195,7 @@
     <ClInclude Include="Scene.h" />
     <ClInclude Include="SceneManager.h" />
     <ClInclude Include="SelfMoveObject.h" />
+    <ClInclude Include="soundclass.h" />
     <ClInclude Include="Sprite.h" />
     <ClInclude Include="State.h" />
     <ClInclude Include="Texture.h" />

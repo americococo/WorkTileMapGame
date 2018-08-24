@@ -60,8 +60,8 @@ void MOVE_State::Start()
 			return;
 
 		TileCell * tilecell = gmScene->GetMap()->GetTileCell(currenPos);
-
-		if (nullptr!= tilecell && eObjectType::OBJECT_TYPE_ITEM == tilecell->GetTileObject(eTileLayer::TileLayer_MIDLLE)->GetObjectType())
+		
+		if (nullptr!= tilecell && eObjectType::OBJECT_TYPE_ITEM == tilecell->GetTileObject(_moveObject->GetLayer())->GetObjectType())
 		{
 			MessageFrom messagefrom;
 			messagefrom.message = L"UseItem";
@@ -70,7 +70,18 @@ void MOVE_State::Start()
 			gmScene->GetMap()->AddMessage(messagefrom);
 		}
 
-		_nextState = eState::STATE_IDLE;
+		if (nullptr != tilecell && _moveObject->GetEnemy() == tilecell->GetTileObject(_moveObject->GetLayer())->GetObjectType())
+		{
+
+			_moveObject->SetTarget(tilecell->GetTileObject(_moveObject->GetLayer()));
+			_nextState = eState::STATE_ATTACK;
+
+		}
+
+		else
+		{
+			_nextState = eState::STATE_IDLE;
+		}
 	}
 
 	
