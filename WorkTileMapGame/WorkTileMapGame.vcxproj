@@ -158,11 +158,12 @@
     <ClCompile Include="MOVE_State.cpp" />
     <ClCompile Include="Object.cpp" />
     <ClCompile Include="Player.cpp" />
+    <ClCompile Include="Position.cpp" />
     <ClCompile Include="ResourceManager.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="SceneManager.cpp" />
     <ClCompile Include="SelfMoveObject.cpp" />
-    <ClCompile Include="soundclass.cpp" />
+    <ClCompile Include="Skill_State.cpp" />
     <ClCompile Include="Sprite.cpp" />
     <ClCompile Include="State.cpp" />
     <ClCompile Include="Texture.cpp" />
@@ -195,7 +196,7 @@
     <ClInclude Include="Scene.h" />
     <ClInclude Include="SceneManager.h" />
     <ClInclude Include="SelfMoveObject.h" />
-    <ClInclude Include="soundclass.h" />
+    <ClInclude Include="Skill_State.h" />
     <ClInclude Include="Sprite.h" />
     <ClInclude Include="State.h" />
     <ClInclude Include="Texture.h" />

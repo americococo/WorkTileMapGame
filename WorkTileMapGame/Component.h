@@ -10,6 +10,7 @@ enum eObjectType
 	OBJECT_TYPE_MONSTER,
 	OBJECT_TYPE_ITEM,
 };
+
 #include "MessageFrom.h"
 class Component
 {

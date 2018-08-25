@@ -455,7 +455,20 @@ void Map::destroyComponent(Position tileposition, TileObject * tileobjet)
 {
 	_tileMap[tileposition.y][tileposition.x]->destroyComponent(tileobjet);
 }
+void Map::destroythisLayerComponent(eTileLayer tileLayer)
+{
+	for (int y = 0; y < _height; y++)
+	{
+		for (int x = 0; x < _width; x++)
+		{
+			Position position;
+			position.x = x;
+			position.y = y;
+			_tileMap[position.y][position.x]->destroyLayer(tileLayer);
+		}
+	}
 
+}
 bool Map::CanMove(Position tilePosition,eTileLayer layer)
 {
 	GameScene * gmScene = ((GameScene*)SceneManager::GetInstance()->GetScene());

@@ -13,6 +13,8 @@
 #include "IDLE_State.h"
 #include "MOVE_State.h"
 #include "Attack_State.h"
+#include "Skill_State.h"
+
 
 #include "GameSystem.h"
 
@@ -138,6 +140,9 @@ void SelfMoveObject::changeState(eState statetype)
 
 void SelfMoveObject::Update(float deltaTime)
 {
+	if (_activePoint <= 0)
+		return;
+
 	_state->Update(deltaTime);
 
 
@@ -155,6 +160,7 @@ void SelfMoveObject::SetPosition(float posX, float posY)
 void SelfMoveObject::render()
 {
 	_state->render();
+	
 
 	if (_wing != nullptr)
 	{
@@ -221,4 +227,124 @@ void SelfMoveObject::DecressActivePoint(int activePoint)
 	_activePoint -= activePoint;
 	if (_activePoint <= 0)
 		_activePoint = 0;
+}
+
+void SelfMoveObject::StartSkill()
+{
+	Map * map = ((GameScene*)SceneManager::GetInstance()->GetScene())->GetMap();
+
+
+	for (int y = 0; y < map->GetHeight(); y++)
+	{
+		for (int x = 0; x < map->GetWidth(); x++)
+		{
+			Position position;
+			position.x = x;
+			position.y = y;
+			TileCell* tileCell = map->GetTileCell(position);
+			tileCell->InitPathfinding();
+		}
+	}
+	_currentWave = 0;
+	_waveTileCellList.clear();
+	_waveCheckingTime = 0.0f;
+	switch (_skillType)
+	{
+	case SKILLTYPE_RANGEATTACK:
+		_RangeAttackQueue.push(map->GetTileCell(_tilePosition));
+
+
+		while (0 != _RangeAttackQueue.size())
+		{
+			TileCell* tileCell = _RangeAttackQueue.front();
+			_RangeAttackQueue.pop();
+
+			if (false == tileCell->IsPathFindingMark())
+			{
+				tileCell->PathFinded();
+				float distanceFromStart;
+				for (int direction = 0; direction < eDirection::DIRCTION_NONE; direction++)
+				{
+					Position currentTilePos;
+					currentTilePos.x = tileCell->GetTileX();
+					currentTilePos.y = tileCell->GetTileY();
+					Position nextTilePos = GetNextTilePosition(currentTilePos, (eDirection)direction);
+
+					Map* map = ((GameScene*)SceneManager::GetInstance()->GetScene())->GetMap();
+					TileCell* currentTileCell = map->GetTileCell(currentTilePos);
+					TileCell* nextTileCell = map->GetTileCell(nextTilePos);
+
+					if (false == nextTileCell->IsPathFindingMark())
+					{
+						distanceFromStart = currentTileCell->GetDistanceFromStart() + 1.0f;
+						if (_activePoint == (int)distanceFromStart)
+							break;
+						nextTileCell->SetDistanceFromStart(distanceFromStart);
+						nextTileCell->SetPrevPathFindingCell(tileCell);
+						_RangeAttackQueue.push(nextTileCell);
+						_waveTileCellList[(int)distanceFromStart].push_back(nextTileCell);
+					}
+				}
+			}
+		}
+
+	}
+
+}
+void SelfMoveObject::AttackEffectWave(int waveIndex)
+{
+	if (waveIndex == _activePoint)
+		return;
+	int i = 0;
+	for (std::vector<TileCell*>::iterator itr = _waveTileCellList[waveIndex].begin(); itr != _waveTileCellList[waveIndex].end(); itr++)
+	{
+
+		std::list<Component*> collisionList;
+		(*itr)->GetCollisionList(collisionList);
+
+		i++;
+		Sprite* sprite = new Sprite(L"./Sprite/Attack/Wave.png", L"./Sprite/Attack/Wave.json");
+		sprite->Init();
+
+		WCHAR componetName[256];
+		wsprintf(componetName, L"Wave_%d_%d",waveIndex,i);
+
+		Position position;
+		position.x = (*itr)->GetPositionX();
+		position.y = (*itr)->GetPositionY();
+		TileObject * tileObject = new TileObject(componetName, sprite, position, eTileLayer::TileLayer_OVER);
+		tileObject->Init();
+
+		(*itr)->AddTileObject(tileObject);
+
+		for (std::list<Component*>::iterator itCollision = collisionList.begin(); itCollision != collisionList.end(); itCollision++)
+		{
+			SelfMoveObject * move = (SelfMoveObject*)(*itCollision);
+			MessageFrom msgParam;
+			msgParam.sender = this;
+			msgParam.reciver = move;
+			msgParam.message = L"Attack";
+			Map* map = ((GameScene*)SceneManager::GetInstance()->GetScene())->GetMap();
+			map->AddMessage(msgParam);
+		}
+	}
+}
+void SelfMoveObject::UpdateSkill(float deltaTime)
+{
+	_waveCheckingTime += deltaTime;
+
+
+	if (_waveCheckingTime <= 0.3f)
+	{
+		AttackEffectWave(_currentWave);
+		_currentWave++;
+	}
+
+	if (_currentWave >= _activePoint&& _waveCheckingTime>=0.3f)
+	{
+		_waveCheckingTime = 0.0f;
+		_state->NextState(eState::STATE_IDLE);
+		Map* map = ((GameScene*)SceneManager::GetInstance()->GetScene())->GetMap();
+		map->destroythisLayerComponent(eTileLayer::TileLayer_OVER);
+	}
 }

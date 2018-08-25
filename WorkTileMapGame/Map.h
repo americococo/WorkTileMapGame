@@ -54,7 +54,7 @@ public:
 
 
 	bool CanMove(Position tilePosition,eTileLayer layer);
-
+	void destroythisLayerComponent(eTileLayer tileLayer);
 
 	//Map 그리기 중심 맞추기 관련
 private:

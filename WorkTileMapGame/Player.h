@@ -18,6 +18,9 @@ public:
 	void render();
 	void UpdateMove();
 
+
+
+	void InitState();
 private:
 	Font * _font;
 };

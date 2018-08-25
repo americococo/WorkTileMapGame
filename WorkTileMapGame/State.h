@@ -8,7 +8,9 @@ enum eState
 	STATE_IDLE,
 	STATE_MOVE,
 	STATE_ATTACK,
+	STATE_SKILL,
 	STATE_NONE,
+	
 };
 
 enum eDirection;

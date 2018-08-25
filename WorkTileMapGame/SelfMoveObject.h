@@ -2,18 +2,23 @@
 #include "Object.h"
 #include <map>
 #include <string>
-
-
+#include <queue>
+#include <vector>
 #include "Position.h"
 
 #include "LevelInfo.h"
 #include "MessageFrom.h"
+
+
+
 class Sprite;
 class State;
+class TileCell;
+
 
 enum eState;
 enum eTileLayer;
-
+enum SkillType;
 enum eDirection
 {
 	DIRCTION_LEFT,
@@ -105,4 +110,29 @@ public:
 public:
 	sLevelInfo GetStatus() { return _levelInfo; }
 
+
+protected:
+	SkillType _skillType;
+	
+public:
+	void SetSkillType(SkillType skilltype) { _skillType = skilltype; }
+	SkillType GetSkillType() { return _skillType; }
+
+
+	void StartSkill();
+	void UpdateSkill(float deltaTime);
+
+private:
+	int _currentWave;
+
+	std::queue <TileCell *>  _RangeAttackQueue;
+
+	std::map<int,std::vector<TileCell*>> _waveTileCellList;
+
+
+	void AttackEffectWave(int waveIndex);
+
+
+	float _waveCheckingTime;
+	
 };

@@ -100,6 +100,9 @@
     <Filter Include="소스 파일\GameFilter\Component\TileObject\Self-MoveObject\State\ATTACK_State">
       <UniqueIdentifier>{426df834-de7e-46a8-a602-cd09fd671852}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\GameFilter\Component\TileObject\Self-MoveObject\State\Skill_State">
+      <UniqueIdentifier>{427ce525-1042-4d18-8d51-9de3740c8803}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -183,8 +186,11 @@
     <ClCompile Include="Attack_State.cpp">
       <Filter>소스 파일\GameFilter\Component\TileObject\Self-MoveObject\State\ATTACK_State</Filter>
     </ClCompile>
-    <ClCompile Include="soundclass.cpp">
-      <Filter>소스 파일\GameSystem</Filter>
+    <ClCompile Include="Skill_State.cpp">
+      <Filter>소스 파일\GameFilter\Component\TileObject\Self-MoveObject\State\Skill_State</Filter>
+    </ClCompile>
+    <ClCompile Include="Position.cpp">
+      <Filter>소스 파일\GameFilter\dataStruct</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -275,8 +281,8 @@
     <ClInclude Include="Attack_State.h">
       <Filter>소스 파일\GameFilter\Component\TileObject\Self-MoveObject\State\ATTACK_State</Filter>
     </ClInclude>
-    <ClInclude Include="soundclass.h">
-      <Filter>소스 파일\GameSystem</Filter>
+    <ClInclude Include="Skill_State.h">
+      <Filter>소스 파일\GameFilter\Component\TileObject\Self-MoveObject\State\Skill_State</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -11,7 +11,7 @@ TileCell::~TileCell()
 }
 void TileCell::Init()
 {
-
+	InitPathfinding();
 }
 void TileCell::DeInit()
 {
@@ -41,19 +41,18 @@ void TileCell::AddTileObject(TileObject * tileobject)
 
 void TileCell::Update(float deltaTime)
 {
-	while (false == _removeList.empty())
+	while (0!=_removeList.size())
 	{
 		_componentList[_removeList.front()->GetLayer()] = nullptr;
 		_removeList.pop_front();
 	}
 
-	while (false == _destroyList.empty())
+	while (0!=_destroyList.size())
 	{
 		 TileObject * object= _destroyList.front();
 		_componentList[_destroyList.front()->GetLayer()] = nullptr;
 		_destroyList.pop_front();
 
-		object->DeInit();
 		delete object;
 	}
 
@@ -64,6 +63,21 @@ void TileCell::Update(float deltaTime)
 			itr->second->Update(deltaTime);
 	}
 }
+bool TileCell::GetCollisionList(std::list<Component*>& collisionList)
+{
+	for (std::map<eTileLayer, TileObject*>::iterator itr = _componentList.begin(); itr != _componentList.end(); itr++)
+	{
+		if (itr->second!=nullptr && itr->second->GetObjectType() != eObjectType::OBJECT_TYPE_TILE)
+		{
+			collisionList.push_back((itr->second));
+		}
+	}
+	if (0 == collisionList.size())
+		return true;
+	else
+		return false;
+}
+
 void TileCell::render()
 {
 	for (std::map<eTileLayer, TileObject*>::iterator itr = _componentList.begin(); itr != _componentList.end(); itr++)
@@ -81,9 +95,22 @@ void TileCell::destroyComponent(TileObject * tileobject)
 {
 	_destroyList.push_back(tileobject);
 }
+
+void TileCell::destroyLayer(eTileLayer tileLayer)
+{
+	if (_componentList[tileLayer] != nullptr)
+		_destroyList.push_back(_componentList[tileLayer]);
+}
 bool TileCell::CanMove(eTileLayer layer)
 {
 	if (nullptr != _componentList[layer])
 		return false;
 	return true;
+}
+void TileCell::InitPathfinding()
+{
+	_isPathfindingMark = false;
+	_prePathfindingCell = NULL;
+	_distanceFromStart = 0.0f;
+	_heuristic = 0.0f;
 }
