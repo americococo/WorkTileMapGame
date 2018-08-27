@@ -235,6 +235,7 @@ void Map::Create_Component()
 								{
 									com = new Player(ConverCtoWC(tmp));
 									objectType = eObjectType::OBJECT_TYPE_PLAYER;
+									_player = (Player*)com;
 								}
 								if (!(strcmp(tmp, "Monster")))
 								{

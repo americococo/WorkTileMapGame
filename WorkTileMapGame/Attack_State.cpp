@@ -34,6 +34,8 @@ void Attack_State::Start()
 	((GameScene*)SceneManager::GetInstance()->GetScene())->GetMap()->AddMessage(from);
 
 	_moveObject->DecressActivePoint(_moveObject->GetMaxActivePoint());
+
+	_moveObject->ResetTarget();
 }
 void Attack_State::Stop()
 {

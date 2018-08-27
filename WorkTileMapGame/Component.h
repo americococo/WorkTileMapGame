@@ -46,7 +46,7 @@ public:
 	int GetTileX() { return _tilePosition.x; }
 	int GetTileY() { return _tilePosition.y; }
 
-
+	Position GetTilePosition() { return _tilePosition; }
 
 	//¸Þ¼¼Áö
 

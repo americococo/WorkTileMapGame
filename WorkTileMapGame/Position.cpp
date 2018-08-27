@@ -31,3 +31,21 @@ Position GetNextTilePosition(Position  currentTilePos, eDirection direction)
 		tilePosition.y--;
 	return tilePosition;
 }
+eDirection GetDirection(Position to, Position from)
+{
+	eDirection direction;
+
+	direction = eDirection::DIRCTION_NONE;
+
+	if (to.x > from.x)
+		direction = eDirection::DIRCTION_RIGHT;
+	else if (to.x < from.x)
+		direction = eDirection::DIRCTION_LEFT;
+
+	else if (to.y > from.y)
+		direction = eDirection::DIRCTION_DOWN;
+	else if (to.y < from.y)
+		direction = eDirection::DIRCTION_UP;
+
+	return direction;
+}

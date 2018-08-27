@@ -92,11 +92,6 @@ void SelfMoveObject::Init(WCHAR * TableFileName, Position tilePosition)
 
 	_currentDirection = eDirection::DIRCTION_DOWN;
 
-
-
-	//InitState();
-
-
 	_movingTime = 0.3f;
 
 	_tilePosition = tilePosition;
@@ -178,7 +173,18 @@ void SelfMoveObject::UpdateMove()
 {
 
 }
-
+Component * SelfMoveObject::Colision(std::list<Component*>& colisionList)
+{
+	for (std::list<Component*>::iterator itr = colisionList.begin(); itr != colisionList.end(); itr++)
+	{
+		Component * com = (*itr);
+		if (com->GetObjectType() == _enemy)
+		{
+			return  (*itr);
+		}
+	}
+	return nullptr;
+}
 void SelfMoveObject::Moving(Position movingPos)
 {
 	if (movingPos.x == _tilePosition.x && movingPos.y == _tilePosition.y)
@@ -226,7 +232,9 @@ void SelfMoveObject::DecressActivePoint(int activePoint)
 {
 	_activePoint -= activePoint;
 	if (_activePoint <= 0)
+	{
 		_activePoint = 0;
+	}
 }
 
 void SelfMoveObject::StartSkill()
@@ -346,5 +354,12 @@ void SelfMoveObject::UpdateSkill(float deltaTime)
 		_state->NextState(eState::STATE_IDLE);
 		Map* map = ((GameScene*)SceneManager::GetInstance()->GetScene())->GetMap();
 		map->destroythisLayerComponent(eTileLayer::TileLayer_OVER);
+	}
+}
+void SelfMoveObject::ClearPathTileCellStack()
+{
+	while (0 != _pathTileCellStack.size())
+	{
+		_pathTileCellStack.pop();
 	}
 }

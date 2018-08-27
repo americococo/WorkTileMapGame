@@ -9,5 +9,7 @@ public:
 
 	void Init(WCHAR * TableFileName, Position tilePosition);
 	void UpdateMove();
+
+	void InitState();
 };
 

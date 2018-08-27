@@ -1,11 +1,4 @@
-﻿  SelfMoveObject.cpp
-d:\github\worktilemapgame\worktilemapgame\selfmoveobject.cpp(45): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
-d:\github\worktilemapgame\worktilemapgame\selfmoveobject.cpp(65): warning C4244: '=': 'Json::Value::Int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-d:\github\worktilemapgame\worktilemapgame\selfmoveobject.cpp(66): warning C4244: '=': 'Json::Value::Int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-d:\github\worktilemapgame\worktilemapgame\selfmoveobject.cpp(217): warning C4244: '초기화 중': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-d:\github\worktilemapgame\worktilemapgame\selfmoveobject.cpp(219): warning C4244: '=': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-d:\github\worktilemapgame\worktilemapgame\selfmoveobject.cpp(313): warning C4244: '=': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-d:\github\worktilemapgame\worktilemapgame\selfmoveobject.cpp(314): warning C4244: '=': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+﻿  PathMove_State.cpp
 json_vc71_libmtd.lib(json_reader.obj) : warning LNK4099: 'lib_json.pdb' PDB를 'json_vc71_libmtd.lib(json_reader.obj)' 또는 'D:\GitHub\WorkTileMapGame\Debug\lib_json.pdb'에서 찾을 수 없습니다. 디버그 정보가 없는 것처럼 개체를 링크합니다.
 json_vc71_libmtd.lib(json_value.obj) : warning LNK4099: 'lib_json.pdb' PDB를 'json_vc71_libmtd.lib(json_value.obj)' 또는 'D:\GitHub\WorkTileMapGame\Debug\lib_json.pdb'에서 찾을 수 없습니다. 디버그 정보가 없는 것처럼 개체를 링크합니다.
 json_vc71_libmtd.lib(json_writer.obj) : warning LNK4099: 'lib_json.pdb' PDB를 'json_vc71_libmtd.lib(json_writer.obj)' 또는 'D:\GitHub\WorkTileMapGame\Debug\lib_json.pdb'에서 찾을 수 없습니다. 디버그 정보가 없는 것처럼 개체를 링크합니다.

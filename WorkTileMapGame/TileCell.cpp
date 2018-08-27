@@ -77,7 +77,6 @@ bool TileCell::GetCollisionList(std::list<Component*>& collisionList)
 	else
 		return false;
 }
-
 void TileCell::render()
 {
 	for (std::map<eTileLayer, TileObject*>::iterator itr = _componentList.begin(); itr != _componentList.end(); itr++)
@@ -110,7 +109,7 @@ bool TileCell::CanMove(eTileLayer layer)
 void TileCell::InitPathfinding()
 {
 	_isPathfindingMark = false;
-	_prePathfindingCell = NULL;
+	_prePathfindingCell = nullptr;
 	_distanceFromStart = 0.0f;
 	_heuristic = 0.0f;
 }

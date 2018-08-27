@@ -157,6 +157,8 @@
     <ClCompile Include="Monster.cpp" />
     <ClCompile Include="MOVE_State.cpp" />
     <ClCompile Include="Object.cpp" />
+    <ClCompile Include="PathFind_State.cpp" />
+    <ClCompile Include="PathMove_State.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Position.cpp" />
     <ClCompile Include="ResourceManager.cpp" />
@@ -190,6 +192,8 @@
     <ClInclude Include="Monster.h" />
     <ClInclude Include="MOVE_State.h" />
     <ClInclude Include="Object.h" />
+    <ClInclude Include="PathFind_State.h" />
+    <ClInclude Include="PathMove_State.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="Position.h" />
     <ClInclude Include="ResourceManager.h" />

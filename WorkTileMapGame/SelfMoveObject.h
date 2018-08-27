@@ -4,6 +4,8 @@
 #include <string>
 #include <queue>
 #include <vector>
+#include <stack>
+#include <list>
 #include "Position.h"
 
 #include "LevelInfo.h"
@@ -45,7 +47,6 @@ public:
 	
 
 protected:
-
 	std::map<eState, State*> _stateDirection;
 	State * _state;
 
@@ -67,7 +68,7 @@ public:
 	virtual void UpdateMove();
 
 	void Moving(Position movingPos);
-
+	Component * Colision(std::list<Component*>& colisionList);
 protected:
 	float _movingTime;
 public:
@@ -106,7 +107,7 @@ public:
 	void SetTarget(Component * target) { _target = target; }
 
 	Component * GetTarget() { return _target; }
-
+	void ResetTarget() { _target = nullptr; }
 public:
 	sLevelInfo GetStatus() { return _levelInfo; }
 
@@ -134,5 +135,15 @@ private:
 
 
 	float _waveCheckingTime;
-	
+
+
+private:
+	std::stack<TileCell*> _pathTileCellStack;
+
+public:
+	std::stack<TileCell*> GetTileCellStack() { return _pathTileCellStack; }
+	void PushTileCell(TileCell* tileCell) { _pathTileCellStack.push(tileCell); }
+
+
+	void ClearPathTileCellStack();
 };

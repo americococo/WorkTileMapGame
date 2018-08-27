@@ -72,15 +72,6 @@
     <Filter Include="소스 파일\GameFilter\Component\TileObject\Self-MoveObject">
       <UniqueIdentifier>{00709cf5-1c39-40ee-b23b-a943af31cc4d}</UniqueIdentifier>
     </Filter>
-    <Filter Include="소스 파일\GameFilter\Component\TileObject\Self-MoveObject\State">
-      <UniqueIdentifier>{6de88bcc-a5ad-40a7-a8f8-00688045b83e}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="소스 파일\GameFilter\Component\TileObject\Self-MoveObject\State\IDLE_State">
-      <UniqueIdentifier>{acf01a26-e24d-4eb8-a8fd-7c339abea6e5}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="소스 파일\GameFilter\Component\TileObject\Self-MoveObject\State\MOVE_State">
-      <UniqueIdentifier>{6c2fcc1c-1b6f-4b99-ad90-f8a5c083c325}</UniqueIdentifier>
-    </Filter>
     <Filter Include="소스 파일\GameFilter\Component\TileObject\Self-MoveObject\Player">
       <UniqueIdentifier>{6ea76792-6426-4ea8-a066-df073e14a041}</UniqueIdentifier>
     </Filter>
@@ -97,11 +88,29 @@
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
       <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
     </Filter>
-    <Filter Include="소스 파일\GameFilter\Component\TileObject\Self-MoveObject\State\ATTACK_State">
+    <Filter Include="소스 파일\GameFilter\dataStruct\State">
+      <UniqueIdentifier>{6de88bcc-a5ad-40a7-a8f8-00688045b83e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\GameFilter\dataStruct\State\IDLE_State">
+      <UniqueIdentifier>{acf01a26-e24d-4eb8-a8fd-7c339abea6e5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\GameFilter\dataStruct\State\MOVE_State">
+      <UniqueIdentifier>{6c2fcc1c-1b6f-4b99-ad90-f8a5c083c325}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\GameFilter\dataStruct\State\ATTACK_State">
       <UniqueIdentifier>{426df834-de7e-46a8-a602-cd09fd671852}</UniqueIdentifier>
     </Filter>
-    <Filter Include="소스 파일\GameFilter\Component\TileObject\Self-MoveObject\State\Skill_State">
+    <Filter Include="소스 파일\GameFilter\dataStruct\State\Skill_State">
       <UniqueIdentifier>{427ce525-1042-4d18-8d51-9de3740c8803}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\GameFilter\dataStruct\State\PathFinding">
+      <UniqueIdentifier>{e443432d-36ce-4bf4-85b1-ababe391d4c3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\GameFilter\dataStruct\State\PathFinding\PahtFind_State">
+      <UniqueIdentifier>{1c9cfbd9-95a3-4d93-95ce-18e4aa4c9169}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\GameFilter\dataStruct\State\PathFinding\PathMove_State">
+      <UniqueIdentifier>{2870f175-a111-42d9-af88-433a098676c3}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -157,13 +166,13 @@
       <Filter>소스 파일\GameFilter\Component\TileObject</Filter>
     </ClCompile>
     <ClCompile Include="State.cpp">
-      <Filter>소스 파일\GameFilter\Component\TileObject\Self-MoveObject\State</Filter>
+      <Filter>소스 파일\GameFilter\dataStruct\State</Filter>
     </ClCompile>
     <ClCompile Include="IDLE_State.cpp">
-      <Filter>소스 파일\GameFilter\Component\TileObject\Self-MoveObject\State\IDLE_State</Filter>
+      <Filter>소스 파일\GameFilter\dataStruct\State\IDLE_State</Filter>
     </ClCompile>
     <ClCompile Include="MOVE_State.cpp">
-      <Filter>소스 파일\GameFilter\Component\TileObject\Self-MoveObject\State\MOVE_State</Filter>
+      <Filter>소스 파일\GameFilter\dataStruct\State\MOVE_State</Filter>
     </ClCompile>
     <ClCompile Include="Player.cpp">
       <Filter>소스 파일\GameFilter\Component\TileObject\Self-MoveObject\Player</Filter>
@@ -184,13 +193,19 @@
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="Attack_State.cpp">
-      <Filter>소스 파일\GameFilter\Component\TileObject\Self-MoveObject\State\ATTACK_State</Filter>
+      <Filter>소스 파일\GameFilter\dataStruct\State\ATTACK_State</Filter>
     </ClCompile>
     <ClCompile Include="Skill_State.cpp">
-      <Filter>소스 파일\GameFilter\Component\TileObject\Self-MoveObject\State\Skill_State</Filter>
+      <Filter>소스 파일\GameFilter\dataStruct\State\Skill_State</Filter>
     </ClCompile>
     <ClCompile Include="Position.cpp">
       <Filter>소스 파일\GameFilter\dataStruct</Filter>
+    </ClCompile>
+    <ClCompile Include="PathMove_State.cpp">
+      <Filter>소스 파일\GameFilter\dataStruct\State\PathFinding\PathMove_State</Filter>
+    </ClCompile>
+    <ClCompile Include="PathFind_State.cpp">
+      <Filter>소스 파일\GameFilter\dataStruct\State\PathFinding\PahtFind_State</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -243,13 +258,13 @@
       <Filter>소스 파일\GameFilter\Component\TileObject</Filter>
     </ClInclude>
     <ClInclude Include="State.h">
-      <Filter>소스 파일\GameFilter\Component\TileObject\Self-MoveObject\State</Filter>
+      <Filter>소스 파일\GameFilter\dataStruct\State</Filter>
     </ClInclude>
     <ClInclude Include="IDLE_State.h">
-      <Filter>소스 파일\GameFilter\Component\TileObject\Self-MoveObject\State\IDLE_State</Filter>
+      <Filter>소스 파일\GameFilter\dataStruct\State\IDLE_State</Filter>
     </ClInclude>
     <ClInclude Include="MOVE_State.h">
-      <Filter>소스 파일\GameFilter\Component\TileObject\Self-MoveObject\State\MOVE_State</Filter>
+      <Filter>소스 파일\GameFilter\dataStruct\State\MOVE_State</Filter>
     </ClInclude>
     <ClInclude Include="Position.h">
       <Filter>소스 파일\GameFilter\dataStruct</Filter>
@@ -279,10 +294,16 @@
       <Filter>소스 파일\GameFilter\dataStruct</Filter>
     </ClInclude>
     <ClInclude Include="Attack_State.h">
-      <Filter>소스 파일\GameFilter\Component\TileObject\Self-MoveObject\State\ATTACK_State</Filter>
+      <Filter>소스 파일\GameFilter\dataStruct\State\ATTACK_State</Filter>
     </ClInclude>
     <ClInclude Include="Skill_State.h">
-      <Filter>소스 파일\GameFilter\Component\TileObject\Self-MoveObject\State\Skill_State</Filter>
+      <Filter>소스 파일\GameFilter\dataStruct\State\Skill_State</Filter>
+    </ClInclude>
+    <ClInclude Include="PathMove_State.h">
+      <Filter>소스 파일\GameFilter\dataStruct\State\PathFinding\PathMove_State</Filter>
+    </ClInclude>
+    <ClInclude Include="PathFind_State.h">
+      <Filter>소스 파일\GameFilter\dataStruct\State\PathFinding\PahtFind_State</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

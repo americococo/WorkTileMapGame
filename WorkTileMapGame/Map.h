@@ -11,6 +11,7 @@ class TileObject;
 enum eTileLayer;
 class SelfMoveObject;
 class MessagePost;
+class Player;
 class Map : public Component
 {
 public:
@@ -27,7 +28,7 @@ private:
 	void CreateMap_layer_Ground();
 	void CreateMap_layer(eTileLayer layer);
 	void Create_Component();
-
+	Player * _player;
 private:
 	int _width;
 	int _height;
@@ -43,6 +44,8 @@ private:
 public:
 	int GetWidth() { return _width; }
 	int GetHeight() { return _height; }
+
+	Player * GetPlayer() { return _player; }
 public:
 	TileCell * GetTileCell(Position tileposition) { return _tileMap[tileposition.y][tileposition.x]; }
 

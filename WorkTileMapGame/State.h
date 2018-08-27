@@ -9,6 +9,7 @@ enum eState
 	STATE_MOVE,
 	STATE_ATTACK,
 	STATE_SKILL,
+	STATE_PATH,
 	STATE_NONE,
 	
 };
