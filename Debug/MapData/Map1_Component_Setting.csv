@@ -1,0 +1,12 @@
+mapsize,10,10,,,,,,,
+componentSettingFormat,,,,,,,,,
+Player:player,NoBoady,NoBoady,NoBoady,NoBoady,NoBoady,NoBoady,NoBoady,NoBoady,NoBoady
+NoBoady,NoBoady,NoBoady,NoBoady,NoBoady,NoBoady,NoBoady,NoBoady,NoBoady,NoBoady
+NoBoady,NoBoady,NoBoady,NoBoady,NoBoady,NoBoady,NoBoady,NoBoady,Monster:NomalMonster,NoBoady
+NoBoady,Monster:NomalMonster,NoBoady,NoBoady,NoBoady,NoBoady,NoBoady,NoBoady,NoBoady,NoBoady
+NoBoady,NoBoady,NoBoady,NoBoady,NoBoady,Monster:SkyNomalMonster,NoBoady,NoBoady,NoBoady,NoBoady
+NoBoady,NoBoady,NoBoady,NoBoady,NoBoady,NoBoady,NoBoady,NoBoady,NoBoady,NoBoady
+NoBoady,NoBoady,NoBoady,Monster:SkyNomalMonster,NoBoady,NoBoady,NoBoady,NoBoady,NoBoady,NoBoady
+NoBoady,NoBoady,NoBoady,NoBoady,NoBoady,NoBoady,NoBoady,NoBoady,Monster:SkyNomalMonster,NoBoady
+Monster:SkyNomalMonster,NoBoady,NoBoady,Item:Position,NoBoady,NoBoady,NoBoady,NoBoady,NoBoady,NoBoady
+NoBoady,NoBoady,NoBoady,NoBoady,NoBoady,NoBoady,NoBoady,NoBoady,NoBoady,Monster:SkyNomalMonster

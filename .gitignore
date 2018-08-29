@@ -22,7 +22,7 @@
 
 *.pch
 *.ipch
-
+*.suo
 
 # Compiled Dynamic libraries
 
