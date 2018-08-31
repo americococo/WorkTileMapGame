@@ -90,6 +90,8 @@ public:
 	void ReciverMessage(MessageFrom msgFrom);
 
 	int GetMaxActivePoint() { return _maxActivePoint; }
+
+	int GetActivePoint() { return _activePoint; }
 protected:
 	sLevelInfo _levelInfo;
 

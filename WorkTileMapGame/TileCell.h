@@ -40,7 +40,7 @@ private:
 public:
 	void AddTileObject(TileObject * tileobject);
 	TileObject * GetTileObject(eTileLayer layer) { return _componentList[layer]; }
-	bool GetCollisionList(std::list<Component*>& collisionList);
+	bool GetCollision(Component*& collision,eTileLayer layer);
 public:
 	bool CanMove(eTileLayer layer);
 

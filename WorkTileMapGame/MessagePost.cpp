@@ -12,7 +12,7 @@ MessagePost::~MessagePost()
 {
 }
 
-void MessagePost::SendMessage(const MessageFrom & messageFrom)
+void MessagePost::SendMessageW(const MessageFrom & messageFrom)
 {
 	_postQueue.push(messageFrom);
 }
@@ -23,7 +23,8 @@ void MessagePost::ProcessMessageQueue()
 		MessageFrom messageMail = _postQueue.front();
 		_postQueue.pop();
 
-		messageMail.reciver->ReciverMessage(messageMail);
+		if (nullptr != messageMail.reciver)
+			messageMail.reciver->ReciverMessage(messageMail);
 	}
 }
 
@@ -38,8 +39,4 @@ void MessagePost::Clear()
 	{
 		_postQueue.pop();
 	}
-}
-void MessagePost::AddMessage(MessageFrom messagefrom)
-{
-	_postQueue.push(messagefrom);
 }

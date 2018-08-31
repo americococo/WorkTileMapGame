@@ -16,7 +16,7 @@ private:
 public:
 
 	
-	void SendMessage(const MessageFrom & messageFrom);
+	void SendMessageW(const MessageFrom & messageFrom);
 	void ProcessMessageQueue();
 
 	void Clear();
@@ -26,7 +26,5 @@ public:
 
 
 
-public:
-	void AddMessage(MessageFrom messagefrom);
 };
 

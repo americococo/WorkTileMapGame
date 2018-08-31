@@ -77,6 +77,8 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
+    <IncludePath>../../../SDK/Include;../../../SDK/json;$(IncludePath)</IncludePath>
+    <LibraryPath>../../../SDK/Lib/x86;../../../SDK/json;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
@@ -107,6 +109,7 @@
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Windows</SubSystem>
+      <AdditionalDependencies>d3d9.lib;dxgi.lib;DxErr.lib;dxguid.lib;d3dx9d.lib;json_vc71_libmtd.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -150,6 +153,7 @@
     <ClCompile Include="GameScene.cpp" />
     <ClCompile Include="GameSystem.cpp" />
     <ClCompile Include="gameTimer.cpp" />
+    <ClCompile Include="IDLE_State_Monster.cpp" />
     <ClCompile Include="Item.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Map.cpp" />
@@ -184,6 +188,7 @@
     <ClInclude Include="GameSystem.h" />
     <ClInclude Include="gameTimer.h" />
     <ClInclude Include="IDLE_State.h" />
+    <ClInclude Include="IDLE_State_Monster.h" />
     <ClInclude Include="Item.h" />
     <ClInclude Include="LevelInfo.h" />
     <ClInclude Include="Map.h" />

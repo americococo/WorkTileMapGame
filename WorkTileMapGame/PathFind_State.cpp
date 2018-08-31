@@ -18,6 +18,7 @@ PathFind_State::~PathFind_State()
 }
 void PathFind_State::Start()
 {
+
 	State::Start();
 	Map* map = ((GameScene*)SceneManager::GetInstance()->GetScene())->GetMap();
 	_moveObject->SetTarget((Component*)map->GetPlayer());
@@ -153,15 +154,12 @@ void PathFind_State::UpdatePathfinding()
 			//목표타일 -> 종료
 			if (command.tilecell->GetTileX() == _targetTileCell->GetTileX() && command.tilecell->GetTileY() == _targetTileCell->GetTileY())
 			{
-				std::list<Component*> comList;
-				command.tilecell->GetCollisionList(comList);
+				Component * component;
+				command.tilecell->GetCollision(component,((TileObject*)(_moveObject->GetTarget()))->GetLayer());
 
-				for (std::list<Component*>::iterator itr = comList.begin(); itr != comList.end(); itr++)
-				{
-
-					if (_moveObject->GetEnemy() == (*itr)->GetObjectType())
+					if (_moveObject->GetEnemy() == component->GetObjectType())
 					{
-						SelfMoveObject * enemy = (SelfMoveObject*)(*itr);
+						SelfMoveObject * enemy = (SelfMoveObject*)component;
 						TileCell * prev = command.tilecell->GetPrevPathFindingCell();
 
 						if (command.tilecell->GetTileX() < prev->GetTileX())
@@ -173,7 +171,6 @@ void PathFind_State::UpdatePathfinding()
 						else if (command.tilecell->GetTileY() < prev->GetTileY())
 							_moveObject->SetDirection(eDirection::DIRCTION_DOWN);
 					}
-				}
 
 				_updateState = eUpdateState::BUILD_PATH;
 				_reverseTilecell = _targetTileCell;
@@ -190,7 +187,7 @@ void PathFind_State::UpdatePathfinding()
 				TileCell * nextTileCell = map->GetTileCell(nextTilePos);
 
 				//장애물 체크 탐색한 길인지 체크
-				if ((true == map->CanMove(nextTilePos,_moveObject->GetLayer()) && false == nextTileCell->IsPathFindingMark()) ||
+				if ((true == map->CanMove(nextTilePos,((SelfMoveObject*)_moveObject->GetTarget())->GetLayer()) && false == nextTileCell->IsPathFindingMark()) ||
 					(nextTileCell->GetTileX() == _targetTileCell->GetTileX() && nextTileCell->GetTileY() == _targetTileCell->GetTileY()))
 				{
 					float distanceFromStart = command.tilecell->GetDistanceFromStart() + command.tilecell->GetDistanceWeight();
@@ -248,6 +245,7 @@ void PathFind_State::UpdateBuildPath()
 {
 	if (NULL != _reverseTilecell)
 	{
+
 		Sprite * sprite = new Sprite(L"./Sprite/Attack/wave.png", L"./Sprite/Attack/wave.json");
 		sprite->Init();
 		TileObject * object;
@@ -262,7 +260,7 @@ void PathFind_State::UpdateBuildPath()
 	}
 	else
 	{
-		_nextState = eState::STATE_MOVE;
+		_nextState = eState::STATE_PATH_MOVE;
 	}
 
 }

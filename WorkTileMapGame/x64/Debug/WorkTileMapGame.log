@@ -1,0 +1,106 @@
+﻿  Attack_State.cpp
+  Component.cpp
+  Font.cpp
+  Frame.cpp
+  GameScene.cpp
+  GameSystem.cpp
+d:\github\worktilemapgame\worktilemapgame\gamesystem.cpp(40): warning C4244: '인수': 'WPARAM'에서 'unsigned int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+d:\github\worktilemapgame\worktilemapgame\gamesystem.cpp(43): warning C4244: '인수': 'WPARAM'에서 'unsigned int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  gameTimer.cpp
+  Item.cpp
+  Main.cpp
+d:\github\worktilemapgame\worktilemapgame\main.cpp(7): warning C4244: '인수': 'time_t'에서 'unsigned int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  Map.cpp
+d:\github\worktilemapgame\worktilemapgame\map.cpp(47): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.16299.0\ucrt\stdio.h(1772): note: 'sprintf' 선언을 참조하십시오.
+d:\github\worktilemapgame\worktilemapgame\map.cpp(60): warning C4996: 'strtok': This function or variable may be unsafe. Consider using strtok_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.16299.0\ucrt\string.h(439): note: 'strtok' 선언을 참조하십시오.
+d:\github\worktilemapgame\worktilemapgame\map.cpp(66): warning C4996: 'strtok': This function or variable may be unsafe. Consider using strtok_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.16299.0\ucrt\string.h(439): note: 'strtok' 선언을 참조하십시오.
+d:\github\worktilemapgame\worktilemapgame\map.cpp(68): warning C4996: 'strtok': This function or variable may be unsafe. Consider using strtok_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.16299.0\ucrt\string.h(439): note: 'strtok' 선언을 참조하십시오.
+d:\github\worktilemapgame\worktilemapgame\map.cpp(94): warning C4996: 'strtok': This function or variable may be unsafe. Consider using strtok_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.16299.0\ucrt\string.h(439): note: 'strtok' 선언을 참조하십시오.
+d:\github\worktilemapgame\worktilemapgame\map.cpp(117): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.16299.0\ucrt\stdio.h(1772): note: 'sprintf' 선언을 참조하십시오.
+d:\github\worktilemapgame\worktilemapgame\map.cpp(122): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.16299.0\ucrt\stdio.h(1772): note: 'sprintf' 선언을 참조하십시오.
+d:\github\worktilemapgame\worktilemapgame\map.cpp(125): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.16299.0\ucrt\stdio.h(1772): note: 'sprintf' 선언을 참조하십시오.
+d:\github\worktilemapgame\worktilemapgame\map.cpp(136): warning C4996: 'strtok': This function or variable may be unsafe. Consider using strtok_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.16299.0\ucrt\string.h(439): note: 'strtok' 선언을 참조하십시오.
+d:\github\worktilemapgame\worktilemapgame\map.cpp(165): warning C4996: 'strtok': This function or variable may be unsafe. Consider using strtok_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.16299.0\ucrt\string.h(439): note: 'strtok' 선언을 참조하십시오.
+d:\github\worktilemapgame\worktilemapgame\map.cpp(189): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.16299.0\ucrt\stdio.h(1772): note: 'sprintf' 선언을 참조하십시오.
+d:\github\worktilemapgame\worktilemapgame\map.cpp(192): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.16299.0\ucrt\stdio.h(1772): note: 'sprintf' 선언을 참조하십시오.
+d:\github\worktilemapgame\worktilemapgame\map.cpp(232): warning C4996: 'strtok': This function or variable may be unsafe. Consider using strtok_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.16299.0\ucrt\string.h(439): note: 'strtok' 선언을 참조하십시오.
+d:\github\worktilemapgame\worktilemapgame\map.cpp(253): warning C4996: 'strtok': This function or variable may be unsafe. Consider using strtok_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.16299.0\ucrt\string.h(439): note: 'strtok' 선언을 참조하십시오.
+d:\github\worktilemapgame\worktilemapgame\map.cpp(228): warning C4101: 'activepoint' :참조되지 않은 지역 변수입니다.
+d:\github\worktilemapgame\worktilemapgame\map.cpp(226): warning C4101: 'layer' :참조되지 않은 지역 변수입니다.
+d:\github\worktilemapgame\worktilemapgame\map.cpp(329): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+d:\github\worktilemapgame\worktilemapgame\map.cpp(330): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+d:\github\worktilemapgame\worktilemapgame\map.cpp(427): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+d:\github\worktilemapgame\worktilemapgame\map.cpp(428): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  MessagePost.cpp
+  MOVE_State.cpp
+  Object.cpp
+  PathFind_State.cpp
+  PathMove_State.cpp
+  Player.cpp
+  Position.cpp
+  ResourceManager.cpp
+  SelfMoveObject.cpp
+d:\github\worktilemapgame\worktilemapgame\selfmoveobject.cpp(65): warning C4244: '=': 'Json::Value::Int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+d:\github\worktilemapgame\worktilemapgame\selfmoveobject.cpp(66): warning C4244: '=': 'Json::Value::Int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+d:\github\worktilemapgame\worktilemapgame\selfmoveobject.cpp(223): warning C4244: '초기화 중': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+d:\github\worktilemapgame\worktilemapgame\selfmoveobject.cpp(225): warning C4244: '=': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+d:\github\worktilemapgame\worktilemapgame\selfmoveobject.cpp(321): warning C4244: '=': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+d:\github\worktilemapgame\worktilemapgame\selfmoveobject.cpp(322): warning C4244: '=': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  Sprite.cpp
+  코드를 생성하고 있습니다...
+  컴파일하고 있습니다...
+  State.cpp
+  Texture.cpp
+  TileObject.cpp
+  TitleScene.cpp
+d:\github\worktilemapgame\worktilemapgame\titlescene.cpp(18): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  코드를 생성하고 있습니다...
+Font.obj : error LNK2019: D3DXMatrixTransformation2D 외부 기호(참조 위치: "public: void __cdecl Font::render(void)" (?render@Font@@QEAAXXZ) 함수)에서 확인하지 못했습니다.
+Frame.obj : error LNK2001: D3DXMatrixTransformation2D 외부 기호를 확인할 수 없습니다.
+Font.obj : error LNK2019: D3DXCreateFontW 외부 기호(참조 위치: "public: __cdecl Font::Font(class std::basic_string<wchar_t,struct std::char_traits<wchar_t>,class std::allocator<wchar_t> >,int,unsigned long)" (??0Font@@QEAA@V?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@HK@Z) 함수)에서 확인하지 못했습니다.
+GameSystem.obj : error LNK2019: Direct3DCreate9 외부 기호(참조 위치: "public: bool __cdecl GameSystem::initDirect3D(void)" (?initDirect3D@GameSystem@@QEAA_NXZ) 함수)에서 확인하지 못했습니다.
+GameSystem.obj : error LNK2019: D3DXCreateSprite 외부 기호(참조 위치: "public: bool __cdecl GameSystem::initDirect3D(void)" (?initDirect3D@GameSystem@@QEAA_NXZ) 함수)에서 확인하지 못했습니다.
+Item.obj : error LNK2019: "public: __cdecl Json::Value::Value(enum Json::ValueType)" (??0Value@Json@@QEAA@W4ValueType@1@@Z) 외부 기호(참조 위치: "public: virtual void __cdecl Item::Init(wchar_t *,struct Position)" (?Init@Item@@UEAAXPEA_WUPosition@@@Z) 함수)에서 확인하지 못했습니다.
+SelfMoveObject.obj : error LNK2001: "public: __cdecl Json::Value::Value(enum Json::ValueType)" (??0Value@Json@@QEAA@W4ValueType@1@@Z) 외부 기호를 확인할 수 없습니다.
+Sprite.obj : error LNK2001: "public: __cdecl Json::Value::Value(enum Json::ValueType)" (??0Value@Json@@QEAA@W4ValueType@1@@Z) 외부 기호를 확인할 수 없습니다.
+Item.obj : error LNK2019: "public: __cdecl Json::Value::~Value(void)" (??1Value@Json@@QEAA@XZ) 외부 기호(참조 위치: "public: virtual void __cdecl Item::Init(wchar_t *,struct Position)" (?Init@Item@@UEAAXPEA_WUPosition@@@Z) 함수)에서 확인하지 못했습니다.
+SelfMoveObject.obj : error LNK2001: "public: __cdecl Json::Value::~Value(void)" (??1Value@Json@@QEAA@XZ) 외부 기호를 확인할 수 없습니다.
+Sprite.obj : error LNK2001: "public: __cdecl Json::Value::~Value(void)" (??1Value@Json@@QEAA@XZ) 외부 기호를 확인할 수 없습니다.
+Item.obj : error LNK2019: "public: class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl Json::Value::asString(void)const " (?asString@Value@Json@@QEBA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@XZ) 외부 기호(참조 위치: "public: virtual void __cdecl Item::Init(wchar_t *,struct Position)" (?Init@Item@@UEAAXPEA_WUPosition@@@Z) 함수)에서 확인하지 못했습니다.
+Sprite.obj : error LNK2001: "public: class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl Json::Value::asString(void)const " (?asString@Value@Json@@QEBA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@XZ) 외부 기호를 확인할 수 없습니다.
+Item.obj : error LNK2019: "public: int __cdecl Json::Value::asInt(void)const " (?asInt@Value@Json@@QEBAHXZ) 외부 기호(참조 위치: "public: virtual void __cdecl Item::Init(wchar_t *,struct Position)" (?Init@Item@@UEAAXPEA_WUPosition@@@Z) 함수)에서 확인하지 못했습니다.
+SelfMoveObject.obj : error LNK2001: "public: int __cdecl Json::Value::asInt(void)const " (?asInt@Value@Json@@QEBAHXZ) 외부 기호를 확인할 수 없습니다.
+Sprite.obj : error LNK2001: "public: int __cdecl Json::Value::asInt(void)const " (?asInt@Value@Json@@QEBAHXZ) 외부 기호를 확인할 수 없습니다.
+Item.obj : error LNK2019: "public: class Json::Value & __cdecl Json::Value::operator[](char const *)" (??AValue@Json@@QEAAAEAV01@PEBD@Z) 외부 기호(참조 위치: "public: virtual void __cdecl Item::Init(wchar_t *,struct Position)" (?Init@Item@@UEAAXPEA_WUPosition@@@Z) 함수)에서 확인하지 못했습니다.
+SelfMoveObject.obj : error LNK2001: "public: class Json::Value & __cdecl Json::Value::operator[](char const *)" (??AValue@Json@@QEAAAEAV01@PEBD@Z) 외부 기호를 확인할 수 없습니다.
+Sprite.obj : error LNK2001: "public: class Json::Value & __cdecl Json::Value::operator[](char const *)" (??AValue@Json@@QEAAAEAV01@PEBD@Z) 외부 기호를 확인할 수 없습니다.
+Item.obj : error LNK2019: "public: __cdecl Json::Reader::Reader(void)" (??0Reader@Json@@QEAA@XZ) 외부 기호(참조 위치: "public: virtual void __cdecl Item::Init(wchar_t *,struct Position)" (?Init@Item@@UEAAXPEA_WUPosition@@@Z) 함수)에서 확인하지 못했습니다.
+SelfMoveObject.obj : error LNK2001: "public: __cdecl Json::Reader::Reader(void)" (??0Reader@Json@@QEAA@XZ) 외부 기호를 확인할 수 없습니다.
+Sprite.obj : error LNK2001: "public: __cdecl Json::Reader::Reader(void)" (??0Reader@Json@@QEAA@XZ) 외부 기호를 확인할 수 없습니다.
+Item.obj : error LNK2019: "public: bool __cdecl Json::Reader::parse(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > const &,class Json::Value &,bool)" (?parse@Reader@Json@@QEAA_NAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@AEAVValue@2@_N@Z) 외부 기호(참조 위치: "public: virtual void __cdecl Item::Init(wchar_t *,struct Position)" (?Init@Item@@UEAAXPEA_WUPosition@@@Z) 함수)에서 확인하지 못했습니다.
+SelfMoveObject.obj : error LNK2001: "public: bool __cdecl Json::Reader::parse(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > const &,class Json::Value &,bool)" (?parse@Reader@Json@@QEAA_NAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@AEAVValue@2@_N@Z) 외부 기호를 확인할 수 없습니다.
+Sprite.obj : error LNK2001: "public: bool __cdecl Json::Reader::parse(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > const &,class Json::Value &,bool)" (?parse@Reader@Json@@QEAA_NAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@AEAVValue@2@_N@Z) 외부 기호를 확인할 수 없습니다.
+Sprite.obj : error LNK2019: "public: double __cdecl Json::Value::asDouble(void)const " (?asDouble@Value@Json@@QEBANXZ) 외부 기호(참조 위치: "public: void __cdecl Sprite::Init(void)" (?Init@Sprite@@QEAAXXZ) 함수)에서 확인하지 못했습니다.
+Texture.obj : error LNK2019: D3DXGetImageInfoFromFileW 외부 기호(참조 위치: "public: void __cdecl Texture::Init(wchar_t const *)" (?Init@Texture@@QEAAXPEB_W@Z) 함수)에서 확인하지 못했습니다.
+Texture.obj : error LNK2019: D3DXCreateTextureFromFileExW 외부 기호(참조 위치: "public: void __cdecl Texture::Init(wchar_t const *)" (?Init@Texture@@QEAAXPEB_W@Z) 함수)에서 확인하지 못했습니다.
+..\..\..\SDK\Lib\x86\d3d9.lib : warning LNK4272: 'x86' 라이브러리 컴퓨터 종류가 'x64' 대상 컴퓨터 종류와 충돌합니다.
+..\..\..\SDK\Lib\x86\dxgi.lib : warning LNK4272: 'x86' 라이브러리 컴퓨터 종류가 'x64' 대상 컴퓨터 종류와 충돌합니다.
+..\..\..\SDK\Lib\x86\DxErr.lib : warning LNK4272: 'x86' 라이브러리 컴퓨터 종류가 'x64' 대상 컴퓨터 종류와 충돌합니다.
+..\..\..\SDK\Lib\x86\dxguid.lib : warning LNK4272: 'x86' 라이브러리 컴퓨터 종류가 'x64' 대상 컴퓨터 종류와 충돌합니다.
+..\..\..\SDK\Lib\x86\d3dx9d.lib : warning LNK4272: 'x86' 라이브러리 컴퓨터 종류가 'x64' 대상 컴퓨터 종류와 충돌합니다.
+..\..\..\SDK\json\json_vc71_libmtd.lib : warning LNK4272: 'x86' 라이브러리 컴퓨터 종류가 'x64' 대상 컴퓨터 종류와 충돌합니다.
+D:\GitHub\WorkTileMapGame\x64\Debug\WorkTileMapGame.exe : fatal error LNK1120: 14개의 확인할 수 없는 외부 참조입니다.

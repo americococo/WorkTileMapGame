@@ -25,6 +25,7 @@
 #include <string.h>
 #include "DataFrom.h"
 #include "MessagePost.h"
+
 Map::Map(std::wstring name) :Component(name)
 {
 	_startX = _startY = 0.0f;
@@ -490,5 +491,5 @@ bool Map::CanMove(Position tilePosition,eTileLayer layer)
 
 void Map::AddMessage(MessageFrom messagefrom)
 {
-	_messagepost->AddMessage(messagefrom);
+	_messagepost->SendMessageW(messagefrom);
 }
