@@ -1,2 +1,3 @@
-﻿  PathFind_State.cpp
+﻿  IDLE_State_Monster.cpp
+d:\github\worktilemapgame\worktilemapgame\idle_state_monster.cpp(85): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
   WorkTileMapGame.vcxproj -> D:\GitHub\WorkTileMapGame\Debug\WorkTileMapGame.exe

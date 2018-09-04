@@ -1,8 +1,6 @@
 #include "SelfMoveObject.h"
 
 #include "Sprite.h"
-#include "Font.h"
-
 
 #include "SceneManager.h"
 #include "GameScene.h"
@@ -73,10 +71,6 @@ void SelfMoveObject::Init(WCHAR * TableFileName, Position tilePosition)
 	
 	_levelInfo.Max_Health_Point = _levelInfo.Health_Point;
 	_levelInfo.Max_Mana_Point= _levelInfo.Mana_Point;
-
-	_levelInfo.Lv = 1;
-	_levelInfo.Max_Experience_Point = 100;
-	_levelInfo.Experience_Point = 0;
 
 	((GameScene*)SceneManager::GetInstance()->GetScene())->GetMap()->PushTurnList(this);
 

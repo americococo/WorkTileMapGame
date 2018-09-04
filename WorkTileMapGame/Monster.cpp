@@ -6,11 +6,16 @@
 #include "PathFind_State.h"
 #include "Attack_State.h"
 #include "MOVE_State.h"
+
 #include "IDLE_State_Monster.h"
+
+
 
 #include "Map.h"
 #include "GameScene.h"
 #include "SceneManager.h"
+
+
 Monster::Monster(std::wstring name):SelfMoveObject(name)
 {
 	_objectType = eObjectType::OBJECT_TYPE_MONSTER;
@@ -27,6 +32,8 @@ void Monster::Init(WCHAR * TableFileName,Position tilePosition)
 	SelfMoveObject::Init(TableFileName, tilePosition);
 
 	InitState();
+
+	_serachRange = 3;
 
 	_enemy = eObjectType::OBJECT_TYPE_PLAYER;
 }
@@ -58,6 +65,8 @@ void Monster::InitState()
 		_stateDirection[eState::STATE_ATTACK] = state;
 	}
 
+
+
 	changeState(eState::STATE_IDLE);
 }
 void Monster::UpdateMove()
@@ -73,3 +82,4 @@ void Monster::UpdateMove()
 	}
 
 }
+

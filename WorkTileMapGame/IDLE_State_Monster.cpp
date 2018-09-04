@@ -2,7 +2,7 @@
 #include "SelfMoveObject.h"
 
 #include "Position.h"
-
+#include "Monster.h"
 #include "SceneManager.h"
 #include "GameScene.h"
 #include "Map.h"
@@ -64,6 +64,8 @@ void IDLE_State_Monster::Start()
 					_serchTile[(int)distanceFromStart].push_back(nextTileCell);
 				}
 			}
+			if (distanceFromStart >= ((Monster*)_moveObject)->GetSearchRange())
+				return;
 		}
 	}
 
@@ -79,29 +81,33 @@ void IDLE_State_Monster::Stop()
 }
 void IDLE_State_Monster::Update(float deltaTime)
 {
-	while (0 <  _serchTile.size())
-	{
-		for (int i = 0; i < _serchTile.max_size(); i++)
-		{
-			std::vector<TileCell*>::iterator itr;
-			itr = _serchTile[i].begin();
 
-			for (itr; itr != _serchTile[i].end(); itr++)
+	for (int i = 0; i < _serchTile.size(); i++)
+	{
+		std::vector<TileCell*>::iterator itr;
+		itr = _serchTile[i].begin();
+
+		for (itr; itr != _serchTile[i].end(); itr++)
+		{
+			TileObject * object = (*itr)->GetTileObject(eTileLayer::TileLayer_MIDLLE);
+			if (nullptr != object)
 			{
-				TileObject * object= (*itr)->GetTileObject(eTileLayer::TileLayer_MIDLLE);
-				if (nullptr != object)
+				eObjectType objectType = (*itr)->GetTileObject(eTileLayer::TileLayer_MIDLLE)->GetObjectType();
+				if (objectType == _moveObject->GetEnemy())
 				{
-					eObjectType objectType = (*itr)->GetTileObject(eTileLayer::TileLayer_MIDLLE)->GetObjectType();
-					if (objectType == _moveObject->GetEnemy())
-					{
-						_moveObject->SetTarget((*itr));
-						_nextState = eState::STATE_PATH_FIND;
-						_serchTile.clear();
-						return;
-					}
+					_moveObject->SetTarget((*itr));
+					_nextState = eState::STATE_PATH_FIND;
+					_serchTile.clear();
+					return;
 				}
 			}
 		}
+	}
+
+
+	if (eState::STATE_NONE == _nextState)
+	{
+		_moveObject->UpdateMove();
 	}
 
 	State::Update(deltaTime);
