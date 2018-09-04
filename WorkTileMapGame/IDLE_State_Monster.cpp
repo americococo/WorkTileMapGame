@@ -56,16 +56,16 @@ void IDLE_State_Monster::Start()
 				if (false == nextTileCell->IsPathFindingMark())
 				{
 					distanceFromStart = currentTileCell->GetDistanceFromStart() + 1.0f;
-					if (_moveObject->GetActivePoint() == (int)distanceFromStart)
-						break;
 					nextTileCell->SetDistanceFromStart(distanceFromStart);
 					nextTileCell->SetPrevPathFindingCell(tileCell);
 					_tileQueue.push(nextTileCell);
 					_serchTile[(int)distanceFromStart].push_back(nextTileCell);
+
+					if (distanceFromStart >= ((Monster*)_moveObject)->GetSearchRange())
+						return;
 				}
 			}
-			if (distanceFromStart >= ((Monster*)_moveObject)->GetSearchRange())
-				return;
+			
 		}
 	}
 

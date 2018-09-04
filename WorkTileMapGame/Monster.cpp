@@ -33,7 +33,7 @@ void Monster::Init(WCHAR * TableFileName,Position tilePosition)
 
 	InitState();
 
-	_serachRange = 3;
+	_serachRange = 10;
 
 	_enemy = eObjectType::OBJECT_TYPE_PLAYER;
 }
