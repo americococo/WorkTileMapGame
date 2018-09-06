@@ -16,9 +16,8 @@
 #include <wchar.h>
 
 #include "SelfMoveObject.h"
-Item::Item(std::wstring name)
+Item::Item(std::wstring name) :Object(name)
 {
-	_name = name;
 	_objectType = eObjectType::OBJECT_TYPE_ITEM;
 }
 
@@ -87,19 +86,4 @@ void Item::DeInit()
 
 void Item::ReciverMessage(MessageFrom msgFrom)
 {
-	if (L"UseItem" == msgFrom.message)
-	{
-		if(0==wcscmp(_name.c_str(), L"Position"))
-		{
-			//reciver is me!!!
-
-			Map * map= ((GameScene*)SceneManager::GetInstance()->GetScene())->GetMap();
-			
-
-			((SelfMoveObject*)msgFrom.sender)->recoveringHp(_effectPower);
-
-			map->destroyComponent(_tilePosition,msgFrom.reciver);
-			
-		}
-	}
 }

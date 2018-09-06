@@ -13,6 +13,9 @@
 #include "GameSystem.h"
 #include "Font.h"
 
+#include <reader.h>
+#include "ResourceManager.h"
+
 Player::Player(std::wstring name):SelfMoveObject(name)
 {
 	_objectType = eObjectType::OBJECT_TYPE_PLAYER;
@@ -25,6 +28,41 @@ Player::~Player()
 void Player::Init(WCHAR * TableFileName, Position tilePosition)
 {
 	
+	std::vector<std::string> ScriptList = ResourceManager::GetInstance()->LoadScript(TableFileName);
+
+	for (int i = 0; i < ScriptList.size(); i++)
+	{
+		std::string record = ScriptList[i];
+
+		Json::Value root;
+		Json::Reader reader;
+
+		bool isSuccess = reader.parse(record, root);
+		if (isSuccess)
+		{
+			switch (i)
+			{
+			case 1:
+				_maxActivePoint = root["ActivePoint"].asInt();
+				_tileLayer = (eTileLayer)root["layer"].asInt();
+				break;
+			case 2:
+				_levelInfo.Health_Point = root["Hp"].asInt();
+				_levelInfo.Mana_Point = root["Mp"].asInt();
+
+				_levelInfo.Attack_Point = root["AttackPoint"].asInt();
+				_levelInfo.Deffence_Point = root["DeffencePoint"].asInt();
+				break;
+
+			}
+
+		}
+	}
+
+	_levelInfo.Max_Health_Point = _levelInfo.Health_Point;
+	_levelInfo.Max_Mana_Point = _levelInfo.Mana_Point;
+
+
 	SelfMoveObject::Init(TableFileName, tilePosition);
 
 
@@ -33,6 +71,9 @@ void Player::Init(WCHAR * TableFileName, Position tilePosition)
 	D3DCOLOR color = D3DCOLOR_ARGB(255, 255, 255, 255);
 	_font = new Font(L"comicsans", 15, color);
 	_font->SetRect(100, 100, GameSystem::GetInstance()->GetWidth(), 100);
+
+	_levelInfo.Lv = 1;
+	_levelInfo.Experience_Point = 1;
 
 	_enemy = eObjectType::OBJECT_TYPE_MONSTER;
 

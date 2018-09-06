@@ -66,7 +66,7 @@ void MOVE_State::Start()
 			MessageFrom messagefrom;
 			messagefrom.message = L"UseItem";
 			messagefrom.sender = _moveObject;
-			messagefrom.reciver = gmScene->GetMap()->GetTileCell(currenPos)->GetTileObject(eTileLayer::TileLayer_MIDLLE);
+			messagefrom.reciver = (Object*)gmScene->GetMap()->GetTileCell(currenPos)->GetTileObject(eTileLayer::TileLayer_MIDLLE);
 			gmScene->GetMap()->AddMessage(messagefrom);
 		}
 

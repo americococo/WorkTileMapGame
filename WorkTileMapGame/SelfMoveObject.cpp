@@ -19,10 +19,9 @@
 #include <reader.h>
 #include "ResourceManager.h"
 
-SelfMoveObject::SelfMoveObject(std::wstring name)
+SelfMoveObject::SelfMoveObject(std::wstring name):Object(name)
 {
 	_state = nullptr;
-	_name = name;
 	_wing = nullptr;
 	_tileLayer = eTileLayer::TileLayer_MIDLLE;
 
@@ -38,39 +37,6 @@ SelfMoveObject::~SelfMoveObject()
 }
 void SelfMoveObject::Init(WCHAR * TableFileName, Position tilePosition)
 {
-	std::vector<std::string> ScriptList = ResourceManager::GetInstance()->LoadScript(TableFileName);
-
-	for (int i = 0; i < ScriptList.size(); i++)
-	{
-		std::string record = ScriptList[i];
-
-		Json::Value root;
-		Json::Reader reader;
-
-		bool isSuccess = reader.parse(record, root);
-		if (isSuccess)
-		{
-			switch (i)
-			{
-			case 1:
-				_maxActivePoint = root["ActivePoint"].asInt();
-				_tileLayer = (eTileLayer)root["layer"].asInt();
-				break;
-			case 2:
-				_levelInfo.Health_Point = root["Hp"].asInt();
-				_levelInfo.Mana_Point = root["Mp"].asInt();
-
-				_levelInfo.Attack_Point = root["AttackPoint"].asInt();
-				_levelInfo.Deffence_Point = root["DeffencePoint"].asInt();
-				break;
-
-			}
-			
-		}
-	}
-	
-	_levelInfo.Max_Health_Point = _levelInfo.Health_Point;
-	_levelInfo.Max_Mana_Point= _levelInfo.Mana_Point;
 
 	((GameScene*)SceneManager::GetInstance()->GetScene())->GetMap()->PushTurnList(this);
 

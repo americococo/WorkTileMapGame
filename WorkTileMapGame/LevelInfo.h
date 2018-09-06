@@ -3,8 +3,6 @@ struct sLevelInfo
 {
 	int Lv;
 	int Experience_Point;
-	int Max_Experience_Point;
-
 
 	int Health_Point;
 	int Mana_Point;

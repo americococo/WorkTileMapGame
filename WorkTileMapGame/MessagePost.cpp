@@ -2,7 +2,7 @@
 
 #include "MessageFrom.h"
 
-#include "TileObject.h"
+#include "Object.h"
 MessagePost::MessagePost()
 {
 }

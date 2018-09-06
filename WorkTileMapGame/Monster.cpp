@@ -15,7 +15,8 @@
 #include "GameScene.h"
 #include "SceneManager.h"
 
-
+#include <reader.h>
+#include "ResourceManager.h"
 Monster::Monster(std::wstring name):SelfMoveObject(name)
 {
 	_objectType = eObjectType::OBJECT_TYPE_MONSTER;
@@ -29,11 +30,46 @@ Monster::~Monster()
 
 void Monster::Init(WCHAR * TableFileName,Position tilePosition)
 {
+	std::vector<std::string> ScriptList = ResourceManager::GetInstance()->LoadScript(TableFileName);
+
+	for (int i = 0; i < ScriptList.size(); i++)
+	{
+		std::string record = ScriptList[i];
+
+		Json::Value root;
+		Json::Reader reader;
+
+		bool isSuccess = reader.parse(record, root);
+		if (isSuccess)
+		{
+			switch (i)
+			{
+			case 1:
+				_maxActivePoint = root["ActivePoint"].asInt();
+				_tileLayer = (eTileLayer)root["layer"].asInt();
+				_serachRange = root["Range"].asInt();
+				break;
+			case 2:
+				_levelInfo.Health_Point = root["Hp"].asInt();
+				_levelInfo.Mana_Point = root["Mp"].asInt();
+
+				_levelInfo.Attack_Point = root["AttackPoint"].asInt();
+				_levelInfo.Deffence_Point = root["DeffencePoint"].asInt();
+				break;
+
+			}
+
+		}
+	}
+
+	_levelInfo.Max_Health_Point = _levelInfo.Health_Point;
+	_levelInfo.Max_Mana_Point = _levelInfo.Mana_Point;
+
+
 	SelfMoveObject::Init(TableFileName, tilePosition);
 
 	InitState();
 
-	_serachRange = 10;
 
 	_enemy = eObjectType::OBJECT_TYPE_PLAYER;
 }

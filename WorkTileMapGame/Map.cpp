@@ -10,13 +10,15 @@
 #include "GameScene.h"
 #include "Map.h"
 
+#include "Object.h"
+
 #include "SelfMoveObject.h"
 #include "Player.h"
 #include "Monster.h"
 
 #include "Item.h"
-
-#include "Object.h"
+#include "Immediately_Item.h"
+#include "Equip_Item.h"
 
 #include <fstream>
 
@@ -246,8 +248,18 @@ void Map::Create_Component()
 								}
 								if (!(strcmp(tmp, "Item")))
 								{
-									com = new Item(ConverCtoWC(tmp));
-									objectType = eObjectType::OBJECT_TYPE_ITEM;
+									tmp = strtok(NULL, ":");
+									if ((!strcmp(tmp, "Immediately")))
+									{
+										com = new Immediately_Item(ConverCtoWC(tmp));
+										objectType = eObjectType::OBJECT_TYPE_ITEM;
+									}
+
+									if ((!strcmp(tmp, "Equip")))
+									{
+										com = new Equip_Item(ConverCtoWC(tmp));
+										objectType = eObjectType::OBJECT_TYPE_ITEM;
+									}
 
 								}
 

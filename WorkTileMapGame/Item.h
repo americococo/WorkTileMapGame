@@ -18,13 +18,13 @@ public:
 
 
 
-private:
+protected:
 	Sprite * _sprite;
 
 
 	int _effectPower;
 
 public:
-	void ReciverMessage(MessageFrom msgFrom);
+	virtual void ReciverMessage(MessageFrom msgFrom) ;
 };
 
