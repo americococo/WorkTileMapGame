@@ -112,6 +112,9 @@
     <Filter Include="소스 파일\GameFilter\dataStruct\State\PathFinding\PathMove_State">
       <UniqueIdentifier>{2870f175-a111-42d9-af88-433a098676c3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\GameFilter\dataStruct\State\IDLE_State\몬스터용">
+      <UniqueIdentifier>{1437279f-04f9-4e44-ab4c-b1e9a262a017}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -206,6 +209,9 @@
     </ClCompile>
     <ClCompile Include="PathFind_State.cpp">
       <Filter>소스 파일\GameFilter\dataStruct\State\PathFinding\PahtFind_State</Filter>
+    </ClCompile>
+    <ClCompile Include="IDLE_State_Monster.cpp">
+      <Filter>소스 파일\GameFilter\dataStruct\State\IDLE_State\몬스터용</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -304,6 +310,9 @@
     </ClInclude>
     <ClInclude Include="PathFind_State.h">
       <Filter>소스 파일\GameFilter\dataStruct\State\PathFinding\PahtFind_State</Filter>
+    </ClInclude>
+    <ClInclude Include="IDLE_State_Monster.h">
+      <Filter>소스 파일\GameFilter\dataStruct\State\IDLE_State\몬스터용</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

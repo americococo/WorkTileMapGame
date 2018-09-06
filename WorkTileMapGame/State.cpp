@@ -55,6 +55,7 @@ void State::Stop()
 }
 void State::Update(float deltaTime)
 {
+
 	_spriteList[_moveObject->GetDirection()]->Update(deltaTime);
 
 	if (eState::STATE_NONE != _nextState)

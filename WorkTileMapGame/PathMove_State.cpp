@@ -55,9 +55,9 @@ void PathMove_State::Update(float deltaTime)
 		if (eDirection::DIRCTION_NONE != direction)
 			_moveObject->SetDirection(direction);
 
-		std::list<Component*> componentList;
+		Component * component;
 
-		bool canMove = ((GameScene*)SceneManager::GetInstance()->GetScene())->GetMap()->GetTileCell(to)->GetCollisionList(componentList);
+		bool canMove = ((GameScene*)SceneManager::GetInstance()->GetScene())->GetMap()->GetTileCell(to)->GetCollision(component,eTileLayer::TileLayer_MIDLLE);
 
 		if (true == canMove)
 		{
@@ -67,12 +67,9 @@ void PathMove_State::Update(float deltaTime)
 
 		else
 		{
-			_nextState = eState::STATE_IDLE;
+			_nextState = eState::STATE_ATTACK;
 		}
 	}
-		
-	if (false == _moveObject->IsActive())
-		_nextState = eState::STATE_IDLE;
 
 	State::Update(deltaTime);
 }

@@ -63,19 +63,18 @@ void TileCell::Update(float deltaTime)
 			itr->second->Update(deltaTime);
 	}
 }
-bool TileCell::GetCollisionList(std::list<Component*>& collisionList)
+bool TileCell::GetCollision(Component*& collision,eTileLayer layer)
 {
-	for (std::map<eTileLayer, TileObject*>::iterator itr = _componentList.begin(); itr != _componentList.end(); itr++)
+	if (nullptr == _componentList[layer])
 	{
-		if (itr->second!=nullptr && itr->second->GetObjectType() != eObjectType::OBJECT_TYPE_TILE)
-		{
-			collisionList.push_back((itr->second));
-		}
-	}
-	if (0 == collisionList.size())
+		
 		return true;
-	else
+	}
+	else 
+	{
+		collision = _componentList[layer];
 		return false;
+	}
 }
 void TileCell::render()
 {

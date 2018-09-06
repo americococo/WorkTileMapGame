@@ -1,8 +1,6 @@
 #include "SelfMoveObject.h"
 
 #include "Sprite.h"
-#include "Font.h"
-
 
 #include "SceneManager.h"
 #include "GameScene.h"
@@ -73,10 +71,6 @@ void SelfMoveObject::Init(WCHAR * TableFileName, Position tilePosition)
 	
 	_levelInfo.Max_Health_Point = _levelInfo.Health_Point;
 	_levelInfo.Max_Mana_Point= _levelInfo.Mana_Point;
-
-	_levelInfo.Lv = 1;
-	_levelInfo.Max_Experience_Point = 100;
-	_levelInfo.Experience_Point = 0;
 
 	((GameScene*)SceneManager::GetInstance()->GetScene())->GetMap()->PushTurnList(this);
 
@@ -234,6 +228,7 @@ void SelfMoveObject::DecressActivePoint(int activePoint)
 	if (_activePoint <= 0)
 	{
 		_activePoint = 0;
+		_state->NextState(eState::STATE_IDLE);
 	}
 }
 
@@ -307,15 +302,15 @@ void SelfMoveObject::AttackEffectWave(int waveIndex)
 	for (std::vector<TileCell*>::iterator itr = _waveTileCellList[waveIndex].begin(); itr != _waveTileCellList[waveIndex].end(); itr++)
 	{
 
-		std::list<Component*> collisionList;
-		(*itr)->GetCollisionList(collisionList);
+		Component * com=nullptr;
+		(*itr)->GetCollision(com,_tileLayer);
 
 		i++;
 		Sprite* sprite = new Sprite(L"./Sprite/Attack/Wave.png", L"./Sprite/Attack/Wave.json");
 		sprite->Init();
 
 		WCHAR componetName[256];
-		wsprintf(componetName, L"Wave_%d_%d",waveIndex,i);
+		wsprintf(componetName, L"Wave_%d_%d", waveIndex, i);
 
 		Position position;
 		position.x = (*itr)->GetPositionX();
@@ -325,28 +320,22 @@ void SelfMoveObject::AttackEffectWave(int waveIndex)
 
 		(*itr)->AddTileObject(tileObject);
 
-		for (std::list<Component*>::iterator itCollision = collisionList.begin(); itCollision != collisionList.end(); itCollision++)
-		{
-			SelfMoveObject * move = (SelfMoveObject*)(*itCollision);
-			MessageFrom msgParam;
-			msgParam.sender = this;
-			msgParam.reciver = move;
-			msgParam.message = L"Attack";
-			Map* map = ((GameScene*)SceneManager::GetInstance()->GetScene())->GetMap();
-			map->AddMessage(msgParam);
-		}
+		SelfMoveObject * move = (SelfMoveObject*)com;
+		MessageFrom msgParam;
+		msgParam.sender = this;
+		msgParam.reciver = move;
+		msgParam.message = L"Attack";
+		Map* map = ((GameScene*)SceneManager::GetInstance()->GetScene())->GetMap();
+		map->AddMessage(msgParam);
+
 	}
 }
 void SelfMoveObject::UpdateSkill(float deltaTime)
 {
 	_waveCheckingTime += deltaTime;
-
-
-	if (_waveCheckingTime <= 0.3f)
-	{
-		AttackEffectWave(_currentWave);
-		_currentWave++;
-	}
+	
+	AttackEffectWave(_currentWave);
+	_currentWave++;
 
 	if (_currentWave >= _activePoint&& _waveCheckingTime>=0.3f)
 	{

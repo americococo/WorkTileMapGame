@@ -11,5 +11,9 @@ public:
 	void UpdateMove();
 
 	void InitState();
+
+
+	int _serachRange;
+	int GetSearchRange() { return _serachRange; }
 };
 
