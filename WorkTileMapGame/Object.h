@@ -5,12 +5,11 @@
 class Object : public TileObject
 {
 public:
-	Object();
+	Object(std::wstring name);
 	~Object();
 
 
-	virtual void Init(WCHAR * TableFileName,Position tilePosition);
-private:
+	virtual void Init(WCHAR * TableFileName,Position tilePosition)=0;
 
 };
 

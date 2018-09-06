@@ -1,11 +1,11 @@
 #pragma once
-class TileObject;
+class Object;
 #include <string>
 
 struct MessageFrom
 {
-	TileObject * sender;
-	TileObject * reciver;
+	Object * sender;
+	Object * reciver;
 
 	std::wstring message;
 };

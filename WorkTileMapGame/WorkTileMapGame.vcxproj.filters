@@ -115,6 +115,12 @@
     <Filter Include="소스 파일\GameFilter\dataStruct\State\IDLE_State\몬스터용">
       <UniqueIdentifier>{1437279f-04f9-4e44-ab4c-b1e9a262a017}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\GameFilter\Component\TileObject\Unself-MoveObject\Item\Immediately">
+      <UniqueIdentifier>{27d13a81-3928-4fe4-9d13-54c0173da5d5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\GameFilter\Component\TileObject\Unself-MoveObject\Item\Equip">
+      <UniqueIdentifier>{e3bf2295-525b-4966-af84-3101f61e468b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -212,6 +218,12 @@
     </ClCompile>
     <ClCompile Include="IDLE_State_Monster.cpp">
       <Filter>소스 파일\GameFilter\dataStruct\State\IDLE_State\몬스터용</Filter>
+    </ClCompile>
+    <ClCompile Include="Immediately_Item.cpp">
+      <Filter>소스 파일\GameFilter\Component\TileObject\Unself-MoveObject\Item\Immediately</Filter>
+    </ClCompile>
+    <ClCompile Include="Equip_Item.cpp">
+      <Filter>소스 파일\GameFilter\Component\TileObject\Unself-MoveObject\Item\Equip</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -313,6 +325,12 @@
     </ClInclude>
     <ClInclude Include="IDLE_State_Monster.h">
       <Filter>소스 파일\GameFilter\dataStruct\State\IDLE_State\몬스터용</Filter>
+    </ClInclude>
+    <ClInclude Include="Immediately_Item.h">
+      <Filter>소스 파일\GameFilter\Component\TileObject\Unself-MoveObject\Item\Immediately</Filter>
+    </ClInclude>
+    <ClInclude Include="Equip_Item.h">
+      <Filter>소스 파일\GameFilter\Component\TileObject\Unself-MoveObject\Item\Equip</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -1,13 +1,13 @@
 #include "Object.h"
-Object::Object()
+#include "Equip_Item.h"
+
+Object::Object(std::wstring name)
 {
+	_name = name;
+
 }
 
 Object::~Object()
 {
-}
-
-void Object::Init(WCHAR * TableFileName, Position tilePosition)
-{
-
+	
 }
