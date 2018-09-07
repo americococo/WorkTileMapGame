@@ -1,4 +1,76 @@
-﻿  Equip_Item.cpp
+﻿  Attack_State.cpp
+  Component.cpp
+  Equip_Item.cpp
 d:\github\worktilemapgame\worktilemapgame\equip_item.cpp(23): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
 d:\github\worktilemapgame\worktilemapgame\equip_item.cpp(44): warning C4244: '=': 'Json::Value::Int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  GameScene.cpp
+  IDLE_State.cpp
+  IDLE_State_Monster.cpp
+d:\github\worktilemapgame\worktilemapgame\idle_state_monster.cpp(85): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+  Immediately_Item.cpp
+  Item.cpp
+d:\github\worktilemapgame\worktilemapgame\item.cpp(32): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+  MOVE_State.cpp
+  Map.cpp
+d:\github\worktilemapgame\worktilemapgame\map.cpp(50): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.16299.0\ucrt\stdio.h(1772): note: 'sprintf' 선언을 참조하십시오.
+d:\github\worktilemapgame\worktilemapgame\map.cpp(63): warning C4996: 'strtok': This function or variable may be unsafe. Consider using strtok_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.16299.0\ucrt\string.h(439): note: 'strtok' 선언을 참조하십시오.
+d:\github\worktilemapgame\worktilemapgame\map.cpp(69): warning C4996: 'strtok': This function or variable may be unsafe. Consider using strtok_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.16299.0\ucrt\string.h(439): note: 'strtok' 선언을 참조하십시오.
+d:\github\worktilemapgame\worktilemapgame\map.cpp(71): warning C4996: 'strtok': This function or variable may be unsafe. Consider using strtok_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.16299.0\ucrt\string.h(439): note: 'strtok' 선언을 참조하십시오.
+d:\github\worktilemapgame\worktilemapgame\map.cpp(97): warning C4996: 'strtok': This function or variable may be unsafe. Consider using strtok_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.16299.0\ucrt\string.h(439): note: 'strtok' 선언을 참조하십시오.
+d:\github\worktilemapgame\worktilemapgame\map.cpp(120): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.16299.0\ucrt\stdio.h(1772): note: 'sprintf' 선언을 참조하십시오.
+d:\github\worktilemapgame\worktilemapgame\map.cpp(125): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.16299.0\ucrt\stdio.h(1772): note: 'sprintf' 선언을 참조하십시오.
+d:\github\worktilemapgame\worktilemapgame\map.cpp(128): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.16299.0\ucrt\stdio.h(1772): note: 'sprintf' 선언을 참조하십시오.
+d:\github\worktilemapgame\worktilemapgame\map.cpp(139): warning C4996: 'strtok': This function or variable may be unsafe. Consider using strtok_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.16299.0\ucrt\string.h(439): note: 'strtok' 선언을 참조하십시오.
+d:\github\worktilemapgame\worktilemapgame\map.cpp(168): warning C4996: 'strtok': This function or variable may be unsafe. Consider using strtok_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.16299.0\ucrt\string.h(439): note: 'strtok' 선언을 참조하십시오.
+d:\github\worktilemapgame\worktilemapgame\map.cpp(192): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.16299.0\ucrt\stdio.h(1772): note: 'sprintf' 선언을 참조하십시오.
+d:\github\worktilemapgame\worktilemapgame\map.cpp(195): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.16299.0\ucrt\stdio.h(1772): note: 'sprintf' 선언을 참조하십시오.
+d:\github\worktilemapgame\worktilemapgame\map.cpp(235): warning C4996: 'strtok': This function or variable may be unsafe. Consider using strtok_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.16299.0\ucrt\string.h(439): note: 'strtok' 선언을 참조하십시오.
+d:\github\worktilemapgame\worktilemapgame\map.cpp(251): warning C4996: 'strtok': This function or variable may be unsafe. Consider using strtok_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.16299.0\ucrt\string.h(439): note: 'strtok' 선언을 참조하십시오.
+d:\github\worktilemapgame\worktilemapgame\map.cpp(266): warning C4996: 'strtok': This function or variable may be unsafe. Consider using strtok_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.16299.0\ucrt\string.h(439): note: 'strtok' 선언을 참조하십시오.
+d:\github\worktilemapgame\worktilemapgame\map.cpp(231): warning C4101: 'activepoint' :참조되지 않은 지역 변수입니다.
+d:\github\worktilemapgame\worktilemapgame\map.cpp(229): warning C4101: 'layer' :참조되지 않은 지역 변수입니다.
+d:\github\worktilemapgame\worktilemapgame\map.cpp(342): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+d:\github\worktilemapgame\worktilemapgame\map.cpp(343): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+d:\github\worktilemapgame\worktilemapgame\map.cpp(440): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+d:\github\worktilemapgame\worktilemapgame\map.cpp(441): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  MessagePost.cpp
+  Monster.cpp
+d:\github\worktilemapgame\worktilemapgame\monster.cpp(35): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+d:\github\worktilemapgame\worktilemapgame\monster.cpp(56): warning C4244: '=': 'Json::Value::Int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+d:\github\worktilemapgame\worktilemapgame\monster.cpp(57): warning C4244: '=': 'Json::Value::Int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  Object.cpp
+  PathFind_State.cpp
+  PathMove_State.cpp
+  Player.cpp
+d:\github\worktilemapgame\worktilemapgame\player.cpp(33): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+d:\github\worktilemapgame\worktilemapgame\player.cpp(53): warning C4244: '=': 'Json::Value::Int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+d:\github\worktilemapgame\worktilemapgame\player.cpp(54): warning C4244: '=': 'Json::Value::Int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  Position.cpp
+  SelfMoveObject.cpp
+d:\github\worktilemapgame\worktilemapgame\selfmoveobject.cpp(183): warning C4244: '초기화 중': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+d:\github\worktilemapgame\worktilemapgame\selfmoveobject.cpp(185): warning C4244: '=': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+d:\github\worktilemapgame\worktilemapgame\selfmoveobject.cpp(282): warning C4244: '=': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+d:\github\worktilemapgame\worktilemapgame\selfmoveobject.cpp(283): warning C4244: '=': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  Skill_State.cpp
+  State.cpp
+  코드를 생성하고 있습니다...
+  컴파일하고 있습니다...
+  TileCell.cpp
+  TileObject.cpp
+  코드를 생성하고 있습니다...
   WorkTileMapGame.vcxproj -> D:\GitHub\WorkTileMapGame\Debug\WorkTileMapGame.exe

@@ -10,7 +10,7 @@
 #include <reader.h>
 Equip_Item::Equip_Item(std::wstring name) :Item(name)
 {
-	_Owner = nullptr;
+	_equipType = eEquipItemType::EquipItem_NONE;
 }
 
 Equip_Item::~Equip_Item()
@@ -48,6 +48,11 @@ void Equip_Item::Init(WCHAR * TableFileName, Position tilePosition)
 
 		}
 	}
+
+
+	if (L"Weapon" == _name)
+		_equipType = eEquipItemType::EquipItem_WEAPON;
+
 	WCHAR textureFileName[256];
 	WCHAR scriptFileName[256];
 
@@ -70,20 +75,11 @@ void Equip_Item::Decrease(float cutdurability)
 }
 void Equip_Item::Update(float deltaTime)
 {
-	if (nullptr != _Owner)
-	{
-		_tilePosition = _Owner->GetTilePosition();
-	}
 	_sprite->Update(deltaTime);
 }
 
 void Equip_Item::render()
 {
-	if (nullptr != _Owner)
-	{
-		_posX = _Owner->GetPositionX();
-		_posY = _Owner->GetPositionY();
-	}
 	Item::render();
 }
 
@@ -91,8 +87,6 @@ void Equip_Item::ReciverMessage(MessageFrom msgFrom)
 {
 	if (L"UseItem" == msgFrom.message)
 	{
-		_Owner = msgFrom.sender;
-
 		Map * map = ((GameScene*)SceneManager::GetInstance()->GetScene())->GetMap();
 
 		map->removeComponent(this->GetTilePosition(), this);

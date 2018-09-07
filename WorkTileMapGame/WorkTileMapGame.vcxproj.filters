@@ -78,12 +78,6 @@
     <Filter Include="소스 파일\GameFilter\Component\TileObject\Self-MoveObject\Monster">
       <UniqueIdentifier>{408d0c9e-51fa-4080-b12e-72bf7ce30557}</UniqueIdentifier>
     </Filter>
-    <Filter Include="소스 파일\GameFilter\Component\TileObject\Unself-MoveObject">
-      <UniqueIdentifier>{aa6d7099-d888-450d-b2e7-8b1309475622}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="소스 파일\GameFilter\Component\TileObject\Unself-MoveObject\Item">
-      <UniqueIdentifier>{2ff339b0-061f-4e50-8f45-0f437fd3f5e8}</UniqueIdentifier>
-    </Filter>
     <Filter Include="헤더 파일">
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
       <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
@@ -114,6 +108,12 @@
     </Filter>
     <Filter Include="소스 파일\GameFilter\dataStruct\State\IDLE_State\몬스터용">
       <UniqueIdentifier>{1437279f-04f9-4e44-ab4c-b1e9a262a017}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\GameFilter\Component\TileObject\Unself-MoveObject">
+      <UniqueIdentifier>{aa6d7099-d888-450d-b2e7-8b1309475622}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\GameFilter\Component\TileObject\Unself-MoveObject\Item">
+      <UniqueIdentifier>{2ff339b0-061f-4e50-8f45-0f437fd3f5e8}</UniqueIdentifier>
     </Filter>
     <Filter Include="소스 파일\GameFilter\Component\TileObject\Unself-MoveObject\Item\Immediately">
       <UniqueIdentifier>{27d13a81-3928-4fe4-9d13-54c0173da5d5}</UniqueIdentifier>
