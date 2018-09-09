@@ -2,9 +2,9 @@ mapsize,10,10,,,,,,,
 componentSettingFormat,,,,,,,,,
 Player:player,Item:Immediately:Position,NoBoady,NoBoady,NoBoady,NoBoady,NoBoady,NoBoady,NoBoady,NoBoady
 NoBoady,NoBoady,NoBoady,NoBoady,NoBoady,NoBoady,NoBoady,NoBoady,NoBoady,NoBoady
-NoBoady,NoBoady,NoBoady,NoBoady,NoBoady,NoBoady,NoBoady,NoBoady,NoBoady,NoBoady
+NoBoady,Item:Equip:Weapon,NoBoady,NoBoady,NoBoady,NoBoady,NoBoady,NoBoady,NoBoady,NoBoady
 NoBoady,NoBoady,NoBoady,NoBoady,Item:Equip:Weapon,NoBoady,NoBoady,NoBoady,NoBoady,NoBoady
-NoBoady,NoBoady,NoBoady,NoBoady,NoBoady,NoBoady,NoBoady,NoBoady,NoBoady,NoBoady
+Item:Equip:Weapon,NoBoady,NoBoady,NoBoady,NoBoady,NoBoady,NoBoady,NoBoady,NoBoady,NoBoady
 NoBoady,NoBoady,NoBoady,NoBoady,NoBoady,NoBoady,NoBoady,NoBoady,NoBoady,NoBoady
 NoBoady,NoBoady,NoBoady,NoBoady,NoBoady,NoBoady,NoBoady,NoBoady,NoBoady,NoBoady
 NoBoady,NoBoady,NoBoady,NoBoady,NoBoady,NoBoady,NoBoady,NoBoady,NoBoady,NoBoady

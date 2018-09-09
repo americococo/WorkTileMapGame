@@ -22,6 +22,8 @@ public:
 	void Init(WCHAR * TableFileName, Position tilePosition);
 	void render();
 	void Update(float deltaTime);
+
+	
 private:
 
 	float _durabilityPoint;
