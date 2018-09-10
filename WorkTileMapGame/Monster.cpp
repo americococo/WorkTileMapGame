@@ -71,7 +71,8 @@ void Monster::Init(WCHAR * TableFileName,Position tilePosition)
 	InitState();
 
 
-	_enemy = eObjectType::OBJECT_TYPE_PLAYER;
+	_enemyType = (eObjectType::OBJECT_TYPE_PLAYER);
+
 }
 void Monster::InitState()
 {

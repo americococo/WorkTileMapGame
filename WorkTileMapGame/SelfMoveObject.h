@@ -92,14 +92,12 @@ public:
 	int GetMaxActivePoint() { return _maxActivePoint; }
 
 	int GetActivePoint() { return _activePoint; }
-protected:
-	sLevelInfo _levelInfo;
 
 protected:
-	eObjectType _enemy;
+	eObjectType _enemyType;
 
 public:
-	eObjectType GetEnemy() { return _enemy; }
+	eObjectType GetEnemy() { return _enemyType; }
 
 
 protected:

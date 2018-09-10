@@ -93,6 +93,9 @@ void IDLE_State_Monster::Update(float deltaTime)
 			if (nullptr != object)
 			{
 				eObjectType objectType = (*itr)->GetTileObject(eTileLayer::TileLayer_MIDLLE)->GetObjectType();
+
+
+
 				if (objectType == _moveObject->GetEnemy())
 				{
 					_moveObject->SetTarget((*itr));

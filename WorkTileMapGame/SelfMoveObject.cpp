@@ -25,8 +25,6 @@ SelfMoveObject::SelfMoveObject(std::wstring name):Object(name)
 	_wing = nullptr;
 	_tileLayer = eTileLayer::TileLayer_MIDLLE;
 
-
-
 	_target = nullptr;
 }
 
@@ -135,14 +133,15 @@ void SelfMoveObject::UpdateMove()
 }
 Component * SelfMoveObject::Colision(std::list<Component*>& colisionList)
 {
-	for (std::list<Component*>::iterator itr = colisionList.begin(); itr != colisionList.end(); itr++)
-	{
-		Component * com = (*itr);
-		if (com->GetObjectType() == _enemy)
+		for (std::list<Component*>::iterator itr = colisionList.begin(); itr != colisionList.end(); itr++)
 		{
-			return  (*itr);
+			Component * com = (*itr);
+			if (com->GetObjectType() == _enemyType )
+			{
+				return  (*itr);
+			}
 		}
-	}
+	
 	return nullptr;
 }
 void SelfMoveObject::Moving(Position movingPos)

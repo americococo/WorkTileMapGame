@@ -58,7 +58,7 @@ void Player::Init(WCHAR * TableFileName, Position tilePosition)
 
 		}
 	}
-
+	 
 	_levelInfo.Max_Health_Point = _levelInfo.Health_Point;
 	_levelInfo.Max_Mana_Point = _levelInfo.Mana_Point;
 
@@ -75,7 +75,7 @@ void Player::Init(WCHAR * TableFileName, Position tilePosition)
 	_levelInfo.Lv = 1;
 	_levelInfo.Experience_Point = 1;
 
-	_enemy = eObjectType::OBJECT_TYPE_MONSTER;
+	_enemyType = (eObjectType::OBJECT_TYPE_MONSTER);
 
 }
 void Player::InitState()
@@ -103,14 +103,14 @@ void Player::InitState()
 		_stateDirection[eState::STATE_SKILL] = state;
 	}
 
-	changeState(eState::STATE_IDLE);
+	changeState(eState::STATE_IDLE);	
 }
 void Player::Update(float deltaTime)
 {
 	SelfMoveObject::Update(deltaTime);
 
 	WCHAR text[128];
-	wsprintf(text, L"LV:%d \n HP :%d // FullHP :%d \n", _levelInfo.Lv, _levelInfo.Health_Point, _levelInfo.Max_Health_Point);
+	wsprintf(text, L"LV:%d \n HP :%d // FullHP :%d \n AttackPoint : %d", _levelInfo.Lv, _levelInfo.Health_Point, _levelInfo.Max_Health_Point, (int)_levelInfo.Attack_Point);
 	_font->setText(text);
 }
 void Player::render()

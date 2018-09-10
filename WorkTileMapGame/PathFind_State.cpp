@@ -155,26 +155,28 @@ void PathFind_State::UpdatePathfinding()
 			if (command.tilecell->GetTileX() == _targetTileCell->GetTileX() && command.tilecell->GetTileY() == _targetTileCell->GetTileY())
 			{
 				Component * component;
-				command.tilecell->GetCollision(component,((TileObject*)(_moveObject->GetTarget()))->GetLayer());
+				command.tilecell->GetCollision(component, ((TileObject*)(_moveObject->GetTarget()))->GetLayer());
 
-					if (_moveObject->GetEnemy() == component->GetObjectType())
-					{
-						SelfMoveObject * enemy = (SelfMoveObject*)component;
-						TileCell * prev = command.tilecell->GetPrevPathFindingCell();
 
-						if (command.tilecell->GetTileX() < prev->GetTileX())
-							_moveObject->SetDirection(eDirection::DIRCTION_RIGHT);
-						else if (prev->GetTileX() <command.tilecell->GetTileX())
-							_moveObject->SetDirection(eDirection::DIRCTION_LEFT);
-						else if (prev->GetTileY() < command.tilecell->GetTileY())
-							_moveObject->SetDirection(eDirection::DIRCTION_UP);
-						else if (command.tilecell->GetTileY() < prev->GetTileY())
-							_moveObject->SetDirection(eDirection::DIRCTION_DOWN);
-					}
+				if (_moveObject->GetEnemy() == component->GetObjectType())
+				{
+					SelfMoveObject * enemy = (SelfMoveObject*)component;
+					TileCell * prev = command.tilecell->GetPrevPathFindingCell();
+
+					if (command.tilecell->GetTileX() < prev->GetTileX())
+						_moveObject->SetDirection(eDirection::DIRCTION_RIGHT);
+					else if (prev->GetTileX() < command.tilecell->GetTileX())
+						_moveObject->SetDirection(eDirection::DIRCTION_LEFT);
+					else if (prev->GetTileY() < command.tilecell->GetTileY())
+						_moveObject->SetDirection(eDirection::DIRCTION_UP);
+					else if (command.tilecell->GetTileY() < prev->GetTileY())
+						_moveObject->SetDirection(eDirection::DIRCTION_DOWN);
+				}
 
 				_updateState = eUpdateState::BUILD_PATH;
 				_reverseTilecell = _targetTileCell;
 				return;
+
 			}
 			for (int direction = 0; direction < eDirection::DIRCTION_NONE; direction++)
 			{

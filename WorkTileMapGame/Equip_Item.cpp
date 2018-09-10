@@ -90,5 +90,7 @@ void Equip_Item::ReciverMessage(MessageFrom msgFrom)
 		Map * map = ((GameScene*)SceneManager::GetInstance()->GetScene())->GetMap();
 
 		map->removeComponent(this->GetTilePosition(), this);
+
+		msgFrom.sender->EquipItem(this);
 	}
 }

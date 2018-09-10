@@ -3,6 +3,7 @@
 #include "TileObject.h"
 #include "Position.h"
 #include <map>
+#include "LevelInfo.h"
 class Equip_Item;
 enum eEquipItemType;
 class Object : public TileObject
@@ -16,6 +17,7 @@ public:
 
 
 protected:
+	sLevelInfo _levelInfo;
 	std::map<eEquipItemType ,Equip_Item*> _EquipItemWearing;
 public:
 	void EquipItem(Equip_Item * equipItem);
