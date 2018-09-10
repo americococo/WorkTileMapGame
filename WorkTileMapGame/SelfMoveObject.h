@@ -75,9 +75,7 @@ public:
 	float GetMovingTime() { return _movingTime; }
 
 
-protected:
-	int _activePoint;
-	int _maxActivePoint;
+
 public:
 	void DecressActivePoint(int activePoint);
 	bool IsActive() { return (0  < _activePoint); }
@@ -89,9 +87,6 @@ public:
 	void DecressingHp(int DecressingPoint);
 	void ReciverMessage(MessageFrom msgFrom);
 
-	int GetMaxActivePoint() { return _maxActivePoint; }
-
-	int GetActivePoint() { return _activePoint; }
 
 protected:
 	eObjectType _enemyType;

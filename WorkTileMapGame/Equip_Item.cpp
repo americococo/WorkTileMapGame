@@ -53,6 +53,9 @@ void Equip_Item::Init(WCHAR * TableFileName, Position tilePosition)
 	if (L"Weapon" == _name)
 		_equipType = eEquipItemType::EquipItem_WEAPON;
 
+	if (L"Shoes" == _name)
+		_equipType = eEquipItemType::EquipItem_SHOES;
+
 	WCHAR textureFileName[256];
 	WCHAR scriptFileName[256];
 

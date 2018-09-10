@@ -20,8 +20,8 @@ void Object::EquipItem(Equip_Item * equipItem)
 		switch (item->GetEquipItemType())
 		{
 		case eEquipItemType::EquipItem_WEAPON: _levelInfo.Attack_Point -= item->GetEffectPower(); break;
-		case eEquipItemType::EquipItem_BODY:break;
-		case eEquipItemType::EquipItem_SHOES:break;
+		case eEquipItemType::EquipItem_BODY: break;
+		case eEquipItemType::EquipItem_SHOES:  _maxActivePoint -= item->GetEffectPower(); break;
 		case eEquipItemType::EquipItem_SHOULDER:break;
 
 		}
@@ -36,7 +36,7 @@ void Object::EquipItem(Equip_Item * equipItem)
 	{
 	case eEquipItemType::EquipItem_WEAPON: _levelInfo.Attack_Point += equipItem->GetEffectPower(); break;
 	case eEquipItemType::EquipItem_BODY:break;
-	case eEquipItemType::EquipItem_SHOES:break;
+	case eEquipItemType::EquipItem_SHOES: _maxActivePoint += equipItem->GetEffectPower();  break;
 	case eEquipItemType::EquipItem_SHOULDER:break;
 		
 	}

@@ -21,5 +21,12 @@ protected:
 	std::map<eEquipItemType ,Equip_Item*> _EquipItemWearing;
 public:
 	void EquipItem(Equip_Item * equipItem);
+
+protected:
+	int _activePoint;
+	int _maxActivePoint;
+public:
+	int GetMaxActivePoint() { return _maxActivePoint; }
+	int GetActivePoint() { return _activePoint; }
 };
 
