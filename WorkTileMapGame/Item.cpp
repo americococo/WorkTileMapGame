@@ -69,6 +69,7 @@ void Item::Init(WCHAR * TableFileName, Position tilePosition)
 	_sprite->Init();
 
 	_tilePosition = tilePosition;
+
 }
 void Item::Update(float deltaTime)
 {

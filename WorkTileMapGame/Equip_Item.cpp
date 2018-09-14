@@ -8,6 +8,8 @@
 
 #include "ResourceManager.h"
 #include <reader.h>
+
+#include "Equip_item_Weapon.h"
 Equip_Item::Equip_Item(std::wstring name) :Item(name)
 {
 	_equipType = eEquipItemType::EquipItem_NONE;
@@ -49,7 +51,6 @@ void Equip_Item::Init(WCHAR * TableFileName, Position tilePosition)
 		}
 	}
 
-
 	if (L"Weapon" == _name)
 		_equipType = eEquipItemType::EquipItem_WEAPON;
 
@@ -67,7 +68,39 @@ void Equip_Item::Init(WCHAR * TableFileName, Position tilePosition)
 
 	_tilePosition = tilePosition;
 }
+void Equip_Item::InitScriptData(WCHAR * TableFileName)
+{
+	std::vector<std::string> ScriptList = ResourceManager::GetInstance()->LoadScript(TableFileName);
 
+	for (int i = 0; i < ScriptList.size(); i++)
+	{
+		std::string record = ScriptList[i];
+
+		Json::Value root;
+		Json::Reader reader;
+
+		bool isSuccess = reader.parse(record, root);
+		if (isSuccess)
+		{
+			std::string name;
+			switch (i)
+			{
+			case 1:
+				name = root["ItemName"].asString();
+				_name.clear();
+				_name.assign(name.begin(), name.end());
+				_tileLayer = (eTileLayer)root["layer"].asInt();
+				break;
+			case 2:
+				_effectPower = root["EffectPower"].asInt();
+				_durabilityPoint = root["durability"].asInt();
+				break;
+			}
+
+
+		}
+	}
+}
 void Equip_Item::Decrease(float cutdurability)
 {
 	if (_durabilityPoint <= 0)

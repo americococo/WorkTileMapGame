@@ -121,6 +121,18 @@
     <Filter Include="소스 파일\GameFilter\Component\TileObject\Unself-MoveObject\Item\Equip">
       <UniqueIdentifier>{e3bf2295-525b-4966-af84-3101f61e468b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\GameFilter\Component\TileObject\Unself-MoveObject\Item\Equip\Weapon">
+      <UniqueIdentifier>{6d828a21-2ca7-4893-b267-8b3e8e9d6506}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\GameFilter\Component\TileObject\Unself-MoveObject\Item\Equip\Body">
+      <UniqueIdentifier>{4a949fa8-0b47-47ff-a3ab-06540611b034}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\GameFilter\Component\TileObject\Unself-MoveObject\Item\Equip\Shoes">
+      <UniqueIdentifier>{b6fa87f0-710d-43a3-ab9b-f51782e5d58e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\GameFilter\Component\TileObject\Unself-MoveObject\Item\Equip\Shoulder">
+      <UniqueIdentifier>{9a76496c-6e12-4f50-90c3-8855a460cf2b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -224,6 +236,12 @@
     </ClCompile>
     <ClCompile Include="Equip_Item.cpp">
       <Filter>소스 파일\GameFilter\Component\TileObject\Unself-MoveObject\Item\Equip</Filter>
+    </ClCompile>
+    <ClCompile Include="Equip_item_Weapon.cpp">
+      <Filter>소스 파일\GameFilter\Component\TileObject\Unself-MoveObject\Item\Equip\Weapon</Filter>
+    </ClCompile>
+    <ClCompile Include="Equip_item_Shoes.cpp">
+      <Filter>소스 파일\GameFilter\Component\TileObject\Unself-MoveObject\Item\Equip\Shoes</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -331,6 +349,12 @@
     </ClInclude>
     <ClInclude Include="Equip_Item.h">
       <Filter>소스 파일\GameFilter\Component\TileObject\Unself-MoveObject\Item\Equip</Filter>
+    </ClInclude>
+    <ClInclude Include="Equip_item_Weapon.h">
+      <Filter>소스 파일\GameFilter\Component\TileObject\Unself-MoveObject\Item\Equip\Weapon</Filter>
+    </ClInclude>
+    <ClInclude Include="Equip_item_Shoes.h">
+      <Filter>소스 파일\GameFilter\Component\TileObject\Unself-MoveObject\Item\Equip\Shoes</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

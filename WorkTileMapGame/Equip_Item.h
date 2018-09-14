@@ -19,18 +19,21 @@ public:
 	void Decrease(float cutdurability);
 	void ReciverMessage(MessageFrom msgFrom);
 
-	void Init(WCHAR * TableFileName, Position tilePosition);
-	void render();
-	void Update(float deltaTime);
+	virtual void Init(WCHAR * TableFileName, Position tilePosition);
+	virtual void render();
+	virtual void Update(float deltaTime);
 
 	
-private:
-
+protected:
 	float _durabilityPoint;
 	
 	eEquipItemType _equipType;
+
+	void InitScriptData(WCHAR * TableFileName);
 public:
 	float GetDurabilityPoint() { return _durabilityPoint; }
 	eEquipItemType GetEquipItemType() { return _equipType; }
+
+
 };
 
