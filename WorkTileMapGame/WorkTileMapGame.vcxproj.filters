@@ -78,12 +78,6 @@
     <Filter Include="소스 파일\GameFilter\Component\TileObject\Self-MoveObject\Monster">
       <UniqueIdentifier>{408d0c9e-51fa-4080-b12e-72bf7ce30557}</UniqueIdentifier>
     </Filter>
-    <Filter Include="소스 파일\GameFilter\Component\TileObject\Unself-MoveObject">
-      <UniqueIdentifier>{aa6d7099-d888-450d-b2e7-8b1309475622}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="소스 파일\GameFilter\Component\TileObject\Unself-MoveObject\Item">
-      <UniqueIdentifier>{2ff339b0-061f-4e50-8f45-0f437fd3f5e8}</UniqueIdentifier>
-    </Filter>
     <Filter Include="헤더 파일">
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
       <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
@@ -115,11 +109,29 @@
     <Filter Include="소스 파일\GameFilter\dataStruct\State\IDLE_State\몬스터용">
       <UniqueIdentifier>{1437279f-04f9-4e44-ab4c-b1e9a262a017}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\GameFilter\Component\TileObject\Unself-MoveObject">
+      <UniqueIdentifier>{aa6d7099-d888-450d-b2e7-8b1309475622}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\GameFilter\Component\TileObject\Unself-MoveObject\Item">
+      <UniqueIdentifier>{2ff339b0-061f-4e50-8f45-0f437fd3f5e8}</UniqueIdentifier>
+    </Filter>
     <Filter Include="소스 파일\GameFilter\Component\TileObject\Unself-MoveObject\Item\Immediately">
       <UniqueIdentifier>{27d13a81-3928-4fe4-9d13-54c0173da5d5}</UniqueIdentifier>
     </Filter>
     <Filter Include="소스 파일\GameFilter\Component\TileObject\Unself-MoveObject\Item\Equip">
       <UniqueIdentifier>{e3bf2295-525b-4966-af84-3101f61e468b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\GameFilter\Component\TileObject\Unself-MoveObject\Item\Equip\Weapon">
+      <UniqueIdentifier>{6d828a21-2ca7-4893-b267-8b3e8e9d6506}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\GameFilter\Component\TileObject\Unself-MoveObject\Item\Equip\Body">
+      <UniqueIdentifier>{4a949fa8-0b47-47ff-a3ab-06540611b034}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\GameFilter\Component\TileObject\Unself-MoveObject\Item\Equip\Shoes">
+      <UniqueIdentifier>{b6fa87f0-710d-43a3-ab9b-f51782e5d58e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\GameFilter\Component\TileObject\Unself-MoveObject\Item\Equip\Shoulder">
+      <UniqueIdentifier>{9a76496c-6e12-4f50-90c3-8855a460cf2b}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -224,6 +236,15 @@
     </ClCompile>
     <ClCompile Include="Equip_Item.cpp">
       <Filter>소스 파일\GameFilter\Component\TileObject\Unself-MoveObject\Item\Equip</Filter>
+    </ClCompile>
+    <ClCompile Include="Equip_item_Weapon.cpp">
+      <Filter>소스 파일\GameFilter\Component\TileObject\Unself-MoveObject\Item\Equip\Weapon</Filter>
+    </ClCompile>
+    <ClCompile Include="Equip_item_Shoes.cpp">
+      <Filter>소스 파일\GameFilter\Component\TileObject\Unself-MoveObject\Item\Equip\Shoes</Filter>
+    </ClCompile>
+    <ClCompile Include="Equip_item_Shoulder.cpp">
+      <Filter>소스 파일\GameFilter\Component\TileObject\Unself-MoveObject\Item\Equip\Shoulder</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -331,6 +352,15 @@
     </ClInclude>
     <ClInclude Include="Equip_Item.h">
       <Filter>소스 파일\GameFilter\Component\TileObject\Unself-MoveObject\Item\Equip</Filter>
+    </ClInclude>
+    <ClInclude Include="Equip_item_Weapon.h">
+      <Filter>소스 파일\GameFilter\Component\TileObject\Unself-MoveObject\Item\Equip\Weapon</Filter>
+    </ClInclude>
+    <ClInclude Include="Equip_item_Shoes.h">
+      <Filter>소스 파일\GameFilter\Component\TileObject\Unself-MoveObject\Item\Equip\Shoes</Filter>
+    </ClInclude>
+    <ClInclude Include="Equip_item_Shoulder.h">
+      <Filter>소스 파일\GameFilter\Component\TileObject\Unself-MoveObject\Item\Equip\Shoulder</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -89,10 +89,11 @@ void IDLE_State_Monster::Update(float deltaTime)
 
 		for (itr; itr != _serchTile[i].end(); itr++)
 		{
-			TileObject * object = (*itr)->GetTileObject(eTileLayer::TileLayer_MIDLLE);
+			TileObject * object = (*itr)->GetTileObject(_moveObject->GetLayer());
 			if (nullptr != object)
 			{
-				eObjectType objectType = (*itr)->GetTileObject(eTileLayer::TileLayer_MIDLLE)->GetObjectType();
+				eObjectType objectType = (*itr)->GetTileObject(_moveObject->GetLayer())->GetObjectType();
+
 				if (objectType == _moveObject->GetEnemy())
 				{
 					_moveObject->SetTarget((*itr));

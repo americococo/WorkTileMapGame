@@ -1,4 +1,7 @@
-﻿  Equip_Item.cpp
-d:\github\worktilemapgame\worktilemapgame\equip_item.cpp(23): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
-d:\github\worktilemapgame\worktilemapgame\equip_item.cpp(44): warning C4244: '=': 'Json::Value::Int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+﻿  SelfMoveObject.cpp
+d:\github\worktilemapgame\worktilemapgame\selfmoveobject.cpp(182): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+d:\github\worktilemapgame\worktilemapgame\selfmoveobject.cpp(188): warning C4244: '초기화 중': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+d:\github\worktilemapgame\worktilemapgame\selfmoveobject.cpp(190): warning C4244: '=': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+d:\github\worktilemapgame\worktilemapgame\selfmoveobject.cpp(287): warning C4244: '=': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+d:\github\worktilemapgame\worktilemapgame\selfmoveobject.cpp(288): warning C4244: '=': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
   WorkTileMapGame.vcxproj -> D:\GitHub\WorkTileMapGame\Debug\WorkTileMapGame.exe

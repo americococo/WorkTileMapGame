@@ -13,6 +13,7 @@
 #include "Attack_State.h"
 #include "Skill_State.h"
 
+#include "Equip_Item.h"
 
 #include "GameSystem.h"
 
@@ -24,8 +25,6 @@ SelfMoveObject::SelfMoveObject(std::wstring name):Object(name)
 	_state = nullptr;
 	_wing = nullptr;
 	_tileLayer = eTileLayer::TileLayer_MIDLLE;
-
-
 
 	_target = nullptr;
 }
@@ -135,14 +134,15 @@ void SelfMoveObject::UpdateMove()
 }
 Component * SelfMoveObject::Colision(std::list<Component*>& colisionList)
 {
-	for (std::list<Component*>::iterator itr = colisionList.begin(); itr != colisionList.end(); itr++)
-	{
-		Component * com = (*itr);
-		if (com->GetObjectType() == _enemy)
+		for (std::list<Component*>::iterator itr = colisionList.begin(); itr != colisionList.end(); itr++)
 		{
-			return  (*itr);
+			Component * com = (*itr);
+			if (com->GetObjectType() == _enemyType )
+			{
+				return  (*itr);
+			}
 		}
-	}
+	
 	return nullptr;
 }
 void SelfMoveObject::Moving(Position movingPos)
@@ -177,6 +177,11 @@ void SelfMoveObject::ReciverMessage(MessageFrom msgFrom)
 {
 	if (L"Attack" == msgFrom.message)
 	{
+		if (nullptr != msgFrom.sender->GetItemInfo())
+		{
+			msgFrom.sender->GetItemInfo()->Decrease((rand() % 5) + 1);
+		}
+
 		sLevelInfo stat = ((SelfMoveObject*)msgFrom.sender)->GetStatus();
 
 		int damage;
@@ -291,6 +296,7 @@ void SelfMoveObject::AttackEffectWave(int waveIndex)
 		msgParam.sender = this;
 		msgParam.reciver = move;
 		msgParam.message = L"Attack";
+
 		Map* map = ((GameScene*)SceneManager::GetInstance()->GetScene())->GetMap();
 		map->AddMessage(msgParam);
 

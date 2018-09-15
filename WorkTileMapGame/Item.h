@@ -26,5 +26,7 @@ protected:
 
 public:
 	virtual void ReciverMessage(MessageFrom msgFrom) ;
+
+	int GetEffectPower() { return _effectPower; }
 };
 

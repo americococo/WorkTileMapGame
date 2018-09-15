@@ -8,15 +8,50 @@
 
 #include "ResourceManager.h"
 #include <reader.h>
+
+#include "Equip_item_Weapon.h"
 Equip_Item::Equip_Item(std::wstring name) :Item(name)
 {
-	_Owner = nullptr;
+	_equipType = eEquipItemType::EquipItem_NONE;
 }
 
 Equip_Item::~Equip_Item()
 {
 }
 void Equip_Item::Init(WCHAR * TableFileName, Position tilePosition)
+{
+	WCHAR itemtypename[256];
+	wsprintf(itemtypename, L"./sprite/item/%s/", _name.c_str());
+
+	InitScriptData(TableFileName);
+
+	WCHAR textureFileName[256];
+	WCHAR scriptFileName[256];
+
+	wsprintf(textureFileName, L"%s.png", _name.c_str());
+	wsprintf(scriptFileName, L"%s.json", _name.c_str());
+
+	{
+		WCHAR tmp[256];
+		wcscpy(tmp, itemtypename);
+		wcscat(tmp, scriptFileName);
+		wcscpy(scriptFileName, tmp);
+	}
+	{
+		WCHAR tmp[256];
+		wcscpy(tmp, itemtypename);
+		wcscat(tmp, textureFileName);
+		wcscpy(textureFileName, tmp);
+	}
+
+
+
+	_sprite = new Sprite(textureFileName, scriptFileName);
+	_sprite->Init();
+
+	_tilePosition = tilePosition;
+}
+void Equip_Item::InitScriptData(WCHAR * TableFileName)
 {
 	std::vector<std::string> ScriptList = ResourceManager::GetInstance()->LoadScript(TableFileName);
 
@@ -48,20 +83,10 @@ void Equip_Item::Init(WCHAR * TableFileName, Position tilePosition)
 
 		}
 	}
-	WCHAR textureFileName[256];
-	WCHAR scriptFileName[256];
-
-	wsprintf(textureFileName, L"./sprite/item/%s.png", _name.c_str());
-	wsprintf(scriptFileName, L"./sprite/item/%s.json", _name.c_str());
-
-	_sprite = new Sprite(textureFileName, scriptFileName);
-	_sprite->Init();
-
-	_tilePosition = tilePosition;
 }
-
 void Equip_Item::Decrease(float cutdurability)
 {
+	_durabilityPoint -= cutdurability;
 	if (_durabilityPoint <= 0)
 	{
 		Map * map = ((GameScene*)SceneManager::GetInstance()->GetScene())->GetMap();
@@ -70,20 +95,11 @@ void Equip_Item::Decrease(float cutdurability)
 }
 void Equip_Item::Update(float deltaTime)
 {
-	if (nullptr != _Owner)
-	{
-		_tilePosition = _Owner->GetTilePosition();
-	}
 	_sprite->Update(deltaTime);
 }
 
 void Equip_Item::render()
 {
-	if (nullptr != _Owner)
-	{
-		_posX = _Owner->GetPositionX();
-		_posY = _Owner->GetPositionY();
-	}
 	Item::render();
 }
 
@@ -91,10 +107,10 @@ void Equip_Item::ReciverMessage(MessageFrom msgFrom)
 {
 	if (L"UseItem" == msgFrom.message)
 	{
-		_Owner = msgFrom.sender;
-
 		Map * map = ((GameScene*)SceneManager::GetInstance()->GetScene())->GetMap();
 
 		map->removeComponent(this->GetTilePosition(), this);
+
+		msgFrom.sender->EquipItem(this);
 	}
 }

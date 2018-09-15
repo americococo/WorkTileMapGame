@@ -149,6 +149,9 @@
     <ClCompile Include="Component.cpp" />
     <ClCompile Include="DataFrom.cpp" />
     <ClCompile Include="Equip_Item.cpp" />
+    <ClCompile Include="Equip_item_Shoes.cpp" />
+    <ClCompile Include="Equip_item_Shoulder.cpp" />
+    <ClCompile Include="Equip_item_Weapon.cpp" />
     <ClCompile Include="Font.cpp" />
     <ClCompile Include="Frame.cpp" />
     <ClCompile Include="GameScene.cpp" />
@@ -185,6 +188,9 @@
     <ClInclude Include="Component.h" />
     <ClInclude Include="DataFrom.h" />
     <ClInclude Include="Equip_Item.h" />
+    <ClInclude Include="Equip_item_Shoes.h" />
+    <ClInclude Include="Equip_item_Shoulder.h" />
+    <ClInclude Include="Equip_item_Weapon.h" />
     <ClInclude Include="Font.h" />
     <ClInclude Include="Frame.h" />
     <ClInclude Include="GameScene.h" />

@@ -2,11 +2,11 @@ mapsize,10,10,,,,,,,
 componentSettingFormat,,,,,,,,,
 Player:player,Item:Immediately:Position,NoBoady,NoBoady,NoBoady,NoBoady,NoBoady,NoBoady,NoBoady,NoBoady
 NoBoady,NoBoady,NoBoady,NoBoady,NoBoady,NoBoady,NoBoady,NoBoady,NoBoady,NoBoady
+NoBoady,Item:Equip:Weapon:shortSword,NoBoady,NoBoady,NoBoady,NoBoady,NoBoady,NoBoady,NoBoady,NoBoady
+NoBoady,NoBoady,NoBoady,NoBoady,Item:Equip:Shoes:boots,NoBoady,NoBoady,NoBoady,NoBoady,NoBoady
+Item:Equip:Weapon:shortSword,NoBoady,NoBoady,NoBoady,NoBoady,NoBoady,NoBoady,NoBoady,NoBoady,NoBoady
 NoBoady,NoBoady,NoBoady,NoBoady,NoBoady,NoBoady,NoBoady,NoBoady,NoBoady,NoBoady
-NoBoady,NoBoady,NoBoady,NoBoady,Item:Equip:Weapon,NoBoady,NoBoady,NoBoady,NoBoady,NoBoady
 NoBoady,NoBoady,NoBoady,NoBoady,NoBoady,NoBoady,NoBoady,NoBoady,NoBoady,NoBoady
-NoBoady,NoBoady,NoBoady,NoBoady,NoBoady,NoBoady,NoBoady,NoBoady,NoBoady,NoBoady
-NoBoady,NoBoady,NoBoady,NoBoady,NoBoady,NoBoady,NoBoady,NoBoady,NoBoady,NoBoady
-NoBoady,NoBoady,NoBoady,NoBoady,NoBoady,NoBoady,NoBoady,NoBoady,NoBoady,NoBoady
+NoBoady,NoBoady,NoBoady,NoBoady,NoBoady,Monster:NomalMonster,NoBoady,NoBoady,NoBoady,NoBoady
 NoBoady,NoBoady,NoBoady,NoBoady,NoBoady,NoBoady,NoBoady,NoBoady,NoBoady,NoBoady
 NoBoady,NoBoady,NoBoady,NoBoady,NoBoady,NoBoady,NoBoady,NoBoady,NoBoady,Monster:SkyNomalMonster

@@ -18,7 +18,10 @@
 
 #include "Item.h"
 #include "Immediately_Item.h"
+
 #include "Equip_Item.h"
+#include "Equip_item_Weapon.h"
+#include "Equip_item_Shoes.h"
 
 #include <fstream>
 
@@ -237,28 +240,31 @@ void Map::Create_Component()
 								if (!(strcmp(tmp, "Player")))
 								{
 									com = new Player(ConverCtoWC(tmp));
-									objectType = eObjectType::OBJECT_TYPE_PLAYER;
 									_player = (Player*)com;
 								}
 								if (!(strcmp(tmp, "Monster")))
 								{
 									com = new Monster(ConverCtoWC(tmp));
-									objectType = eObjectType::OBJECT_TYPE_MONSTER;
-
 								}
 								if (!(strcmp(tmp, "Item")))
 								{
 									tmp = strtok(NULL, ":");
+
 									if ((!strcmp(tmp, "Immediately")))
 									{
 										com = new Immediately_Item(ConverCtoWC(tmp));
-										objectType = eObjectType::OBJECT_TYPE_ITEM;
 									}
 
 									if ((!strcmp(tmp, "Equip")))
 									{
-										com = new Equip_Item(ConverCtoWC(tmp));
-										objectType = eObjectType::OBJECT_TYPE_ITEM;
+										tmp = strtok(NULL, ":");
+
+										if ((!strcmp(tmp, "Weapon")))
+											com = new Equip_item_Weapon(ConverCtoWC(tmp));
+										
+										if ((!strcmp(tmp, "Shoes")))
+											com = new Equip_item_Shoes(ConverCtoWC(tmp));
+										
 									}
 
 								}

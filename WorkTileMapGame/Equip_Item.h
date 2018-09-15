@@ -1,5 +1,15 @@
 #pragma once
 #include "Item.h"
+
+enum eEquipItemType
+{
+	EquipItem_WEAPON,
+	EquipItem_SHOULDER,
+	EquipItem_SHOES,
+	EquipItem_BODY,
+	EquipItem_NONE,
+};
+
 class Equip_Item :public Item
 {
 public:
@@ -9,15 +19,21 @@ public:
 	void Decrease(float cutdurability);
 	void ReciverMessage(MessageFrom msgFrom);
 
-	void Init(WCHAR * TableFileName, Position tilePosition);
-	void render();
-	void Update(float deltaTime);
-private:
+	virtual void Init(WCHAR * TableFileName, Position tilePosition);
+	virtual void render();
+	virtual void Update(float deltaTime);
 
-	float _durabilityPoint;
-	Object * _Owner;
 	
+protected:
+	float _durabilityPoint;
+	
+	eEquipItemType _equipType;
+
+	void InitScriptData(WCHAR * TableFileName);
 public:
 	float GetDurabilityPoint() { return _durabilityPoint; }
+	eEquipItemType GetEquipItemType() { return _equipType; }
+
+
 };
 
