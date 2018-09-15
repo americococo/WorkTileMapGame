@@ -41,3 +41,7 @@ void Object::EquipItem(Equip_Item * equipItem)
 		
 	}
 }
+Equip_Item *  Object::GetItemInfo()
+{
+	return _EquipItemWearing[eEquipItemType::EquipItem_WEAPON]; 
+}

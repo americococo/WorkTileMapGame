@@ -6,6 +6,7 @@
 #include "MessageFrom.h"
 #include "MessagePost.h"
 
+#include "Equip_Item.h"
 
 #include "GameScene.h"
 #include "SceneManager.h"
@@ -34,7 +35,10 @@ void Attack_State::Start()
 	((GameScene*)SceneManager::GetInstance()->GetScene())->GetMap()->AddMessage(from);
 
 	_moveObject->DecressActivePoint(_moveObject->GetMaxActivePoint());
-
+	if (nullptr != _moveObject->GetItemInfo())
+	{
+		_moveObject->GetItemInfo()->Decrease((rand() % 5)+1);
+	}
 	_moveObject->ResetTarget();
 }
 void Attack_State::Stop()

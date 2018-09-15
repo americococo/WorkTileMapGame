@@ -243,6 +243,9 @@
     <ClCompile Include="Equip_item_Shoes.cpp">
       <Filter>소스 파일\GameFilter\Component\TileObject\Unself-MoveObject\Item\Equip\Shoes</Filter>
     </ClCompile>
+    <ClCompile Include="Equip_item_Shoulder.cpp">
+      <Filter>소스 파일\GameFilter\Component\TileObject\Unself-MoveObject\Item\Equip\Shoulder</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Font.h">
@@ -355,6 +358,9 @@
     </ClInclude>
     <ClInclude Include="Equip_item_Shoes.h">
       <Filter>소스 파일\GameFilter\Component\TileObject\Unself-MoveObject\Item\Equip\Shoes</Filter>
+    </ClInclude>
+    <ClInclude Include="Equip_item_Shoulder.h">
+      <Filter>소스 파일\GameFilter\Component\TileObject\Unself-MoveObject\Item\Equip\Shoulder</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

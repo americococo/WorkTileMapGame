@@ -13,6 +13,8 @@
 #include "GameSystem.h"
 #include "Font.h"
 
+#include "Equip_Item.h"
+
 #include <reader.h>
 #include "ResourceManager.h"
 
@@ -103,20 +105,26 @@ void Player::InitState()
 		_stateDirection[eState::STATE_SKILL] = state;
 	}
 
-	changeState(eState::STATE_IDLE);	
+	changeState(eState::STATE_IDLE);
 }
 void Player::Update(float deltaTime)
 {
 	SelfMoveObject::Update(deltaTime);
 
+
+	int durabillity = 0;
+	if (nullptr != GetItemInfo())
+		durabillity = GetItemInfo()->GetDurabilityPoint();
+
 	WCHAR text[128];
-	wsprintf(text, L"LV:%d \n HP :%d // FullHP :%d \n AttackPoint : %d", _levelInfo.Lv, _levelInfo.Health_Point, _levelInfo.Max_Health_Point, (int)_levelInfo.Attack_Point);
+	wsprintf(text, L"LV:%d \n HP :%d // FullHP :%d \n AttackPoint : %d \n Weapon durability:%d ", _levelInfo.Lv, _levelInfo.Health_Point, _levelInfo.Max_Health_Point, (int)_levelInfo.Attack_Point,durabillity);
 	_font->setText(text);
+
 }
 void Player::render()
 {
 	SelfMoveObject::render();
-	_font->setPosition(0,0);
+	_font->setPosition(0, 0);
 	_font->render();
 }
 

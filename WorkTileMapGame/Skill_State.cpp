@@ -1,5 +1,7 @@
 #include "Skill_State.h"
 #include "SelfMoveObject.h"
+
+#include "Equip_Item.h"
 void Skill_State::Start()
 {
 	State::Start();
@@ -11,6 +13,8 @@ void Skill_State::Stop()
 {
 	State::Stop();
 	_moveObject->DecressActivePoint(_moveObject->GetMaxActivePoint());
+
+
 	_moveObject->SetSkillType(SkillType::SKILLTYPE_NONE);
 }
 void Skill_State::Update(float deltaTime)

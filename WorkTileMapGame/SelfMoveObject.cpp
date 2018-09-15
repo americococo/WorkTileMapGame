@@ -13,6 +13,7 @@
 #include "Attack_State.h"
 #include "Skill_State.h"
 
+#include "Equip_Item.h"
 
 #include "GameSystem.h"
 
@@ -176,6 +177,11 @@ void SelfMoveObject::ReciverMessage(MessageFrom msgFrom)
 {
 	if (L"Attack" == msgFrom.message)
 	{
+		if (nullptr != msgFrom.sender->GetItemInfo())
+		{
+			msgFrom.sender->GetItemInfo()->Decrease((rand() % 5) + 1);
+		}
+
 		sLevelInfo stat = ((SelfMoveObject*)msgFrom.sender)->GetStatus();
 
 		int damage;
@@ -290,6 +296,7 @@ void SelfMoveObject::AttackEffectWave(int waveIndex)
 		msgParam.sender = this;
 		msgParam.reciver = move;
 		msgParam.message = L"Attack";
+
 		Map* map = ((GameScene*)SceneManager::GetInstance()->GetScene())->GetMap();
 		map->AddMessage(msgParam);
 

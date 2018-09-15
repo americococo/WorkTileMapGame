@@ -6,6 +6,7 @@
 #include "LevelInfo.h"
 class Equip_Item;
 enum eEquipItemType;
+
 class Object : public TileObject
 {
 public:
@@ -22,9 +23,13 @@ protected:
 public:
 	void EquipItem(Equip_Item * equipItem);
 
+
+	Equip_Item * GetItemInfo();
+
 protected:
 	int _activePoint;
 	int _maxActivePoint;
+
 public:
 	int GetMaxActivePoint() { return _maxActivePoint; }
 	int GetActivePoint() { return _activePoint; }
