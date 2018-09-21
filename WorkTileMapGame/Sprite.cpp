@@ -122,9 +122,6 @@ void Sprite::render()
 	//스프라이트 출력전 모양 조정
 	//pivot  메트릭스의 계산을 돕기위해 가운데 맞춤
 
-	//애니메이션으로 찍기위해 현 반복자를 기억해주어야함
-	//성능이슈때문에 배열형으로 바꿈
-
 	if (_currentFrame < _frameList.size())
 	{
 		_frameList[_currentFrame]->SetPosition(_x, _y);
