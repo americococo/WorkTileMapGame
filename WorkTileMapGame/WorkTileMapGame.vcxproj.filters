@@ -130,9 +130,6 @@
     <Filter Include="소스 파일\GameFilter\Component\TileObject\Unself-MoveObject\Item\Equip\Shoes">
       <UniqueIdentifier>{b6fa87f0-710d-43a3-ab9b-f51782e5d58e}</UniqueIdentifier>
     </Filter>
-    <Filter Include="소스 파일\GameFilter\Component\TileObject\Unself-MoveObject\Item\Equip\Shoulder">
-      <UniqueIdentifier>{9a76496c-6e12-4f50-90c3-8855a460cf2b}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -243,8 +240,8 @@
     <ClCompile Include="Equip_item_Shoes.cpp">
       <Filter>소스 파일\GameFilter\Component\TileObject\Unself-MoveObject\Item\Equip\Shoes</Filter>
     </ClCompile>
-    <ClCompile Include="Equip_item_Shoulder.cpp">
-      <Filter>소스 파일\GameFilter\Component\TileObject\Unself-MoveObject\Item\Equip\Shoulder</Filter>
+    <ClCompile Include="Equip_item_Body.cpp">
+      <Filter>소스 파일\GameFilter\Component\TileObject\Unself-MoveObject\Item\Equip\Body</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -359,8 +356,8 @@
     <ClInclude Include="Equip_item_Shoes.h">
       <Filter>소스 파일\GameFilter\Component\TileObject\Unself-MoveObject\Item\Equip\Shoes</Filter>
     </ClInclude>
-    <ClInclude Include="Equip_item_Shoulder.h">
-      <Filter>소스 파일\GameFilter\Component\TileObject\Unself-MoveObject\Item\Equip\Shoulder</Filter>
+    <ClInclude Include="Equip_item_Body.h">
+      <Filter>소스 파일\GameFilter\Component\TileObject\Unself-MoveObject\Item\Equip\Body</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

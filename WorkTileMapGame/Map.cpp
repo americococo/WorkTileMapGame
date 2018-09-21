@@ -22,6 +22,7 @@
 #include "Equip_Item.h"
 #include "Equip_item_Weapon.h"
 #include "Equip_item_Shoes.h"
+#include "Equip_item_Body.h"
 
 #include <fstream>
 
@@ -264,7 +265,9 @@ void Map::Create_Component()
 										
 										if ((!strcmp(tmp, "Shoes")))
 											com = new Equip_item_Shoes(ConverCtoWC(tmp));
-										
+
+										if ((!strcmp(tmp, "Body")))
+											com = new Equip_item_Body(ConverCtoWC(tmp));
 									}
 
 								}
