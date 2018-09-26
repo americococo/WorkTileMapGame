@@ -180,6 +180,7 @@
     <ClCompile Include="SelfMoveObject.cpp" />
     <ClCompile Include="Skill_State.cpp" />
     <ClCompile Include="Sprite.cpp" />
+    <ClCompile Include="Stage.cpp" />
     <ClCompile Include="State.cpp" />
     <ClCompile Include="Texture.cpp" />
     <ClCompile Include="TileCell.cpp" />
@@ -221,6 +222,7 @@
     <ClInclude Include="SelfMoveObject.h" />
     <ClInclude Include="Skill_State.h" />
     <ClInclude Include="Sprite.h" />
+    <ClInclude Include="Stage.h" />
     <ClInclude Include="State.h" />
     <ClInclude Include="Texture.h" />
     <ClInclude Include="TileCell.h" />

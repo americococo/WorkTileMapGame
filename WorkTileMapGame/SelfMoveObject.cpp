@@ -169,6 +169,8 @@ void SelfMoveObject::DecressingHp(int DecressingPoint)
 	{
 		_levelInfo.Health_Point = 0;
 		Map * map = ((GameScene*)SceneManager::GetInstance()->GetScene())->GetMap();
+		if(this->GetObjectType() == eObjectType::OBJECT_TYPE_MONSTER )
+			map->DecressPoint(); 
 		map->GetTileCell(_tilePosition)->destroyComponent(this);
 	}
 }

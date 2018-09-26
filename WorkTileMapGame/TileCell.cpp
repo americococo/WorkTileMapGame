@@ -18,7 +18,8 @@ void TileCell::DeInit()
 	
 	for (std::map<eTileLayer, TileObject*>::iterator itr = _componentList.begin(); itr != _componentList.end(); itr++)
 	{
-		itr->second->DeInit();
+		if (itr->second != nullptr)
+			itr->second->DeInit();
 	}
 }
 

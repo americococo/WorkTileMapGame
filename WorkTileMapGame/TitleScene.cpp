@@ -20,6 +20,7 @@ void TitleScene::Init()
 void TitleScene::DeInit()
 {
 	_sprite->deInit();
+	delete _sprite;
 }
 void TitleScene::Update(float deltaTime)
 {

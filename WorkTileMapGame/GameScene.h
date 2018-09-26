@@ -1,10 +1,8 @@
 #pragma once
 #include "Scene.h"
 
-#include <list>
 
-
-
+class Stage;
 class Map;
 class GameScene :	public Scene
 {
@@ -21,10 +19,10 @@ public:
 
 
 private:
-	Map * _map;
+	Stage * _stage;
 
 public:
-	Map * GetMap() { return _map; }
+	Map * GetMap();
 
 };
 

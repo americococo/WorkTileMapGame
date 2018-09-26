@@ -73,10 +73,22 @@ private:
 
 	void turnUpdate();
 
+
 public:
+	
 	void PushTurnList(SelfMoveObject * objcet);
 
 
+	//Stage 관련
+private:
+	int clearPoint;
+
+public:
+	void DecressPoint();
+	bool CanClear();
+
+
+	//Message 관련
 private:
 	MessagePost * _messagepost;
 

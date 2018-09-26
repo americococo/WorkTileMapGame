@@ -37,6 +37,7 @@ Map::Map(std::wstring name) :Component(name)
 	_startX = _startY = 0.0f;
 	_posX = _posY = 0.0f;
 	_messagepost = new MessagePost();
+	clearPoint = 0;
 }
 
 Map::~Map()
@@ -246,6 +247,7 @@ void Map::Create_Component()
 								if (!(strcmp(tmp, "Monster")))
 								{
 									com = new Monster(ConverCtoWC(tmp));
+									clearPoint++;
 								}
 								if (!(strcmp(tmp, "Item")))
 								{
@@ -307,7 +309,16 @@ void Map::PushTurnList(SelfMoveObject * objcet)
 {
 	_turnList.push_back(objcet);
 }
-
+bool Map::CanClear()
+{
+	if (clearPoint == 0)
+		return true;
+	return false;
+}
+void Map::DecressPoint()
+{
+	clearPoint--;
+}
 void Map::Init()
 {
 	_tileSize = 32;

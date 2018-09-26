@@ -39,7 +39,6 @@ void SceneManager::ChangeScene(eScene scenetype)
 	if (_scene != nullptr)
 	{
 		_scene->DeInit();
-		delete _scene;
 	}
 
 	_scene = _sceneDirection[scenetype];
